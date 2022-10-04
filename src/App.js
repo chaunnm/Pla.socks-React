@@ -3,9 +3,10 @@ import './App.css';
 
 function App() {
   function test(){
-    console.log('another')
+    console.log('hahaa')
   }
   test();
+  }
   return (
     <div className="App">
       <header className="App-header">
