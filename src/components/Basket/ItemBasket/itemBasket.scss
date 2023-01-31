@@ -79,7 +79,6 @@
         width: 150px;
         text-align: center;
         border: 1px solid #ccc;
-        
 
         img {
           height: 150px;
@@ -97,7 +96,7 @@
 
         &__title {
           color: #0d52a3;
-          font-size: 1.5rem;
+          font-size: 1rem;
           line-height: 35px;
         }
 
@@ -105,7 +104,7 @@
           cursor: pointer;
           display: flex;
           align-items: center;
-        //   font-size: 30px;
+          //   font-size: 30px;
           color: red;
           display: inline-block;
           margin-top: 10px;
@@ -147,7 +146,9 @@
   }
 
   .order-information {
+    margin-bottom: 20px;
     &__address {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       border-radius: 5px;
       padding: 15px 15px;
       background-color: #f2f2f2;
@@ -184,6 +185,7 @@
       padding: 15px 15px;
       margin-top: 20px;
       line-height: 25px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
       &__title {
         font-size: 20px;

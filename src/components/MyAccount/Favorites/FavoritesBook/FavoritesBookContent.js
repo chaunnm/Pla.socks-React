@@ -1,16 +1,17 @@
 import BookItem from "../../../Home/Books/BookItem";
 import "../FavoritesBook/FavoritesBookContent.scss";
 import { useSelector } from "react-redux";
+import products from "../../../../data/products";
 
 const FavoritesBook = () => {
-  let { favouriteItems } = useSelector((state) => state.favourite);
-  console.log(favouriteItems);
-
+  // let { favouriteItems } = useSelector((state) => state.favourite);
+  // console.log(favouriteItems);
+  const favouriteItems = products.slice(17, 18);
   // console.log(item.title);
 
   return (
     <div style={{ textAlign: "center" }}>
-      {favouriteItems.length === 0 ? (
+      {favouriteItems?.length === 0 ? (
         <div>
           <img
             className="empty-wrapper"
@@ -27,11 +28,12 @@ const FavoritesBook = () => {
             return (
               <BookItem
                 key={index}
-                id={item.book}
-                title={item.name}
-                author={item.author}
-                img={item.image}
+                id={item._id}
+                name={item.name}
+                images={item.images}
                 price={item.price}
+                Sold={item.Sold}
+                ratings={item.ratings}
               />
             );
           })}

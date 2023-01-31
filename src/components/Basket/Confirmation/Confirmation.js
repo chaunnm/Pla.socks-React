@@ -4,19 +4,17 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./confirmation.scss";
 import { useSelector } from "react-redux";
 import { numberWithCommas } from "../../../more/FormatNumber";
-
+import products from "../../../data/products";
 const Confirmation = (props) => {
   const { user } = useSelector((state) => state.user);
+  let cartItems = products?.slice(8, 10);
 
-  const { order } = useSelector((state) => state.newOrder);
+  // const { order } = useSelector((state) => state.newOrder);
 
   function getFullAddress(houseAddress, ward, district, city) {
     return houseAddress + ", " + ward + ", " + district + ", " + city;
   }
-  let Price = order.orderItems.reduce(
-    (acc, item) => acc + item.quantity * item.price,
-    0
-  );
+  let Price = cartItems.reduce((acc, item) => acc + 1 * item.price, 0);
 
   return (
     <div>
@@ -55,25 +53,25 @@ const Confirmation = (props) => {
                   <div className="confirm__information__block__content__title">
                     Thông tin sản phẩm
                   </div>
-                  {order.orderItems.map((item, index) => {
+                  {cartItems?.map((item, index) => {
                     return (
                       <div className="info-order__product" key={index}>
-                        <img src={item.image} alt="" />
+                        <img src={item.images} alt="" />
                         <div className="info-order__product__information">
                           <div className="info-order__product__information__name">
                             {item.name}
                           </div>
                           <div className="info-order__product__information__author">
-                            {item.autho}
+                            {item.category}
                           </div>
                           <div className="info-order__product__information__quantity">
-                            x {item.quantity}
+                            x 1
                           </div>
                         </div>
                         <div className="info-order__product__money">
                           Thành tiền:
                           <span className="info-order__product__money__value">
-                            {numberWithCommas(item.price * item.quantity)}
+                            {numberWithCommas(item.price * 1)}
                           </span>
                         </div>
                       </div>
@@ -82,10 +80,10 @@ const Confirmation = (props) => {
 
                   <hr />
                   <div className="confirm__information__block__content__methodPayment">
-                    Phương thức thanh toán:
-                    {order.paymentInfo.method === "COD"
+                    Phương thức thanh toán: thanh toán khi nhận hàng
+                    {/* {order?.paymentInfo.method === "COD"
                       ? " thanh toán khi nhận hàng"
-                      : " Đã thanh toán qua ngân hàng"}
+                      : " Đã thanh toán qua ngân hàng"} */}
                   </div>
                   <hr />
                 </div>
@@ -101,14 +99,21 @@ const Confirmation = (props) => {
                     <div className="name">
                       {user.name ? user.name : "Defaut User"}
                     </div>
-                    <div className="phone">{order.shippingInfo.phone}</div>
+                    {/* <div className="phone">{order?.shippingInfo.phone}</div> */}
+                    <div className="phone">0123456789</div>
                     <div className="address">
                       {" "}
+                      {/* {getFullAddress(
+                        order?.shippingInfo.address,
+                        order?.shippingInfo.ward,
+                        order?.shippingInfo.district,
+                        order?.shippingInfo.city
+                      )} */}
                       {getFullAddress(
-                        order.shippingInfo.address,
-                        order.shippingInfo.ward,
-                        order.shippingInfo.district,
-                        order.shippingInfo.city
+                        "Xa lộ Hà Nội",
+                        "Phường Linh Trung",
+                        "Thủ Đức",
+                        "TP Hồ Chí Minh"
                       )}
                     </div>
                   </div>
@@ -123,14 +128,16 @@ const Confirmation = (props) => {
                   <div className="confirm__information__block__content__description">
                     <div className="description__row">
                       <div className="description__row__name">Mã đơn hàng:</div>
-                      <div className="description__row__value">{order._id}</div>
+                      <div className="description__row__value">
+                        2333000wwwqqsee
+                      </div>
                     </div>
                     <div className="description__row">
                       <div className="description__row__name">
                         Thời gian đặt hàng:
                       </div>
                       <div className="description__row__value">
-                        {new Date(order.createdAt).toLocaleDateString("en-GB")}
+                        {/* {new Date(order.createdAt).toLocaleDateString("en-GB")} */}
                       </div>
                     </div>
                   </div>

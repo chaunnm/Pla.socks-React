@@ -5,14 +5,14 @@ import { getMyOrders } from "../../../../redux/features/order/myOrdersSlice";
 import { numberWithCommas } from "../../../../more/FormatNumber";
 
 function OrderOrdered() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMyOrders());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getMyOrders());
+  // }, [dispatch]);
 
-  const { orders } = useSelector((state) => state.myOrders);
-
-  const data = orders.filter((order) => order.orderStatus === "Shipped");
+  // const { orders } = useSelector((state) => state.myOrders);
+  const data = [];
+  // const data = orders.filter((order) => order.orderStatus === "Shipped");
   return (
     <div className="order-infor">
       {data.length === 0 ? (

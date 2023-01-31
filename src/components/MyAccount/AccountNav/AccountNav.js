@@ -18,6 +18,7 @@ function AccountNav() {
   }, []);
   const { pathname } = useLocation();
   const { loading, user } = useSelector((state) => state.user);
+  console.log(user);
   return (
     <>
       {loading ? (
@@ -49,7 +50,7 @@ function AccountNav() {
                       alt="Avatar"
                     />
                     <h5 className="mb-2">
-                      <strong>Tài khoản của tôi</strong>
+                      <strong>{user?.name}</strong>
                     </h5>
 
                     <span className="nav-item input-group d-flex ">
@@ -62,7 +63,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaUserCircle />
                         </span>
-                        Thông tin tài khoản
+                        Account information
                       </NavLink>
                     </span>
 
@@ -79,7 +80,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaRegListAlt />
                         </span>
-                        Đơn hàng của tôi
+                        My order
                       </NavLink>
                     </span>
 
@@ -97,7 +98,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaHeart />
                         </span>
-                        Yêu thích
+                        Favorites
                       </NavLink>
                     </span>
 
@@ -111,7 +112,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaFileSignature />
                         </span>
-                        Viết Blog
+                        Write blog
                       </NavLink>
                     </span>
                   </div>

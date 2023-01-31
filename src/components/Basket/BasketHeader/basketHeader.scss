@@ -30,7 +30,7 @@
       font-weight: 500;
 
       &.active {
-        background-color: #1982cf !important;
+        background-color: #61c67a !important;
         pointer-events: none;
       }
       &__tagName {
@@ -80,18 +80,18 @@
     }
 
     .progress-step-split.active.progress-step_1::before {
-      background-color: #1982cf;
+      background-color: #61c67a;
       // background-color: #bebebe;
     }
     .progress-step-split.active.progress-step_2::before {
-      background-color: #1982cf;
+      background-color: #61c67a;
     }
     .progress-step-split.active.progress-step_1 {
       // background-color: #1982CF;
       background-color: #bebebe;
     }
     .active_step_next {
-      background-color: #1982cf;
+      background-color: #61c67a;
     }
     .active.progress-step_2.active_step_next::before {
       // background-color: #1982CF;

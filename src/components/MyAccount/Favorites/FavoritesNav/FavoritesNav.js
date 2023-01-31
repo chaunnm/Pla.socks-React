@@ -13,7 +13,7 @@ function AccountFavoritesNav() {
           activeclassname="active"
           className="col"
         >
-          Sản phẩm ({favouriteItems.length})
+          Products ({favouriteItems.length})
         </NavLink>
       </div>
       <div className="col favorites-nav-post">
@@ -23,7 +23,7 @@ function AccountFavoritesNav() {
           className="col"
           // style={{ pointerEvents: "none", opacity: "0.5" }}
         >
-          Bài viết (0)
+          Blogs (0)
         </NavLink>
       </div>
     </div>
