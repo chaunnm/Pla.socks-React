@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPopularProducts } from "../../../redux/features/product/popularProductsSlice";
 import { Link } from "react-router-dom";
 import products from "../../../data/products";
+
 export default function BestSeller() {
   // const { error, products } = useSelector((state) => state.popularProducts);
   // const dispatch = useDispatch();
@@ -27,9 +28,23 @@ export default function BestSeller() {
 
     responsive: [
       {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+        },
+      },
+      {
         breakpoint: 960,
         settings: {
           slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -45,7 +60,8 @@ export default function BestSeller() {
   return (
     <Container className="best-seller-container">
       <div className="best-seller-title">
-        <h3>RELATED PRODUCTS</h3>
+        <h3>BEST SELLER</h3>
+        {/* <img src="https://drive.google.com/uc?id=19KnqBhGINLa8yoIvJZAIRZ3GvP7rpjIp" /> */}
       </div>
       <Slider className="best-seller-books" {...settings}>
         {newProduct &&
@@ -67,7 +83,7 @@ export default function BestSeller() {
       <div className="text-center mt-0">
         <Link to="/books">
           <Button className="see-more" variant="primary">
-            Xem thêm &rarr;
+            See more &rarr;
           </Button>
         </Link>
       </div>

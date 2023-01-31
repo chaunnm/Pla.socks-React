@@ -1,0 +1,66 @@
+.slick-dots li button:before {
+  font-size: 14px;
+}
+
+.feedbacks-container {
+  width: 100vw;
+  height: 450px;
+  background-color: rgba(119, 210, 223, 0.48);
+  margin-bottom: 30px;
+}
+
+.feedback-title {
+  text-align: center;
+  color: #1e266d;
+  margin: 10px auto;
+  padding-top: 10px;
+}
+
+.feedback-container {
+  height: 350px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-background {
+  position: relative;
+  width: 45%;
+  height: 90%;
+  margin: auto;
+  background-image: url(https://i.imgur.com/RTDvduX.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-container img {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translate(-50%, 10px);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.feedback-background h6 {
+  text-align: center;
+  font-size: 18px;
+  margin: auto;
+}
+
+.feedback-background p {
+  text-align: center;
+  margin: 8px;
+}
+
+@media screen and (max-width: 900px) {
+  .feedback-background {
+    position: relative;
+    width: 80%;
+  }
+}
