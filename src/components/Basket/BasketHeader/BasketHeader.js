@@ -17,7 +17,7 @@ const BasketHeader = () => {
                 } progress-step_1 `}
               >
                 <div className="basket-header__steps__item__tagName">
-                  Giỏ hàng
+                  Basket
                 </div>
               </li>
               <li
@@ -33,7 +33,7 @@ const BasketHeader = () => {
                 } progress-step_2`}
               >
                 <div className="basket-header__steps__item__tagName">
-                  Thanh toán
+                  Payment
                 </div>
               </li>
               <li
@@ -49,7 +49,7 @@ const BasketHeader = () => {
                 } progress-step_3`}
               >
                 <div className="basket-header__steps__item__tagName">
-                  Xác nhận
+                  Confirm
                 </div>
               </li>
             </ul>

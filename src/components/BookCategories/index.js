@@ -10,13 +10,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import Slider from "@material-ui/core/Slider";
-import Loading from "../../more/Loader";
-import {
-  publiserData,
-  priceData,
-  categoryData,
-  authorData,
-} from "../../more/data";
+
+import { priceData } from "../../more/data";
 
 import {
   clearErrors,
@@ -24,129 +19,97 @@ import {
 } from "../../redux/features/product/productsSlice";
 import { Button } from "react-bootstrap";
 
-const Books = [
-  {
-    title: "Ra Bờ Suối Ngắm Hoa Kèn Hồng",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1evMkN-8Yzk2FL51iREJZXawvg1-CpMVc",
-    price: "100.500 đ",
-  },
-  {
-    title: "Làm Bạn Với Bầu Trời",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1f81BHRFLAE1yEddPLdRUJO3jXJ2_SQPS",
-    price: "150.500 đ",
-  },
-  {
-    title: "Chúc Một Ngày Tốt Lành",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1qiStbESBEiBavZGEgTvcvoI7UHW9MKEy",
-    price: "90.500 đ",
-  },
-  {
-    title: "Ngày Xưa Có Một Chuyện Tình",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1iljqkkb1hT_FPSzkZJc0y5XtwNfzNL1K",
-    price: "111.500 đ",
-  },
-  {
-    title: "Tàn Lửa",
-    author: "Shizukui Shusuke",
-    img: "https://drive.google.com/uc?id=1SNwfEQMgarJBqvFH2ECYpEIxPGdGR1FG",
-    price: "111.500 đ",
-  },
-  {
-    title: "Cảm Ơn Người Lớn",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1SFgK4XIgGATHp0hauLyMf_Ccbs-sDuEj",
-    price: "111.500 đ",
-  },
-  {
-    title: "Chuyện Kể Rằng Có Nàng Và Tôi",
-    author: "Nhiều tác giả",
-    img: "https://drive.google.com/uc?id=15eeAUNLISuTCIDK_YRiSQwCWglfJbHZW",
-    price: "111.500 đ",
-  },
-  {
-    title: "Cố Định Một Đám Mây",
-    author: "Nguyễn Ngọc Tư",
-    img: "https://drive.google.com/uc?id=1DRQUMkxDzs4ldQwJ0X746gDL9boMVW_Q",
-    price: "111.500 đ",
-  },
-];
+import products from "../../data/products";
 
 export default function BookCategories() {
-  const dispatch = useDispatch();
-  let { keyword } = useParams();
-  // console.log(keyword);
-  // console.log(keyword);
+  // const dispatch = useDispatch();
+  // let { keyword } = useParams();
+  const [productList, setProductList] = useState(products.slice(0, 12));
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 1000000]);
-  const [category, setCategory] = useState();
-  const [ratings, setRatings] = useState(0);
-  const [author, setAuthor] = useState();
-  const [publisher, setPublisher] = useState();
-  // pagination
+  // const [category, setCategory] = useState();
+  // const [ratings, setRatings] = useState(0);
+  // const [author, setAuthor] = useState();
+  // const [publisher, setPublisher] = useState();
+
   const setCurrentPageNo = (e) => {
+    console.log("Page", e);
     setCurrentPage(e);
   };
-  // selector
-  const { products, loading, error, productsCount, resultPerPage } =
-    useSelector((state) => state.products);
+  useEffect(() => {
+    const newlisst = products.slice(
+      12 * (currentPage - 1),
+      12 * (currentPage - 1) + 12
+    );
+    console.log(newlisst);
+    setProductList(newlisst);
+  }, [currentPage]);
+
+  // useSelector((state) => state.products);
+
   const priceHandlerSlider = (event, newPrice) => {
     setPrice(newPrice);
   };
+
   const priceHandlerClick = (e) => {
     setPrice([priceData[4], Number(e.target.value)]);
   };
-  const reserHandler = (e) => {
-    setPrice([0, 1000000]);
-    setCategory();
-    setAuthor();
-    setPublisher();
-    setCurrentPage(1);
-  };
-  useEffect(() => {
-    if (error) {
-      // alert(error);
-      console.log(error);
-      dispatch(clearErrors());
-    }
-    if (!keyword) keyword = "";
-    // console.log(keyword);
-    const infoData = {
-      keyword: keyword,
-      price: price,
-      author: author,
-      publisher: publisher,
-      category: category,
-      currentPage: currentPage,
-      ratings: ratings,
-    };
-    console.log(category);
-    console.log(author);
-    dispatch(getProduct(infoData));
-  }, [
-    dispatch,
-    keyword,
-    currentPage,
-    price,
-    category,
-    ratings,
-    alert,
-    error,
-    author,
-    publisher,
-  ]);
+  // const reserHandler = (e) => {
+  //   setPrice([0, 1000000]);
+  //   setCategory();
+  //   setAuthor();
+  //   setPublisher();
+  //   setCurrentPage(1);
+  // };
+  // useEffect(() => {
+  //   if (error) {
+  //     console.log(error);
+  //     dispatch(clearErrors());
+  //   }
+  //   if (!keyword) keyword = "";
+
+  //   const infoData = {
+  //     keyword: keyword,
+  //     price: price,
+  //     author: author,
+  //     publisher: publisher,
+  //     category: category,
+  //     currentPage: currentPage,
+  //     ratings: ratings,
+  //   };
+  //   console.log("infodata ", infoData);
+
+  //   dispatch(getProduct(infoData));
+  // }, [
+  //   dispatch,
+  //   keyword,
+  //   currentPage,
+  //   price,
+  //   category,
+  //   ratings,
+  //   alert,
+  //   error,
+  //   author,
+  //   publisher,
+  // ]);
+
+  const categoryData = [
+    "Boxes Of Love",
+    "Customized Socks",
+    "Socks For Kids",
+    "Socks For Men",
+    "Socks For Summer",
+    "Socks For Women",
+  ];
   return (
     <div className="categories-container container-fluid">
       <div className="categories-breadcrumb ms-5 mt-2 mb-5">
         <Breadcrumb>
           <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
-            Trang chủ
+            Home
           </Breadcrumb.Item>
           <Breadcrumb.Item className="text-capitalize" active>
-            Danh mục sách
+            Categories
           </Breadcrumb.Item>
         </Breadcrumb>
       </div>
@@ -160,7 +123,7 @@ export default function BookCategories() {
               <div className="categories-nav-container">
                 <div className="categories-nav mb-5">
                   <h6 className="categories-nav-title p-3 mb-0 fw-bold rounded">
-                    Danh Mục
+                    PRODUCT CATEGORIES
                   </h6>
                   <ListGroup
                     variant="pills"
@@ -168,75 +131,42 @@ export default function BookCategories() {
                   >
                     {categoryData.map((item, i) => (
                       <div className="list-group-item form-check">
-                        <label className="form-check-label">
-                          <input
+                        <label className="form-check-label ">
+                          {/* <input
                             className="form-check-input ms-1 me-2"
                             type="radio"
                             name="flexRadioDefault"
                             value={item}
                             onClick={(e) => {
-                              reserHandler();
-                              setCategory(e.target.value);
+                              // reserHandler();
+                              // setCategory(e.target.value);
                             }}
-                          />
+                          /> */}
                           {item}
                         </label>
                       </div>
                     ))}
                     <div className="list-group-item form-check">
                       <label className="form-check-label">
-                        <input
+                        {/* <input
                           className="form-check-input ms-1 me-2"
                           type="radio"
                           name="flexRadioDefault"
                           value=""
                           onClick={(e) => {
-                            reserHandler();
-                            setCategory();
+                            // reserHandler();
+                            // setCategory();
                           }}
-                        />
+                        /> */}
                         Khác
                       </label>
                     </div>
                   </ListGroup>
                 </div>
-                <div className="categories-author mb-5">
-                  <h6 className="categories-author-title p-3 mb-0 fw-bold rounded">
-                    Tác giả
-                  </h6>
-                  {authorData.map((item, i) => (
-                    <div className="list-group-item form-check">
-                      <label className="form-check-label">
-                        <input
-                          className="form-check-input ms-1 me-2"
-                          type="radio"
-                          name="flexRadioDefault"
-                          value={item}
-                          onClick={(e) => {
-                            reserHandler();
-                            setAuthor(e.target.value);
-                          }}
-                        />
-                        {item}
-                      </label>
-                    </div>
-                  ))}
-                  <div className="list-group-item form-check">
-                    <label className="form-check-label">
-                      <input
-                        className="form-check-input ms-1 me-2"
-                        type="radio"
-                        name="flexRadioDefault"
-                        value=""
-                        onClick={(e) => setAuthor()}
-                      />
-                      Khác
-                    </label>
-                  </div>
-                </div>
+
                 <div className="categories-price mb-5">
                   <h6 className="categories-price-title p-3 mb-0 fw-bold rounded">
-                    Giá sản phẩm
+                    PRICE
                   </h6>
                   <Slider
                     value={price}
@@ -279,102 +209,69 @@ export default function BookCategories() {
                     </label>
                   </div>
                 </div>
-                <div className="categories-publisher mb-5">
-                  <h6 className="categories-publisher-title p-3 mb-0 fw-bold rounded">
-                    Nhà xuất bản
-                  </h6>
-                  {publiserData.map((item, i) => (
-                    <div className="list-group-item form-check">
-                      <label className="form-check-label">
-                        <input
-                          className="form-check-input ms-1 me-2"
-                          type="radio"
-                          name="flexRadioDefault"
-                          value={item}
-                          onClick={(e) => setPublisher(e.target.value)}
-                        />
-                        {item}
-                      </label>
-                    </div>
-                  ))}
-                  <div className="list-group-item form-check">
-                    <label className="form-check-label">
-                      <input
-                        className="form-check-input ms-1 me-2"
-                        type="radio"
-                        name="flexRadioDefault"
-                        value=""
-                        onClick={(e) => setPublisher()}
-                      />
-                      Khác
-                    </label>
-                  </div>
-                </div>
-                <Button variant="outline-primary" onClick={reserHandler}>
-                  Khôi phục
-                </Button>
+
+                <Button variant="outline-primary">Khôi phục</Button>
               </div>
             </Col>
             <Col sm={9}>
-              {loading ? (
+              {/* {loading ? (
                 <Loading />
-              ) : (
-                <div className="categories-main">
-                  {products.length === 0 ? (
+              ) : ( */}
+              <div className="categories-main">
+                {products.length === 0 ? (
+                  <h3 className="categories-main-title p-2 ps-3 text-light text-capitalize">
+                    Buồn quá 😭 Không có sách bạn muốn tìm đâu nha!!!
+                  </h3>
+                ) : (
+                  <div>
                     <h3 className="categories-main-title p-2 ps-3 text-light text-capitalize">
-                      Buồn quá 😭 Không có sách bạn muốn tìm đâu nha!!!
+                      Sách của UITBooks nà nha
                     </h3>
-                  ) : (
-                    <div>
-                      <h3 className="categories-main-title p-2 ps-3 text-light text-capitalize">
-                        Sách của UITBooks nà nha
-                      </h3>
-                      <div className="category-books row row-cols-3">
-                        {products &&
-                          products.map((item, index) => {
-                            return (
-                              <BookItem
-                                key={index}
-                                id={item._id}
-                                title={item.name}
-                                author={item.author}
-                                //   img={item.images[0].url}
-                                img={item.images[0].url}
-                                price={item.price}
-                                Sold={item.Sold}
-                                ratings={item.ratings}
-                              />
-                            );
-                          })}
-                      </div>
-                      <div
-                        className="pagination__box"
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          margin: "6vmax",
-                        }}
-                      >
-                        <Pagination
-                          activePage={currentPage}
-                          itemsCountPerPage={resultPerPage}
-                          totalItemsCount={productsCount}
-                          onChange={setCurrentPageNo}
-                          nextPageText="Tiếp"
-                          prevPageText="Trước"
-                          firstPageText="Đầu"
-                          lastPageText="Cuối"
-                          itemClass="page-item"
-                          linkClass="page-link"
-                          activeClass="pageItemActive"
-                          activeLinkClass="pageLinkActive"
-                        />
-                      </div>
+                    <div className="category-books row row-cols-3">
+                      {productList &&
+                        productList.map((item, index) => {
+                          return (
+                            <BookItem
+                              key={index}
+                              id={item._id}
+                              name={item.name}
+                              //   img={item.images[0].url}
+                              images={item.images}
+                              price={item.price}
+                              Sold={item.Sold}
+                              ratings={item.ratings}
+                            />
+                          );
+                        })}
                     </div>
-                  )}
-                </div>
-              )}
+                    <div
+                      className="pagination__box"
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        margin: "6vmax",
+                      }}
+                    >
+                      <Pagination
+                        activePage={currentPage}
+                        itemsCountPerPage={12}
+                        totalItemsCount={45}
+                        onChange={setCurrentPageNo}
+                        nextPageText="Tiếp"
+                        prevPageText="Trước"
+                        firstPageText="Đầu"
+                        lastPageText="Cuối"
+                        itemClass="page-item"
+                        linkClass="page-link"
+                        activeClass="pageItemActive"
+                        activeLinkClass="pageLinkActive"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* )} */}
             </Col>
           </Row>
         </Tab.Container>

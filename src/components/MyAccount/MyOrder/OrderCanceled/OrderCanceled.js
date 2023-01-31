@@ -5,19 +5,30 @@ import { getMyOrders } from "../../../../redux/features/order/myOrdersSlice";
 import { numberWithCommas } from "../../../../more/FormatNumber";
 import { BsBook } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
+import products from "../../../../data/products";
 function OrderCanceled() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMyOrders());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getMyOrders());
+  // }, [dispatch]);
 
-  const { orders } = useSelector((state) => state.myOrders);
-  const data = orders.filter((order) => order.orderStatus === "Canceled");
+  // const { orders } = useSelector((state) => state.myOrders);
+  // const data = orders.filter((order) => order.orderStatus === "Canceled");
+  let cartItems = products.slice(15, 16);
+  let Price =
+    cartItems.length !== 0
+      ? cartItems.reduce((acc, item) => acc + 1 * item.price, 0)
+      : 0;
+  let Quantity =
+    cartItems.length !== 0 ? cartItems.reduce((acc, item) => acc + 1, 0) : 0;
 
+  let shippingCharges = Price > 250000 ? 0 : 30000;
+
+  let totalPrice = Price + shippingCharges;
+  let totalQuantity = Quantity;
   return (
     <div className="order-infor">
-      {data.length === 0 ? (
+      {/* {data.length === 0 ? (
         <div className="container-canceled-empty">
           <div>
             <img
@@ -70,10 +81,15 @@ function OrderCanceled() {
                   Total: <span>{numberWithCommas(order.totalPrice)} đ</span>
                 </div>
               </div>
+            ))}
+            <div className="book-infor-total-price-2">
+              Thành tiền: <span>{numberWithCommas(totalPrice)} đ</span>
             </div>
-          ))}
-        </>
-      )}
+          </div>
+        </div>
+        {/* ))} */}
+      </>
+      {/* )} */}
     </div>
   );
 }

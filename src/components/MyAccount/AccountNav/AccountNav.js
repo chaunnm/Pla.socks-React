@@ -18,6 +18,7 @@ function AccountNav() {
   }, []);
   const { pathname } = useLocation();
   const { loading, user } = useSelector((state) => state.user);
+  console.log(user);
   return (
     <>
       {loading ? (
@@ -53,7 +54,7 @@ function AccountNav() {
                       alt="Avatar"
                     />
                     <h5 className="mb-2">
-                      <strong>My Account</strong>
+                      <strong>{user?.name}</strong>
                     </h5>
 
                     <span className="nav-item input-group d-flex ">
@@ -115,7 +116,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaFileSignature />
                         </span>
-                        Writing Blogs
+                        Write blog
                       </NavLink>
                     </span>
                   </div>

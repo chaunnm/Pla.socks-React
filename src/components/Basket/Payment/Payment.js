@@ -12,13 +12,24 @@ import axios from "axios";
 import StripeCheckOutForm from "./StripeCheckOutForm";
 import { createOrder } from "../../../redux/features/order/newOrderSlice";
 import { clearCart } from "../../../redux/features/cart/cartSlice";
-
+import products from "../../../data/products";
 const Payment = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [method, setMethod] = useState("COD");
   const [stripeApiKey, setStripeApiKey] = useState("");
+  let cartItems = products?.slice(8, 10);
+  let Price =
+    cartItems.length !== 0
+      ? cartItems.reduce((acc, item) => acc + 1 * item.price, 0)
+      : 0;
+  let Quantity =
+    cartItems.length !== 0 ? cartItems.reduce((acc, item) => acc + 1, 0) : 0;
 
+  let shippingCharges = Price > 250000 ? 0 : 30000;
+
+  let totalPrice = Price + shippingCharges;
+  let totalQuantity = Quantity;
   useEffect(() => {
     async function getStripeApiKey() {
       const { data } = await axios.get("/api/v2/stripeapikey", {
@@ -33,16 +44,16 @@ const Payment = (props) => {
   const handleShow = () => {
     setShow(true);
   };
-  const { cartItems, shippingInfo } = useSelector((state) => state.cart);
+  const { shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
-  let productPrice = cartItems.reduce(
-    (acc, item) => acc + item.quantity * item.price,
-    0
-  );
-  let shippingCharges = productPrice > 250000 ? 0 : 30000;
+  // let productPrice = cartItems.reduce(
+  //   (acc, item) => acc + item.quantity * item.price,
+  //   0
+  // );
+  // let shippingCharges = productPrice > 250000 ? 0 : 30000;
 
-  let totalPrice = productPrice + shippingCharges;
+  // let totalPrice = productPrice + shippingCharges;
 
   const [order, setOrder] = useState({});
   useEffect(() => {
@@ -61,27 +72,28 @@ const Payment = (props) => {
 
   const [clientSecret, setClientSecret] = useState("");
   const handleClick = async () => {
-    if (method === "COD") {
-      console.log(order);
-      dispatch(createOrder(order));
-      dispatch(clearCart());
-      navigate("/confirm-order");
-    } else {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      };
-      const { data } = await axios.post(
-        "/api/v2/payment/process",
-        { items: cartItems },
-        config
-      );
-      setClientSecret(data.client_secret);
-      console.log(data);
-      handleShow();
-    }
+    // if (method === "COD") {
+    //   console.log(order);
+    //   dispatch(createOrder(order));
+    //   dispatch(clearCart());
+    //   navigate("/confirm-order");
+    // } else {
+    //   const config = {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     withCredentials: true,
+    //   };
+    //   const { data } = await axios.post(
+    //     "/api/v2/payment/process",
+    //     { items: cartItems },
+    //     config
+    //   );
+    //   setClientSecret(data.client_secret);
+    //   console.log(data);
+    //   handleShow();
+    // }
+    navigate("/confirm-order");
   };
 
   const appearance = {
@@ -103,9 +115,9 @@ const Payment = (props) => {
         <Row>
           <Col xs="12" md="7" lg="8">
             <div className="methodPayment">
-              <div className="methodPayment__title">Phương thức Thanh toán</div>
+              <div className="methodPayment__title">Payment methods</div>
               <div className="methodPayment__description">
-                Vui lòng chọn phương thức thanh toán
+                Please choose a payment method
               </div>
               <hr />
               <div
@@ -120,7 +132,7 @@ const Payment = (props) => {
                     defaultChecked
                   />
                   <div className="methodPayment__option__row__name">
-                    Thanh toán khi nhận hàng
+                    Payment on delivery
                   </div>
                 </div>
                 {/* <hr />
@@ -137,7 +149,7 @@ const Payment = (props) => {
                 <div className="methodPayment__option__row">
                   <input type="radio" name="payment_method" value="Card" />
                   <div className="methodPayment__option__row__name">
-                    Thanh toán qua thẻ ngân hàng
+                    Payment via bank card
                   </div>
                   <div className="methodPayment__option__row__img">
                     <img src="images/basket/Agribank.png" alt="" />
@@ -150,7 +162,7 @@ const Payment = (props) => {
                   className="methodPayment__button__btn"
                   onClick={() => handleClick()}
                 >
-                  Đặt hàng
+                  Buy now
                 </button>
               </div>
             </div>
@@ -166,16 +178,16 @@ const Payment = (props) => {
               {cartItems.map((item, index) => {
                 return (
                   <div className="info-order__product" key={index}>
-                    <img src={item.image} alt="" />
+                    <img src={item.images} alt="" />
                     <div className="info-order__product__information">
                       <div className="info-order__product__information__name">
                         {item.name}
                       </div>
                       <div className="info-order__product__information__author">
-                        {item.author}
+                        {item.category}
                       </div>
                       <div className="info-order__product__information__quantity">
-                        x {item.quantity}
+                        {/* x {item.quantity} */}x 1
                       </div>
                     </div>
                   </div>
@@ -195,14 +207,14 @@ const Payment = (props) => {
               <hr />
               <div className="info-order__money">
                 <div className="info-order__money__row">
-                  <div className="info-order__money__row__name">Tạm tính:</div>
+                  <div className="info-order__money__row__name">Price</div>
                   <div className="info-order__money__row__value">
-                    {numberWithCommas(productPrice)} đ
+                    {numberWithCommas(Price)} đ
                   </div>
                 </div>
                 <div className="info-order__money__row">
                   <div className="info-order__money__row__name">
-                    Phí vận chuyển:
+                    Shipping Fee
                   </div>
                   <div className="info-order__money__row__value">
                     {numberWithCommas(shippingCharges)} đ
@@ -211,7 +223,7 @@ const Payment = (props) => {
               </div>
               <hr />
               <div className="info-order__bill">
-                <div className="info-order__bill__name">Tổng tiền:</div>
+                <div className="info-order__bill__name">Total</div>
                 <div className="info-order__bill__value">
                   {numberWithCommas(totalPrice)} đ
                 </div>

@@ -34,67 +34,18 @@ import { numberWithCommas } from "../../more/FormatNumber";
 import moment from "moment";
 import { loadUser } from "../../redux/features/user/userSlice";
 import BestSeller from "../Home/BestSeller";
-
-const Books = [
-  {
-    title: "Ra Bờ Suối Ngắm Hoa Kèn Hồng",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1evMkN-8Yzk2FL51iREJZXawvg1-CpMVc",
-    price: 100500,
-  },
-  {
-    title: "Làm Bạn Với Bầu Trời",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1f81BHRFLAE1yEddPLdRUJO3jXJ2_SQPS",
-    price: 150500,
-  },
-  {
-    title: "Chúc Một Ngày Tốt Lành",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1qiStbESBEiBavZGEgTvcvoI7UHW9MKEy",
-    price: 90500,
-  },
-  {
-    title: "Ngày Xưa Có Một Chuyện Tình",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1iljqkkb1hT_FPSzkZJc0y5XtwNfzNL1K",
-    price: 55400,
-  },
-  {
-    title: "Tàn Lửa",
-    author: "Shizukui Shusuke",
-    img: "https://drive.google.com/uc?id=1SNwfEQMgarJBqvFH2ECYpEIxPGdGR1FG",
-    price: 80500,
-  },
-  {
-    title: "Cảm Ơn Người Lớn",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1SFgK4XIgGATHp0hauLyMf_Ccbs-sDuEj",
-    price: 121500,
-  },
-  {
-    title: "Chuyện Kể Rằng Có Nàng Và Tôi",
-    author: "Nhiều tác giả",
-    img: "https://drive.google.com/uc?id=15eeAUNLISuTCIDK_YRiSQwCWglfJbHZW",
-    price: 75800,
-  },
-  {
-    title: "Cố Định Một Đám Mây",
-    author: "Nguyễn Ngọc Tư",
-    img: "https://drive.google.com/uc?id=1DRQUMkxDzs4ldQwJ0X746gDL9boMVW_Q",
-    price: 95000,
-  },
-];
+import products from "../../data/products";
+//
 
 export default function BookDetail() {
   function AddButton() {
     const addToCart = (id, stock) => {
-      if (stock < 1) {
-        toast.error("Số lượng sản phẩm trong kho không đủ! ☹️");
-        return;
-      }
-      dispatch(addItemsToCart(id, 1));
-      toast.success(`Sách ${product.name} đã được thêm vào giỏ hàng! 🛒`, {
+      // if (stock < 1) {
+      //   toast.error("Số lượng sản phẩm trong kho không đủ! ☹️");
+      //   return;
+      // }
+      // dispatch(addItemsToCart(id, 1));
+      toast.success(` ${product?.name} đã được thêm vào giỏ hàng! 🛒`, {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -121,9 +72,9 @@ export default function BookDetail() {
   function AddFavorite() {
     const [show, setShow] = useState(false);
     const addToFavourite = (id) => {
-      dispatch(addItemsToFavourite(id));
+      // dispatch(addItemsToFavourite(id));
       toast.success(
-        `Sách ${product.name} đã được thêm vào yêu thích thành công!`,
+        ` ${product?.name} đã được thêm vào danh sách yêu thích thành công!`,
         {
           position: "bottom-center",
           autoClose: 5000,
@@ -179,33 +130,36 @@ export default function BookDetail() {
   };
 
   const { id } = useParams();
+  const [product, setProduct] = useState();
+  useEffect(() => {
+    const getProductDetails = () => {
+      return products.find((item) => {
+        return item._id === id;
+      });
+    };
+    let product = getProductDetails();
+    console.log("product", product);
+    setProduct(product);
+    getProductDetails();
+  }, [id]);
+  const images = [
+    {
+      original: product?.images,
+      thumbnail: product?.images,
+    },
+  ];
+  // console.log("images", images);
   const dispatch = useDispatch();
-  const { loading, error, product } = useSelector(
-    (state) => state.productDetails
-  );
-  const { success, error: reviewError } = useSelector(
-    (state) => state.newReview
-  );
-  //   add review
-  // const [quantity, setQuantity] = useState(1);
-  // const [open, setOpen] = useState(false);
+  // const { loading, error } = useSelector(
+  //   (state) => state.productDetails
+  // );
+  // const { success, error: reviewError } = useSelector(
+  //   (state) => state.newReview
+  // );
+
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  // const increaseQuantity = () => {
-  //   if (product.Stock <= quantity) return;
 
-  //   const qty = quantity + 1;
-  //   setQuantity(qty);
-  // };
-  // const decreaseQuantity = () => {
-  //   if (1 >= quantity) return;
-
-  //   const qty = quantity - 1;
-  //   setQuantity(qty);
-  // };
-  // const submitReviewToggle = () => {
-  //   open ? setOpen(false) : setOpen(true);
-  // };
   const { user } = useSelector((state) => state.user);
   const reviewSubmitHandler = () => {
     const myForm = new FormData();
@@ -217,65 +171,61 @@ export default function BookDetail() {
     console.log(myForm);
     dispatch(newReview(myForm));
     setComment("");
-    // );
-    // console.log(user);
-    // setOpen(false);
   };
-  // done
-  //   console.log(product);
-  useEffect(() => {
-    dispatch(getProductDetails(id));
-  }, [dispatch, id]);
 
-  useEffect(() => {
-    if (error) {
-      alert(error);
-      dispatch(clearErrorsDetails());
-    }
-    if (!success && reviewError) {
-      toast.error(`${reviewError}`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      console.log(reviewError);
-      dispatch(clearErrorsReview());
-      dispatch(getProductDetails(id));
-    } else if (success) {
-      toast.success("Thêm review sách thành công! 🎊", {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      console.log(success);
-      dispatch(resetStateReview());
-      dispatch(getProductDetails(id));
-    }
-  }, [dispatch, error, alert, reviewError, success]);
+  // useEffect(() => {
+  //   dispatch(getProductDetails(id));
+  // }, [dispatch, id]);
 
-  const [Images, setImages] = useState([]);
+  // useEffect(() => {
+  //   if (error) {
+  //     alert(error);
+  //     dispatch(clearErrorsDetails());
+  //   }
+  //   if (!success && reviewError) {
+  //     toast.error(`${reviewError}`, {
+  //       position: "top-center",
+  //       autoClose: 5000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //     });
+  //     console.log(reviewError);
+  //     dispatch(clearErrorsReview());
+  //     dispatch(getProductDetails(id));
+  //   } else if (success) {
+  //     toast.success("Thêm review sách thành công! 🎊", {
+  //       position: "bottom-center",
+  //       autoClose: 5000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //     });
+  //     console.log(success);
+  //     dispatch(resetStateReview());
+  //     dispatch(getProductDetails(id));
+  //   }
+  // }, [dispatch, error, alert, reviewError, success]);
 
-  useEffect(() => {
-    if (product.images && product.images.length > 0) {
-      let images = [];
+  // const [Images, setImages] = useState([]);
 
-      product.images.forEach((item, i) => {
-        images.push({
-          original: item.url,
-          thumbnail: item.url,
-        });
-      });
-      setImages(images);
-    }
-  }, [product]);
+  // useEffect(() => {
+  //   if (product.images) {
+  //     let images = [];
+
+  //     product.images.forEach((item, i) => {
+  //       images.push({
+  //         original: item.images,
+  //         thumbnail: item.images,
+  //       });
+  //     });
+  //     setImages(images);
+  //   }
+  // }, [product]);
 
   // let images = [];
   // product &&
@@ -285,423 +235,312 @@ export default function BookDetail() {
   //       thumbnail: item.url,
   //     });
   //   });
-  console.log({ product });
+  console.log(product);
   return (
     <Fragment>
-      {loading ? (
-        <Loading />
-      ) : (
-        product && (
-          <div className="book-container container-fluid">
-            <div className="book-breadcrumb ms-5 mt-2">
-              <Breadcrumb>
-                <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
-                  Trang chủ
-                </Breadcrumb.Item>
-                <Breadcrumb.Item
-                  linkAs={Link}
-                  linkProps={{ to: "/books" }}
-                  className="text-capitalize"
-                >
-                  Danh mục sách
-                </Breadcrumb.Item>
-                <Breadcrumb.Item active className="text-capitalize">
-                  {product.name}
-                </Breadcrumb.Item>
-              </Breadcrumb>
-            </div>
-            <div className="book-main-container pb-5">
-              <Container>
-                <Row>
-                  <Col xs={6} md={4}>
-                    <div className="book-main-img">
-                      {/* <ImageGallery
+      {product && (
+        <div className="book-container container-fluid">
+          <div className="book-breadcrumb ms-5 mt-2">
+            <Breadcrumb>
+              <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
+                Home
+              </Breadcrumb.Item>
+              <Breadcrumb.Item
+                linkAs={Link}
+                linkProps={{ to: "/books" }}
+                className="text-capitalize"
+              >
+                Categories
+              </Breadcrumb.Item>
+              <Breadcrumb.Item active className="text-capitalize">
+                {product.name}
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </div>
+          <div className="book-main-container pb-5">
+            <Container>
+              <Row>
+                <Col xs={6} md={4}>
+                  <div className="book-main-img">
+                    {/* <ImageGallery
                       items={[
                         {
-                          original: "https://picsum.photos/id/1018/1000/600/",
-                          // thumbnail: "https://picsum.photos/id/1018/250/150/"
+                          original:
+                            "https://drive.google.com/uc?id=13x0hsHIdeqGGVjAx6c5SyvSjZb3IO4oC",
+                          thumbnail:
+                            "https://drive.google.com/uc?id=13x0hsHIdeqGGVjAx6c5SyvSjZb3IO4oC",
                         },
-                        {
-                          original: "https://picsum.photos/id/1015/1000/600/",
-                          // thumbnail: "https://picsum.photos/id/1015/250/150/"
-                        },
-                        {
-                          original: "https://picsum.photos/id/1019/1000/600/",
-                          // thumbnail: "https://picsum.photos/id/1019/250/150/"
-                        }
                       ]}
-                      /> */}
-                      {/* <ImageGallery
+                    /> */}
+                    {/* <ImageGallery
                       items={product.images &&
                         product.images.map((prop) => (
                           {original: prop.url, thumbnail: prop.url}
                         ))}
                     /> */}
-                      <ImageGallery items={Images} />
-                    </div>
-                  </Col>
-                  <Col xs={12} md={8}>
-                    <div className="book-main-intro ms-5">
-                      <div className="book-main-title">
-                        <h3 className="book-title text-capitalize">
-                          {product.name}
-                        </h3>
-                        <div className="book-author-container d-flex">
-                          <div className="book-author me-5 mb-2">
-                            <span>Tác giả:</span>
-                            <span className="book-author-name ms-1 me-2">
-                              {product.author}
-                            </span>
-                          </div>
-                          <div className="book-publish">
-                            <span>Phát hành:</span>
-                            <span className="book-publish-name ms-1 me-2">
-                              {product.publisher}
-                            </span>
-                          </div>
+                    <ImageGallery items={images} />
+                  </div>
+                </Col>
+                <Col xs={12} md={8}>
+                  <div className="book-main-intro ms-5">
+                    <div className="book-main-title">
+                      <h3 className="book-title text-capitalize">
+                        {product.name}
+                      </h3>
+                      <div className="book-author-container d-flex">
+                        <div className="book-author me-5 mb-2">
+                          {/* <span>Tác giả:</span> */}
+                          <span className="book-author-name ms-1 me-2">
+                            {/* {product.author} */}
+                            Design argyle custom dress socks 80% plastic, 18%
+                            nylon and 2% spandex
+                          </span>
                         </div>
-                        <div className="book-rating d-flex border-bottom">
-                          {/* <i className="book-item-rating text-warning me-1">
-                          <BsFillStarFill />
-                        </i>
-                        <i className="book-item-rating text-warning me-1">
-                          <BsFillStarFill />
-                        </i>
-                        <i className="book-item-rating text-warning me-1">
-                          <BsFillStarFill />
-                        </i>
-                        <i className="book-item-rating text-warning me-1">
-                          <BsFillStarFill />
-                        </i>
-                        <i className="book-item-rating text-warning me-1">
-                          <BsFillStarFill />
-                        </i> */}
-                          {/* <Rating value={product.ratings} size="large" readOnly />
-                        <p className="d-inline ms-2 align-start">
-                          <i>{product.numOfReviews} đánh giá</i>
-                        </p> */}
-                          <Rating value={product.ratings} readOnly />
-                          <p className="d-inline ms-2 align-items-start">
-                            {product.numOfReviews} đánh giá từ độc giả
-                          </p>
-                        </div>
+                        {/* <div className="book-publish">
+                          <span>Phát hành:</span>
+                          <span className="book-publish-name ms-1 me-2">
+                            {product.publisher}
+                          </span>
+                        </div> */}
                       </div>
-                      <div className="book-main-price mt-2 d-flex align-items-center border-bottom pb-2">
-                        <div className="book-price-container flex-grow-1">
-                          <div className="book-price-current">
-                            <span className="book-current fs-1">
-                              {numberWithCommas(product.price)}{" "}
+                      <div className="book-rating d-flex border-bottom">
+                        <Rating value={product.ratings} readOnly />
+                        <p className="d-inline ms-2 align-items-start">
+                          {product.numOfReviews} đánh giá từ độc giả
+                        </p>
+                      </div>
+                    </div>
+                    <div className="book-main-price mt-2 d-flex align-items-center border-bottom pb-2">
+                      <div className="book-price-container flex-grow-1">
+                        <div className="book-price-current">
+                          <span className="book-current fs-1">
+                            {numberWithCommas(product.price)}{" "}
+                            <sup>
+                              <u>đ</u>
+                            </sup>
+                          </span>
+                        </div>
+                        <div className="book-price-cover-container d-flex">
+                          <div className="book-price-cover">
+                            <span>Price:</span>
+                            <span className="book-cover ms-2">
+                              {/* 80.000{" "} */}
+                              {numberWithCommas(product.price + 15000)}{" "}
                               <sup>
                                 <u>đ</u>
                               </sup>
                             </span>
                           </div>
-                          <div className="book-price-cover-container d-flex">
-                            <div className="book-price-cover">
-                              <span>Giá bìa:</span>
-                              <span className="book-cover ms-2">
-                                {/* 80.000{" "} */}
-                                {numberWithCommas(product.price + 15000)}{" "}
-                                <sup>
-                                  <u>đ</u>
-                                </sup>
-                              </span>
-                            </div>
-                            <div className="book-price-sale">
-                              <span className="book-sale-name ms-5">
-                                Tiết kiệm:
-                              </span>
-                              <span className="book-sale ms-2 fw-bold">
-                                15.000{" "}
-                                <sup>
-                                  <u>đ</u>
-                                </sup>
-                              </span>
-                            </div>
+                          <div className="book-price-sale">
+                            <span className="book-sale-name ms-5">Save:</span>
+                            <span className="book-sale ms-2 fw-bold">
+                              15.000{" "}
+                              <sup>
+                                <u>đ</u>
+                              </sup>
+                            </span>
                           </div>
                         </div>
-                        <div className="book-add-button flex-shrink-0 d-grid gap-2 d-md-flex justify-content-md-end col-4">
-                          <AddButton />
-                        </div>
                       </div>
-                      <div className="book-main-check mt-3">
-                        <p className="book-check">
-                          <i className="book-check-icon text-success">
-                            <IoCheckmarkSharp />{" "}
-                          </i>
-                          Bọc plastic miễn phí
-                        </p>
-                        <p className="book-check">
-                          <i className="book-check-icon text-success">
-                            <IoCheckmarkSharp />{" "}
-                          </i>
-                          Bảo hành 1 đổi 1 nếu sách hư hỏng trong quá trình vận
-                          chuyển
-                          {/* Giao hàng miễn phí trong nội thành TP. HCM với đơn
-                          hàng
-                          <i className="book-compare-icon text-success fs-6">
-                            {" "}
-                            <FaGreaterThanEqual />{" "}
-                          </i>
-                          <span className="text-success fw-bold">150.000đ</span> */}
-                        </p>
-                        <p className="book-check">
-                          <i className="book-check-icon text-success">
-                            <IoCheckmarkSharp />{" "}
-                          </i>
-                          Giao hàng miễn phí toàn quốc với đơn hàng
-                          <i className="book-compare-icon text-success fs-6">
-                            {" "}
-                            <FaGreaterThanEqual />{" "}
-                          </i>
-                          <span className="text-success fw-bold">250.000đ</span>
-                        </p>
-                        <div className="book-like-button">
-                          <AddFavorite />
-                        </div>
+                      <div className="book-add-button flex-shrink-0 d-grid gap-2 d-md-flex justify-content-md-end col-4">
+                        <AddButton />
                       </div>
                     </div>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-            <div className="book-intro ms-5 me-5">
-              <h4 className="book-intro-title text-capitalize pb-2">
-                Giới thiệu sách
-              </h4>
-              <h5 className="book-name-title text-capitalize pt-2">
-                {product.name}
-              </h5>
-              <p className="book-intro-content">{product.description}</p>
-            </div>
-            <div className="book-detail ms-5 me-5 pt-3">
-              <h4 className="book-detail-title text-capitalize pb-2">
-                Thông tin chi tiết
-              </h4>
-              <Table striped bordered hover responsive>
-                {/* <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                    </tr>
-                    </thead> */}
-                <tbody>
-                  <tr>
-                    <td>Tác giả</td>
-                    <td>{product.author}</td>
-                  </tr>
-                  <tr>
-                    <td>Công ty phát hành</td>
-                    <td>{product.publisher}</td>
-                  </tr>
-                  <tr>
-                    <td>Loại bìa</td>
-                    <td>Bìa mềm</td>
-                  </tr>
-                  <tr>
-                    <td>Số trang</td>
-                    <td>{product.pageNumber}</td>
-                  </tr>
-                  <tr>
-                    <td>Kích thước</td>
-                    <td>12 x 20 cm</td>
-                  </tr>
-                  <tr>
-                    <td>Trọng lượng</td>
-                    <td>210 gram</td>
-                  </tr>
-                  <tr>
-                    <td>Đã bán</td>
-                    <td>{product.Sold}</td>
-                  </tr>
-                  <tr>
-                    <td>Ngày phát hành</td>
-                    <td>01/06/2017</td>
-                  </tr>
-                  <tr>
-                    <td>Danh mục</td>
-                    <td>{product.category}</td>
-                  </tr>
-                </tbody>
-              </Table>
-              <div className="book-add-button text-center">
-                <AddButton />
-              </div>
-            </div>
-            <div className="book-comment ms-5 me-5">
-              <h4 className="book-comment-title text-capitalize pb-2 mt-5">
-                Đánh giá
-              </h4>
-              <div className="book-comment-rating d-flex mb-2">
-                {/* <i className="book-item-rating text-warning me-1">
-                <BsFillStarFill />
-              </i>
-              <i className="book-item-rating text-warning me-1">
-                <BsFillStarFill />
-              </i>
-              <i className="book-item-rating text-warning me-1">
-                <BsFillStarFill />
-              </i>
-              <i className="book-item-rating text-warning me-1">
-                <BsFillStarFill />
-              </i>
-              <i className="book-item-rating text-warning me-1">
-                <BsFillStarFill />
-              </i>
-              <p className="d-inline ms-2 align-middle">
-                5.0 <i>(4 đánh giá)</i>
-              </p> */}
-                <Rating
-                  onChange={(e) => setRating(e.target.value)}
-                  value={rating}
-                  className="book-item-rating"
-                  name="rating"
-                />
-                <p className="book-comment-number mt-1 ms-2">
-                  {product.numOfReviews} đánh giá từ độc giả
-                </p>
-              </div>
-              <form>
-                <div className="book-comment-write d-flex">
-                  <div className="book-comment-avatar flex-shrink-0 fs-1">
-                    <IoPersonCircleSharp />
+                    <div className="book-main-check mt-3">
+                      <p className="book-check">
+                        <i className="book-check-icon text-success">
+                          <IoCheckmarkSharp />{" "}
+                        </i>
+                        Free UK delivery on orders over
+                        <i className="book-compare-icon text-success fs-6">
+                          {" "}
+                          <FaGreaterThanEqual />{" "}
+                        </i>
+                        <span className="text-success fw-bold">150.000 đ</span>
+                      </p>
+                      <p className="book-check">
+                        <i className="book-check-icon text-success">
+                          <IoCheckmarkSharp />{" "}
+                        </i>
+                        Free gift on orders over
+                        <i className="book-compare-icon text-success fs-6">
+                          {" "}
+                          <FaGreaterThanEqual />{" "}
+                        </i>
+                        <span className="text-success fw-bold">150.000 đ</span>
+                      </p>
+                      <p className="book-check">
+                        <i className="book-check-icon text-success">
+                          <IoCheckmarkSharp />{" "}
+                        </i>
+                        Free nationwide shipping with orders
+                        <i className="book-compare-icon text-success fs-6">
+                          {" "}
+                          <FaGreaterThanEqual />{" "}
+                        </i>
+                        <span className="text-success fw-bold">250.000đ</span>
+                      </p>
+                      <div className="book-like-button">
+                        <AddFavorite />
+                      </div>
+                    </div>
                   </div>
-                  <div className="book-comment-field flex-grow-1 ms-3 d-flex align-items-end flex-column">
-                    <textarea
-                      id="book-cmt-field"
-                      className="w-100 ps-2"
-                      name="comment"
-                      placeholder="Viết bình luận của bạn"
-                      rows={3}
-                      value={comment}
-                      onChange={(e) => {
-                        setComment(e.target.value);
-                      }}
-                    ></textarea>
-                    <div className="book-comment-button mt-2 mb-4">
-                      <Button
-                        //   type="submit"
-                        className="book-cmt-btn border rounded text-center fs-6"
-                        onClick={reviewSubmitHandler}
-                      >
-                        Đăng
-                      </Button>
-                    </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          <div className="book-intro ms-5 me-5">
+            <h4 className="book-intro-title text-capitalize pb-2">
+              Description
+            </h4>
+            <h5 className="book-name-title text-capitalize pt-2">
+              {product.name}
+            </h5>
+            <p className="book-intro-content">
+              Design argyle custom dress socks 80% plastic, 18% nylon and 2%
+              spandex To begin customizing, choose the color and size of your
+              socks. Then, choose two other colors to complete the argyle
+              design. Finish it off by adding a logo or some text to the front,
+              sides, or bottom of the socks! Custom dress socks make the perfect
+              gift for your employees, clients, and customers. Ditch the
+              T-shirts and try something different. Create custom socks with
+              your company’s colors, logo, or slogan.
+            </p>
+          </div>
+          <div className="book-detail ms-5 me-5 pt-3">
+            <h4 className="book-detail-title text-capitalize pb-2">
+              PRODUCT INFORMATION
+            </h4>
+            <Table striped bordered hover responsive>
+              <tbody>
+                <tr>
+                  <td>Amount</td>
+                  <td>1 Pair Pack</td>
+                </tr>
+                <tr>
+                  <td>Making</td>
+                  <td>Hand linked toes for smooth seams</td>
+                </tr>
+                <tr>
+                  <td>Fabric quality</td>
+                  <td>Comfort cuffs</td>
+                </tr>
+                <tr>
+                  <td>Methods of preservation</td>
+                  <td>
+                    Naturally antibacterial, kind to every skin type, moisture
+                    handling, heat regulating; Machine washable at 40°
+                  </td>
+                </tr>
+                <tr>
+                  <td>Thickness</td>
+                  <td>Regular</td>
+                </tr>
+                <tr>
+                  <td>Weight</td>
+                  <td>210 gram</td>
+                </tr>
+                <tr>
+                  <td>Sold</td>
+                  <td>{product.Sold}</td>
+                </tr>
+                <tr>
+                  <td>Category</td>
+                  <td>{product.category}</td>
+                </tr>
+              </tbody>
+            </Table>
+            <div className="book-add-button text-center">
+              <AddButton />
+            </div>
+          </div>
+          <div className="book-comment ms-5 me-5">
+            <h4 className="book-comment-title text-capitalize pb-2 mt-5">
+              Đánh giá
+            </h4>
+            <div className="book-comment-rating d-flex mb-2">
+              <Rating
+                onChange={(e) => setRating(e.target.value)}
+                value={rating}
+                className="book-item-rating"
+                name="rating"
+              />
+            </div>
+            <form>
+              <div className="book-comment-write d-flex">
+                <div className="book-comment-avatar flex-shrink-0 fs-1">
+                  <IoPersonCircleSharp />
+                </div>
+                <div className="book-comment-field flex-grow-1 ms-3 d-flex align-items-end flex-column">
+                  <textarea
+                    id="book-cmt-field"
+                    className="w-100 ps-2"
+                    name="comment"
+                    placeholder="Viết bình luận của bạn"
+                    rows={3}
+                    value={comment}
+                    onChange={(e) => {
+                      setComment(e.target.value);
+                    }}
+                  ></textarea>
+                  <div className="book-comment-button mt-2 mb-4">
+                    <Button
+                      //   type="submit"
+                      className="book-cmt-btn border rounded text-center fs-6"
+                      onClick={reviewSubmitHandler}
+                    >
+                      Đăng
+                    </Button>
                   </div>
                 </div>
-              </form>
-              <div className="book-comment-others">
-                {/* {product.reviews &&
-                product.reviews.map((item, i) => {
-                  <div className="book-comment-user d-flex border-top">
+              </div>
+            </form>
+            <div className="book-comment-others">
+              {product.reviews &&
+                product.reviews.map((item, i) => (
+                  <div className="book-comment-user d-flex border-top" key={i}>
                     <div className="book-comment-avatar flex-shrink-0 fs-1">
                       <IoPersonCircleSharp />
                     </div>
                     <div className="book-comment-container flex-grow-1 ms-3 mt-4">
                       <div className="book-comment-userinfo d-flex">
                         <div className="book-comment-name w-100 fw-bold">
-                          <p>{item.name}</p>
+                          <p>
+                            {item.name}{" "}
+                            <i className="fw-normal">muốn nhắn nhủ:</i>
+                          </p>
                         </div>
+                        <Rating
+                          value={item.rating}
+                          size="large"
+                          readOnly
+                          className="book-comment-rating me-3"
+                        />
                         <div className="book-comment-date flex-shrink-1 text-secondary fs-6">
-                          <p>{item.time}</p>
+                          <p>{moment(item.time).format("DD/MM/YYYY")}</p>
                         </div>
                       </div>
                       <div className="book-comment-content">
                         <p>{item.comment}</p>
                       </div>
                     </div>
-                  </div>;
-                })} */}
-                {product.reviews &&
-                  product.reviews.map((item, i) => (
-                    <div
-                      className="book-comment-user d-flex border-top"
-                      key={i}
-                    >
-                      <div className="book-comment-avatar flex-shrink-0 fs-1">
-                        <IoPersonCircleSharp />
-                      </div>
-                      <div className="book-comment-container flex-grow-1 ms-3 mt-4">
-                        <div className="book-comment-userinfo d-flex">
-                          <div className="book-comment-name w-100 fw-bold">
-                            <p>
-                              {item.name}{" "}
-                              <i className="fw-normal">muốn nhắn nhủ:</i>
-                            </p>
-                          </div>
-                          <Rating
-                            value={item.rating}
-                            size="large"
-                            readOnly
-                            className="book-comment-rating me-3"
-                          />
-                          <div className="book-comment-date flex-shrink-1 text-secondary fs-6">
-                            <p>{moment(item.time).format("DD/MM/YYYY")}</p>
-                          </div>
-                        </div>
-                        <div className="book-comment-content">
-                          <p>{item.comment}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                {/* <div className="book-comment-user d-flex border-top">
-                <div className="book-comment-avatar flex-shrink-0 fs-1">
-                  <IoPersonCircleSharp />
-                </div>
-                <div className="book-comment-container flex-grow-1 ms-3 mt-4">
-                  <div className="book-comment-userinfo d-flex">
-                    <div className="book-comment-name w-100 fw-bold">
-                      <p>Nguyễn Văn B</p>
-                    </div>
-                    <div className="book-comment-date flex-shrink-1 text-secondary fs-6">
-                      <p>04/04/2022</p>
-                    </div>
                   </div>
-                  <div className="book-comment-content">
-                    <p>Bài viết rất hay!</p>
-                  </div>
-                </div>
-              </div>
-              <div className="book-comment-user d-flex border-top">
-                <div className="book-comment-avatar flex-shrink-0 fs-1">
-                  <IoPersonCircleSharp />
-                </div>
-                <div className="book-comment-container flex-grow-1 ms-3 mt-4">
-                  <div className="book-comment-userinfo d-flex">
-                    <div className="book-comment-name w-100 fw-bold">
-                      <p>Nguyễn Văn A</p>
-                    </div>
-                    <div className="book-comment-date flex-shrink-1 text-secondary fs-6">
-                      <p>03/04/2022</p>
-                    </div>
-                  </div>
-                  <div className="book-comment-content">
-                    <p>Mình nhất định sẽ mua cuốn sách này về đọc.</p>
-                  </div>
-                </div>
-              </div> */}
-              </div>
+                ))}
             </div>
-            <BestSeller />
-            <ToastContainer
-              position="top-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
           </div>
-        )
+          <BestSeller />
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </div>
       )}
     </Fragment>
   );

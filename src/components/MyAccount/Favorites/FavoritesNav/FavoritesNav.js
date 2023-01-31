@@ -23,7 +23,7 @@ function AccountFavoritesNav() {
           className="col"
           // style={{ pointerEvents: "none", opacity: "0.5" }}
         >
-          Posts (0)
+          Blogs (0)
         </NavLink>
       </div>
     </div>

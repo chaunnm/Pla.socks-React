@@ -15,12 +15,13 @@ import { saveShippingInfo } from "../../../redux/features/cart/cartSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { numberWithCommas } from "../../../more/FormatNumber";
 import { BsBook } from "react-icons/bs";
+import products from "../../../data/products";
 
 const ItemBasket = (props) => {
   const dispatch = useDispatch();
 
-  const { cartItems } = useSelector((state) => state.cart);
-
+  // const { cartItems } = useSelector((state) => state.cart);
+  let cartItems = products?.slice(8, 10);
   const increaseQuantity = (id, quantity, stock) => {
     const newQty = quantity + 1;
     if (newQty > stock) {
@@ -39,17 +40,15 @@ const ItemBasket = (props) => {
   };
 
   const deleteCartItems = (id) => {
-    dispatch(removeItemsFromCart(id));
+    // dispatch(removeItemsFromCart(id));
   };
 
   let Price =
     cartItems.length !== 0
-      ? cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0)
+      ? cartItems.reduce((acc, item) => acc + 1 * item.price, 0)
       : 0;
   let Quantity =
-    cartItems.length !== 0
-      ? cartItems.reduce((acc, item) => acc + item.quantity, 0)
-      : 0;
+    cartItems.length !== 0 ? cartItems.reduce((acc, item) => acc + 1, 0) : 0;
 
   let shippingCharges = Price > 250000 ? 0 : 30000;
 
@@ -150,6 +149,7 @@ const ItemBasket = (props) => {
     }
     navigate("/payment");
   };
+
   return (
     <div className="ib__container">
       <Container>
@@ -198,7 +198,7 @@ const ItemBasket = (props) => {
                     return (
                       <div className="basket-list__item" key={index}>
                         <div className="basket-list__item__image">
-                          <img src={item.image} alt="" />
+                          <img src={item.images} alt="" />
                         </div>
                         <div className="basket-list__item__information">
                           <h6 className="basket-list__item__information__title">
@@ -206,7 +206,7 @@ const ItemBasket = (props) => {
                             {/* Cô gái đến từ hôm qua */}
                           </h6>
                           <div className="basket-list__item__information__author">
-                            {item.author}
+                            {item.category}
                           </div>
                           <div className="basket-list__item__information__price">
                             {numberWithCommas(item.price)}{" "}
@@ -215,7 +215,7 @@ const ItemBasket = (props) => {
                           <div className="basket-list__item__information__icon">
                             <i
                               className="bx bxs-trash "
-                              onClick={() => deleteCartItems(item.book)}
+                              onClick={() => deleteCartItems(item._id)}
                             ></i>
                           </div>
                         </div>
@@ -223,30 +223,29 @@ const ItemBasket = (props) => {
                           <div className="basket-list__item__quantity__btn">
                             <i
                               className="bx bx-minus"
-                              onClick={() =>
-                                decreaseQuantity(item.book, item.quantity)
-                              }
+                              // onClick={() =>
+                              //   decreaseQuantity(item.book, item.quantity)
+                              // }
                             ></i>
                           </div>
                           <div className="basket-list__item__quantity__input">
-                            {item.quantity}
+                            {/* {item.quantity} */}1
                           </div>
                           <div className="basket-list__item__quantity__btn">
                             <i
                               className="bx bx-plus"
-                              onClick={() => {
-                                increaseQuantity(
-                                  item.book,
-                                  item.quantity,
-                                  item.stock
-                                );
-                              }}
+                              // onClick={() => {
+                              //   increaseQuantity(
+                              //     item.book,
+                              //     item.quantity,
+                              //     item.stock
+                              //   );
+                              // }}
                             ></i>
                           </div>
                         </div>
                         <div className="basket-list__item__price">
-                          {numberWithCommas(item.price * item.quantity)}{" "}
-                          <span>đ</span>
+                          {numberWithCommas(item.price * 1)} <span>đ</span>
                         </div>
                       </div>
                     );
@@ -258,7 +257,7 @@ const ItemBasket = (props) => {
               <div className="order-information">
                 <div className="order-information__address">
                   <div className="order-information__address__title">
-                    Thông tin giao hàng
+                    Shipment Details
                   </div>
                   <div className="order-information__address__row">
                     <div className="order-information__address__row__icon">
@@ -294,14 +293,14 @@ const ItemBasket = (props) => {
                   </div>
                 </div>
                 <div className="myOrder">
-                  <div className="myOrder__title">Đơn hàng của bạn</div>
+                  <div className="myOrder__title">Your order</div>
                   <div className="myOrder__information">
                     <div className="myOrder__information__quantity">
-                      Số lượng: {totalQuantity} quyển
+                      Amount : {totalQuantity} items
                     </div>
                     <div className="myOrder__information__row">
                       <div className="myOrder__information__row__name">
-                        Tổng tiền:{" "}
+                        Total:{" "}
                       </div>
                       <div className="myOrder__information__row__value">
                         {numberWithCommas(Price)} đ
@@ -309,7 +308,7 @@ const ItemBasket = (props) => {
                     </div>
                     <div className="myOrder__information__row">
                       <div className="myOrder__information__row__name">
-                        Phí Ship:{" "}
+                        Discount:{" "}
                       </div>
                       <div className="myOrder__information__row__value">
                         {numberWithCommas(shippingCharges)} đ
@@ -318,14 +317,14 @@ const ItemBasket = (props) => {
                   </div>
                   <hr className="myOrder__line" />
                   <div className="myOrder__bill">
-                    <div className="myOrder__bill__name">Thành tiền:</div>
+                    <div className="myOrder__bill__name">Total:</div>
                     <div className="myOrder__bill__value">
                       {numberWithCommas(totalPrice)} đ
                     </div>
                   </div>
                   <div className="myOrder__button">
                     <button className="myOrder__btn" onClick={handleToCheckout}>
-                      Đặt hàng
+                      Buy now
                     </button>
                   </div>
                 </div>
