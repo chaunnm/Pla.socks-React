@@ -6,8 +6,8 @@ const ProtectedRoute = ({ isAdmin, children }) => {
   const { user } = useSelector((state) => state.user);
   return (
     <>
-      {/* { !user && <Navigate to="/signin" /> }
-        { isAdmin && user.role !== 'admin' && <Navigate to='/signin' /> } */}
+      {!user && <Navigate to="/signin" />}
+      {isAdmin && user.role !== "admin" && <Navigate to="/signin" />}
       {isAdmin ? (
         user ? (
           user.role !== "admin" ? (

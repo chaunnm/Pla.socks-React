@@ -5,7 +5,7 @@ import "./Vouchers.css";
 export default function Vouchers() {
   return (
     <Container className="vouchers-container" fluid="md">
-      <h3 className="voucher-title">Mã Quà Tặng Cho Thành Viên Mới</h3>
+      <h3 className="voucher-title">Discount Vouchers For Pla.Socks Members</h3>
       <div className="vouchers">
         <img
           className="voucher"
