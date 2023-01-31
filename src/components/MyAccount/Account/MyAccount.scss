@@ -1,7 +1,9 @@
 .my-account {
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-
+@media screen and (max-width: 960px) {
+  .my-account {
+    margin: 0 !important;
+  }
+}

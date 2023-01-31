@@ -254,3 +254,37 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
+
+@media screen and (max-width: 1150px) {
+  .basket-list {
+    img {
+      height: 100px;
+    }
+  }
+  .basket-list__item__image {
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .basket-list {
+    img {
+      height: 100px;
+    }
+  }
+  .basket-list__item__image {
+    margin-right: 20px;
+  }
+  .ib__container {
+    .row {
+      .col-md-7 {
+        width: 100%;
+      }
+      .col-md-5 {
+        width: 100%;
+      }
+    }
+  }
+  .order-information {
+    margin-top: 20px;
+  }
+}

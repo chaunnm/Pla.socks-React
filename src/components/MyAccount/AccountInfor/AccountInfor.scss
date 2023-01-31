@@ -1,31 +1,30 @@
 .my-account-form {
+  .my-account-form-infor {
+    background-color: #edf8f8;
+    padding: 30px;
+    margin-bottom: 20px;
 
-    .my-account-form-infor {
-        background-color: #EDF8F8;
-        padding: 30px;
-        margin-bottom: 20px;
-
-        .form-infor-body {
-            border-radius: 4px;
-            background-color: white;
-            .btn-backgound {
-                background-color: #61C67A;
-                color: #fff;
-            }
-        }
+    .form-infor-body {
+      border-radius: 4px;
+      background-color: white;
+      .btn-backgound {
+        background-color: #61c67a;
+        color: #fff;
+      }
     }
+  }
 
-    .my-account-form-password {
-        background-color: #EDF8F8;
-        padding: 30px;
+  .my-account-form-password {
+    background-color: #edf8f8;
+    padding: 30px;
 
-        .form-password-body {
-            border-radius: 4px;
-            background-color: white;
-            .btn-backgound {
-                    background-color: #61C67A;
-                    color: #fff;
-                }
-        }
-    } 
+    .form-password-body {
+      border-radius: 4px;
+      background-color: white;
+      .btn-backgound {
+        background-color: #61c67a;
+        color: #fff;
+      }
+    }
+  }
 }

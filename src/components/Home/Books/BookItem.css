@@ -131,6 +131,16 @@
     @media screen and (max-width: 700px) {
         .book-item {
             transform: scale(0.8);
+            margin: 0;
         }
     }
+    .book-item{
+        margin: 1rem 1rem;
+        width: 250px !important;
+    }
+}
+@media screen and (max-width: 1070px) {
+.book-item{
+    width: 200px;
+}
 }

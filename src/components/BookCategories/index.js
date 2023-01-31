@@ -92,7 +92,11 @@ export default function BookCategories() {
   //   author,
   //   publisher,
   // ]);
-
+  const [index, setIndex] = useState(0);
+  const handleActive = (index) => {
+    console.log(index);
+    setIndex(index);
+  };
   const categoryData = [
     "Boxes Of Love",
     "Customized Socks",
@@ -100,6 +104,7 @@ export default function BookCategories() {
     "Socks For Men",
     "Socks For Summer",
     "Socks For Women",
+    "Khác",
   ];
   return (
     <div className="categories-container container-fluid">
@@ -130,8 +135,13 @@ export default function BookCategories() {
                     className="categories-nav-main d-flex flex-column text-capitalize"
                   >
                     {categoryData.map((item, i) => (
-                      <div className="list-group-item form-check">
-                        <label className="form-check-label ">
+                      <div
+                        onClick={() => handleActive(i)}
+                        className={`list-group-item form-check ${
+                          index === i ? "active" : ""
+                        }`}
+                      >
+                        <label className={`form-check-label`}>
                           {/* <input
                             className="form-check-input ms-1 me-2"
                             type="radio"
@@ -146,21 +156,6 @@ export default function BookCategories() {
                         </label>
                       </div>
                     ))}
-                    <div className="list-group-item form-check">
-                      <label className="form-check-label">
-                        {/* <input
-                          className="form-check-input ms-1 me-2"
-                          type="radio"
-                          name="flexRadioDefault"
-                          value=""
-                          onClick={(e) => {
-                            // reserHandler();
-                            // setCategory();
-                          }}
-                        /> */}
-                        Khác
-                      </label>
-                    </div>
                   </ListGroup>
                 </div>
 
@@ -225,7 +220,7 @@ export default function BookCategories() {
                 ) : (
                   <div>
                     <h3 className="categories-main-title p-2 ps-3 text-light text-capitalize">
-                      Sách của UITBooks nà nha
+                      Vớ của Pla.Socks nà nha
                     </h3>
                     <div className="category-books row row-cols-3">
                       {productList &&
