@@ -7,6 +7,8 @@ import Interest from "../components/Home/Interest/index";
 import RecentReview from "../components/Home/RecentReview/index";
 import Banner from "../components/Home/Banner/index";
 import MainLayout from "../layouts";
+import Feedbacks from "../components/Home/Feedbacks";
+import RecentBlogs from "../components/Home/RecentBlogs";
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
         <Banner url="https://i.imgur.com/9Q2pzsp.png" />
         <Interest />
         <RecentReview />
+        <Feedbacks />
+        <RecentBlogs />
       </MainLayout>
     </>
   );

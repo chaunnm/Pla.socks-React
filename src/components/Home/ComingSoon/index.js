@@ -8,70 +8,35 @@ import "./ComingSoon.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewsProducts } from "../../../redux/features/product/newsProductsSlice";
 import { Link } from "react-router-dom";
+import products from "../../../data/products";
 
-const Books = [
-  {
-    title: "Ra Bờ Suối Ngắm Hoa Kèn Hồng",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1evMkN-8Yzk2FL51iREJZXawvg1-CpMVc",
-    price: "100.500 đ",
-  },
-  {
-    title: "Làm Bạn Với Bầu Trời",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1f81BHRFLAE1yEddPLdRUJO3jXJ2_SQPS",
-    price: "150.500 đ",
-  },
-  {
-    title: "Chúc Một Ngày Tốt Lành",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1qiStbESBEiBavZGEgTvcvoI7UHW9MKEy",
-    price: "90.500 đ",
-  },
-  {
-    title: "Ngày Xưa Có Một Chuyện Tình",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1iljqkkb1hT_FPSzkZJc0y5XtwNfzNL1K",
-    price: "111.500 đ",
-  },
-  {
-    title: "Tàn Lửa",
-    author: "Shizukui Shusuke",
-    img: "https://drive.google.com/uc?id=1SNwfEQMgarJBqvFH2ECYpEIxPGdGR1FG",
-    price: "111.500 đ",
-  },
-  {
-    title: "Cảm Ơn Người Lớn",
-    author: "Nguyễn Nhật Ánh",
-    img: "https://drive.google.com/uc?id=1SFgK4XIgGATHp0hauLyMf_Ccbs-sDuEj",
-    price: "111.500 đ",
-  },
-  {
-    title: "Chuyện Kể Rằng Có Nàng Và Tôi",
-    author: "Nhiều tác giả",
-    img: "https://drive.google.com/uc?id=15eeAUNLISuTCIDK_YRiSQwCWglfJbHZW",
-    price: "111.500 đ",
-  },
-  {
-    title: "Cố Định Một Đám Mây",
-    author: "Nguyễn Ngọc Tư",
-    img: "https://drive.google.com/uc?id=1DRQUMkxDzs4ldQwJ0X746gDL9boMVW_Q",
-    price: "111.500 đ",
-  },
-];
 export default function ComingSoon() {
   let settings = {
     infinite: false,
     speed: 1000,
     arrows: true,
-    slidesToShow: 5,
-    slidesToScroll: 4,
+    slidesToShow: 4,
+    slidesToScroll: 3,
 
     responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+        },
+      },
       {
         breakpoint: 960,
         settings: {
           slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 780,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -84,29 +49,28 @@ export default function ComingSoon() {
       },
     ],
   };
-  const { error, products } = useSelector((state) => state.newsProducts);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getNewsProducts());
-  }, [dispatch]);
+  const newProduct = products?.slice(11, 17);
+  // const { error, products } = useSelector((state) => state.newsProducts);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getNewsProducts());
+  // }, [dispatch]);
   return (
     <Container className="coming-soon-container">
       <div className="coming-soon-title">
-        <h3>Mới nhất</h3>
+        <h3>Comming Soon</h3>
         <img src="https://drive.google.com/uc?id=19KnqBhGINLa8yoIvJZAIRZ3GvP7rpjIp" />
       </div>
       <Slider className="best-seller-books" {...settings}>
-        {products &&
-          products.map((item, index) => {
+        {newProduct &&
+          newProduct.map((item, index) => {
             //   console.log(item.images);
             return (
               <BookItem
                 key={index}
                 id={item._id}
-                title={item.name}
-                author={item.author}
-                //   img={item.images[0].url}
-                img={item.images[0].url}
+                name={item.name}
+                images={item.images}
                 price={item.price}
                 Sold={item.Sold}
                 ratings={item.ratings}
@@ -117,7 +81,7 @@ export default function ComingSoon() {
       <div className="text-center mt-0">
         <Link to="/books">
           <Button className="see-more" variant="primary">
-            Xem thêm &rarr;
+            See more &rarr;
           </Button>
         </Link>
       </div>

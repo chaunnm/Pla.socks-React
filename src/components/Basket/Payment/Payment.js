@@ -107,7 +107,7 @@ const Payment = (props) => {
   const handleClose = () => setShow(false);
 
   return (
-    <div>
+    <div className="Payment">
       <Container>
         {/* {cartItems.length === 0 ? (
           <p>no item</p>
