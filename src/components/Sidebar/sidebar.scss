@@ -14,19 +14,21 @@
         .uitlogo {
             img:nth-child(1) {
                 width: 130px;
-                margin-right: 10px;
+                // margin-right: 10px;
             }
 
-            img:nth-child(2) {
-                height: 25px;
-            }
+            // img:nth-child(2) {
+            //     height: 25px;
+            // }
         }
 
     }
 
 
     .center {
-        padding-left: 10px;
+        // padding-left: 10px;
+        display: flex;
+        justify-content: center;
 
         ul {
             list-style: none;
@@ -92,3 +94,21 @@
         }
     }
 }
+
+// @media screen and (max-width: 650px) {
+    
+//     .responsive-sidebar {
+//         // display: none !important;
+//         visibility: hidden;
+//     }
+//         .uitlogo {
+//             img:nth-child(1) {
+//                 width: 50px !important;
+//                 margin: 0 5px;
+//             }
+    
+//             img:nth-child(2) {
+//                 height: 25px;
+//             }
+//         }
+// }

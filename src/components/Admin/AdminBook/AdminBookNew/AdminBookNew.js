@@ -13,7 +13,7 @@ function AdminBookNew() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("Tâm lý");
+  const [category, setCategory] = useState("Boxes Of Love");
   const [publisher, setPublisher] = useState("");
   const [author, setAuthor] = useState("");
   const [Stock, setStock] = useState(0);
@@ -47,7 +47,7 @@ function AdminBookNew() {
     }
     if (success) {
       // alert("Book created successfully");
-      toast.success("Thêm mới sách thành công! 🎊", {
+      toast.success("Add new success socks! 🎊", {
         position: "bottom-center",
         autoClose: 3000,
         hideProgressBar: false,

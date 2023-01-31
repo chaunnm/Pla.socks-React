@@ -44,7 +44,7 @@ function AdminCategoryEdit() {
         </div>
 
         <button type="submit" className="btn btn-primary">
-          Lưu
+          Save
         </button>
       </form>
     </div>

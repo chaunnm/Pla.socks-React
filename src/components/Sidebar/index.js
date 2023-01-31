@@ -60,7 +60,7 @@ const Sidebar = () => {
             <div>
               <AccessibilityIcon className="icon" />
               {/* Users */}
-              <span>Users</span>
+              <span className="responsive-sidebar">Users</span>
             </div>
           </NavLink>
           <NavLink
@@ -73,7 +73,7 @@ const Sidebar = () => {
           >
             <div>
               <CategoryIcon className="icon" />
-              <span> Product Category</span>
+              <span className="responsive-sidebar"> Product Category</span>
             </div>
           </NavLink>
           <NavLink
@@ -86,7 +86,7 @@ const Sidebar = () => {
           >
             <div>
               <InventoryIcon className="icon" />
-              <span> Products</span>
+              <span className="responsive-sidebar"> Products</span>
             </div>
           </NavLink>
           <NavLink
@@ -99,7 +99,7 @@ const Sidebar = () => {
           >
             <div>
               <LocalMallIcon className="icon" />
-              <span> Orders</span>
+              <span className="responsive-sidebar"> Orders</span>
             </div>
           </NavLink>
           <NavLink
@@ -112,7 +112,7 @@ const Sidebar = () => {
           >
             <div>
               <RateReviewIcon className="icon" />
-              <span> Blogs</span>
+              <span className="responsive-sidebar"> Blogs</span>
             </div>
           </NavLink>
           <NavLink
@@ -125,12 +125,12 @@ const Sidebar = () => {
           >
             <div>
               <AnalyticsIcon className="icon" />
-              <span> Statistics</span>
+              <span className="responsive-sidebar"> Statistics</span>
             </div>
           </NavLink>
           <div onClick={handleLogout}>
             <ExitToAppIcon className="icon" />
-            <span> Log Out</span>
+            <span className="responsive-sidebar"> Log Out</span>
           </div>
         </ul>
         <ToastContainer

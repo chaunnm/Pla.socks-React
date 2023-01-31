@@ -82,7 +82,10 @@ const AdminOrderDetail = (props) => {
       ) : (
         <div className="AdminOrderDetailContainer">
           <Container>
-            <h4 className="title">Order details {orderId}</h4>
+            <h4 className="title">
+              Order details
+              {/* {orderId} */}
+            </h4>
 
             <Row>
               <Col xs="12" md="6" lg="6">
@@ -117,7 +120,10 @@ const AdminOrderDetail = (props) => {
                 <FormGroup>
                   <div className="orderRow">
                     <label className="orderRow__label ">Payment:</label>
-                    <div className="orderRow__value ">{props.payMethod}</div>
+                    <div className="orderRow__value ">
+                      Payment on delivery
+                      {/* {props.payMethod} */}
+                    </div>
                   </div>
                 </FormGroup>
               </Col>
@@ -164,7 +170,7 @@ const AdminOrderDetail = (props) => {
                   <label>Address</label>
                   <input
                     type="text"
-                    placeholder="Phường 6, Linh trung, Thủ Đức"
+                    placeholder="Ward 6, Linh Trung, Thu Duc"
                   />
                 </div>
                 <div className="form__group">

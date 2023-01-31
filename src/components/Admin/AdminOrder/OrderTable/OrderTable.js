@@ -44,11 +44,12 @@ const OrderTable = () => {
       setData(() => {
         return orders.map((order, index) => {
           // let id = order.user;
+          console.log(order);
           // dispatch(getUserDetails({ userId: id }));
           return {
             id: index + 1,
             barcode: order._id,
-            // employeeName: order.user.name,
+            employeeName: order.user,
             status: order.orderStatus,
             date: moment(order.createdAt).format("DD/MM/YYYY"),
           };

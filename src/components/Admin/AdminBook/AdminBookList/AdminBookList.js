@@ -9,6 +9,7 @@ import { MdDelete, MdMenuBook, MdOutlinePreview } from "react-icons/md";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import SearchIcon from "@mui/icons-material/Search";
+import InventoryIcon from "@mui/icons-material/Inventory";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearErrorsDeleted,
@@ -28,7 +29,7 @@ import {
 } from "../../../../redux/features/product/reviewSlice";
 import moment from "moment";
 import Loading from "../../../../more/Loader";
-
+import products from "../../../../data/products";
 function getFormattedDate(date) {
   return new Date(date).toLocaleDateString("en-GB");
 }
@@ -40,9 +41,11 @@ const AdminBookList = () => {
   const handleClose = () => setShow(false);
   const [bookId, setBookId] = useState();
 
-  const { loading, error, products } = useSelector(
-    (state) => state.productsAdmin
-  );
+  const {
+    loading,
+    error,
+    products: productsRedux,
+  } = useSelector((state) => state.productsAdmin);
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.product
   );
@@ -139,14 +142,14 @@ const AdminBookList = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link
-              to={`/admin-book-edit/${params.getValue(params.id, "id")}`}
+            <div
+              // to={`/admin-book-edit/${params.getValue(params.id, "id")}`}
               style={{ textDecoration: "none" }}
             >
               <div className="viewButton">
                 <BiEdit />
               </div>
-            </Link>
+            </div>
             <div
               className="reviewsButton"
               onClick={(e) => {
@@ -167,9 +170,6 @@ const AdminBookList = () => {
             >
               <MdDelete />
             </div>
-            {/* <div className="reviewsButton" onClick={handleShow}>
-              <MdOutlinePreview />
-            </div> */}
           </div>
         );
       },
@@ -184,17 +184,16 @@ const AdminBookList = () => {
         stt: index + 1,
         id: item._id,
         name: item.name,
-        Stock: item.Stock,
-        pageNumber: item.pageNumber,
+        Stock: item.stock,
         price: item.price,
         category: item.category,
         author: item.author,
-        publisher: item.publisher,
-        description: item.description,
+        // publisher: item.publisher,
+        // description: item.description,
         // img: item.images[0].url
         //   ? item.images[0].url
         //   : "https://res.cloudinary.com/uitbooks/image/upload/v1653576546/books/cnign5w5v4qlelbw9dhq.jpg",
-        img: item.images[0].url,
+        img: item.images,
       });
     });
   // const [data, setFilteredData] = useState(rows);
@@ -216,103 +215,100 @@ const AdminBookList = () => {
 
   return (
     <Fragment>
-      {loading ? (
+      {/* {loading ? (
         <Loading />
-      ) : (
-        <div className="datatable">
-          <div className="col-xl-6 col-lg-5 col-md-6">
-            <form action="#" className="search-header">
-              <div className="input-group w-100">
-                <input
-                  type="text"
-                  // value={search}
-                  // onChange={filter}
-                  className="form-control"
-                  placeholder="Search"
-                />
-                <div className="input-group-append">
-                  <Button variant="dark">
-                    <SearchIcon />
-                  </Button>
-                </div>
+      ) : ( */}
+      <div className="datatable">
+        <div className="col-xl-6 col-lg-5 col-md-6">
+          <form action="#" className="search-header">
+            <div className="input-group w-100">
+              <input
+                type="text"
+                // value={search}
+                // onChange={filter}
+                className="form-control"
+                placeholder="Search"
+              />
+              <div className="input-group-append">
+                <Button variant="dark">
+                  <SearchIcon />
+                </Button>
               </div>
-            </form>
-          </div>
-          <div className="datatableTitle">
-            Product Category List
-            <Link to="/admin-book-new" className="link">
-              <MdMenuBook className="icon-book-new" />
-              Add new
-            </Link>
-          </div>
-          <DataGrid
-            className="datagrid"
-            rows={rows}
-            columns={userColumns.concat(actionColumn)}
-            pageSize={9}
-            rowsPerPageOptions={[9]}
-            checkboxSelection
-          />
-          <Modal show={show} onHide={handleClose} className="modal">
-            <Modal.Header closeButton>
-              <Modal.Title>Comments</Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="modal-body">
-              <Form className="form">
-                {reviews &&
-                  reviews.map((item, i) => (
-                    <div className="book-comment-others" key={i}>
-                      <div className="book-comment-user d-flex border-top">
-                        <div className="book-comment-avatar flex-shrink-0 fs-1">
-                          <IoPersonCircleSharp />
+            </div>
+          </form>
+        </div>
+        <div className="datatableTitle">
+          Product Category List
+          <Link to="/admin-book-new" className="link">
+            <InventoryIcon className="icon-book-new" />
+            Add new
+          </Link>
+        </div>
+        <DataGrid
+          className="datagrid"
+          rows={rows}
+          columns={userColumns.concat(actionColumn)}
+          pageSize={9}
+          rowsPerPageOptions={[9]}
+          checkboxSelection
+        />
+        <Modal show={show} onHide={handleClose} className="modal">
+          <Modal.Header closeButton>
+            <Modal.Title>Comments</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="modal-body">
+            <Form className="form">
+              {reviews &&
+                reviews.map((item, i) => (
+                  <div className="book-comment-others" key={i}>
+                    <div className="book-comment-user d-flex border-top">
+                      <div className="book-comment-avatar flex-shrink-0 fs-1">
+                        <IoPersonCircleSharp />
+                      </div>
+                      <div className="book-comment-container flex-grow-1 ms-3 mt-4">
+                        <div className="book-comment-userinfo d-flex">
+                          <div className="book-comment-name w-100 fw-bold">
+                            <p>{item.name}</p>
+                          </div>
+                          <div className="book-comment-date flex-shrink-1 text-secondary fs-6">
+                            <p>{moment(item.time).format("DD/MM/YYYY")}</p>
+                          </div>
+                          <RiDeleteBin2Fill
+                            className="book-comment-delete-icon ms-5"
+                            onClick={(e) => {
+                              console.log(item._id, bookId);
+                              deleteReviewHandler(item._id, bookId);
+                            }}
+                          />
                         </div>
-                        <div className="book-comment-container flex-grow-1 ms-3 mt-4">
-                          <div className="book-comment-userinfo d-flex">
-                            <div className="book-comment-name w-100 fw-bold">
-                              {/* <p>{item.name}</p> */}
-                              <p>{item.name}</p>
-                            </div>
-                            <div className="book-comment-date flex-shrink-1 text-secondary fs-6">
-                              {/* <p>{item.time}</p> */}
-                              <p>{moment(item.time).format("DD/MM/YYYY")}</p>
-                            </div>
-                            <RiDeleteBin2Fill
-                              className="book-comment-delete-icon ms-5"
-                              onClick={(e) => {
-                                console.log(item._id, bookId);
-                                deleteReviewHandler(item._id, bookId);
-                              }}
-                            />
-                          </div>
-                          <div className="book-comment-content">
-                            {/* <p>{item.comment}</p> */}
-                            <p>{item.comment}</p>
-                          </div>
+                        <div className="book-comment-content">
+                          <p>{item.comment}</p>
                         </div>
                       </div>
                     </div>
-                  ))}
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
-          <ToastContainer
-            position="bottom-center"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-        </div>
-      )}
+                  </div>
+                ))}
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </div>
+      {/* )} */}
     </Fragment>
   );
 };
