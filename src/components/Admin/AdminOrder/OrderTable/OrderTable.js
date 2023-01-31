@@ -106,11 +106,7 @@ const OrderTable = () => {
       <div className="col-xl-6 col-lg-5 col-md-6">
         <form action="#" className="search-header">
           <div className="input-group w-100">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Tìm kiếm"
-            />
+            <input type="text" className="form-control" placeholder="Search" />
             <div className="input-group-append">
               <Button variant="dark">
                 <SearchIcon />
@@ -120,7 +116,7 @@ const OrderTable = () => {
         </form>
       </div>
       <div className="datatableTitle">
-        Quản lý đơn hàng
+        Order Management
         {/* <Link to="/users/new" className="link">
           Thêm mới
         </Link> */}
@@ -146,17 +142,17 @@ const OrderTable = () => {
       />
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Xóa đơn hàng</Modal.Title>
+          <Modal.Title>Delete order</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Bạn chấc chắn muốn xóa order {idOrderDelete} này!!?
+          Are you sure you want to delete your order {idOrderDelete}!!?
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Đóng
+            Close
           </Button>
           <Button variant="danger" onClick={handleDeleteOrder}>
-            Xóa
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>

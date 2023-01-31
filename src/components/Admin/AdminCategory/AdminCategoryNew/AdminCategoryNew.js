@@ -10,7 +10,7 @@ function AdminCategoryNew() {
     <div className="wrapper">
       <form className="form-wrapper">
         <div className="form-title-header">
-          <h5 className="mb-4">Thêm thể loại mới</h5>
+          <h5 className="mb-4">Add New Category</h5>
           <hr />
           <p className="dark-blue-text mt-4" />
         </div>
@@ -22,19 +22,19 @@ function AdminCategoryNew() {
           <input  type="text" className="form-control" /> */}
 
           <label className="form-group-label" htmlFor="category-select-add">
-            Thể loại
+            Category Name:
           </label>
           <select className="form-control form-select" id="category-select-add">
-            <option>Kinh tế</option>
-            <option>Kỹ năng sống</option>
-            <option>Ngôn tình</option>
-            <option>Tâm lý</option>
-            <option>Tiếng Anh</option>
-            <option>Tiểu thuyết</option>
+            <option>Boxes Of Love</option>
+            <option>Socks For Summer</option>
+            <option>Socks For Women</option>
+            <option>Socks For Men</option>
+            <option>Socks For Kids</option>
+            {/* <option>Tiểu thuyết</option>
             <option>Chuyên ngành</option>
             <option>Ngoại ngữ</option>
             <option>Thường thức đời sống</option>
-            <option>Khác</option>
+            <option>Khác</option> */}
           </select>
         </div>
 
@@ -43,7 +43,7 @@ function AdminCategoryNew() {
             className="form-group-label"
             htmlFor="exampleFormControlTextarea1"
           >
-            Mô tả sách
+            Describe About Category:
           </label>
           <textarea
             className="form-control"
@@ -53,10 +53,10 @@ function AdminCategoryNew() {
         </div>
 
         <button type="button" class="btn btn-submit">
-          Tạo mới
+          Save
         </button>
         <button type="button" class="btn btn-reset">
-          Khôi phục
+          Reset
         </button>
       </form>
     </div>

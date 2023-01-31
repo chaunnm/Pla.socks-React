@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import { Col, Container, Form, Row, Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRequest, clear } from "../../redux/features/user/userSlice";
-import { forgotPassword, clearMessage } from "../../redux/features/user/forgotPasswordSlice";
+import {
+  forgotPassword,
+  clearMessage,
+} from "../../redux/features/user/forgotPasswordSlice";
 import { FcHome } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope } from "react-icons/fa";
@@ -26,14 +29,14 @@ const SignIn = (props) => {
 
   const handleClose = () => setShow(false);
   const handleShow = (e) => {
-    e.preventDefault()
-    setShow(true)
+    e.preventDefault();
+    setShow(true);
   };
 
   const { error, loading, isAuthenticated } = useSelector((state) => {
     return state.user;
   });
-  const { status, message } = useSelector(state => state.forgotPassword)
+  const { status, message } = useSelector((state) => state.forgotPassword);
 
   const navigate = useNavigate();
 
@@ -64,12 +67,12 @@ const SignIn = (props) => {
     dispatch(loginRequest({ email, password }));
   };
   const handleSubmitEmail = (e) => {
-    handleClose()
-    dispatch(forgotPassword({ email }))
-  }
+    handleClose();
+    dispatch(forgotPassword({ email }));
+  };
   const handleToRegister = () => {
-    navigate('/signup')
-  }
+    navigate("/signup");
+  };
   useEffect(() => {
     if (status) {
       toast.success(message);
@@ -79,7 +82,7 @@ const SignIn = (props) => {
       toast.error(message);
       dispatch(clearMessage());
     }
-  }, [status, message])
+  }, [status, message]);
   return (
     <>
       {loading ? (
@@ -91,11 +94,14 @@ const SignIn = (props) => {
               <Row>
                 <Col md="6" lg="7" className="signIn__container__left">
                   <div className="title">
-                    <img src="/images/basket/logo.png" alt="logo" />
-                    <div className="title__name">UITBooks</div>
+                    <img src="https://i.imgur.com/mnt90vV.png" alt="logo" />
+                    <div className="title__name">Pla.socks</div>
                   </div>
                   <div className="image">
-                    <img src="https://drive.google.com/uc?id=1lL3RkPBS6QbJ8r-hz7VFa536y-jvk0B0" alt="login-img" />
+                    <img
+                      src="https://drive.google.com/uc?id=1lL3RkPBS6QbJ8r-hz7VFa536y-jvk0B0"
+                      alt="login-img"
+                    />
                   </div>
                 </Col>
                 <Col md="6" lg="5" className="signIn__container__right">
@@ -103,12 +109,12 @@ const SignIn = (props) => {
                     <button type="button" className="mb-2">
                       <Link to="/" className="btn-home">
                         <FcHome className="btn-home-icon mb-1 me-1" />
-                        Trang chủ
+                        Home
                       </Link>
                     </button>
                   </div>
                   <Form className="form">
-                    <div className="signIn__title">ĐĂNG NHẬP</div>
+                    <div className="signIn__title">Sign in</div>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       {/* <Form.Label>Email</Form.Label> */}
                       <div className="sigIn__form__row">
@@ -118,27 +124,24 @@ const SignIn = (props) => {
 
                         <Form.Control
                           type="email"
-                          placeholder="Nhập email của bạn"
+                          placeholder="Enter your email"
                           onChange={handleEmail}
                         />
                       </div>
-
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                       {/* <Form.Label>Password</Form.Label> */}
                       <div className="sigIn__form__row">
                         <div className="sigIn__form__row__icon">
-
                           <BiKey className="signIn__icon" />
                         </div>
                         <Form.Control
                           type="password"
-                          placeholder="Nhập mật khẩu"
+                          placeholder="Password"
                           onChange={handlePassword}
                         />
                       </div>
-
                     </Form.Group>
                     <div className="d-flex justify-content-center mt-3 signIn__submit">
                       <Button
@@ -146,17 +149,24 @@ const SignIn = (props) => {
                         className="w-100 signIn__button"
                         onClick={handleOnSubmit}
                       >
-                        Đăng nhập
+                        Sign in
                       </Button>
-
                     </div>
                     <div className="signin-links">
-                      <Link to="/signup" className="toLogin">Chưa có tài khoản?</Link>
-                      <a href="" className="forgotPassword" onClick={handleShow}>Quên mật khẩu?</a>
+                      <Link to="/signup" className="toLogin">
+                        Do not have an account?
+                      </Link>
+                      <a
+                        href=""
+                        className="forgotPassword"
+                        onClick={handleShow}
+                      >
+                        Forgot password?
+                      </a>
                     </div>
                     <div className="sigIn__form__separate">
                       <hr />
-                      <span> Hoặc </span>
+                      <span> Or </span>
                       <hr />
                     </div>
                     <div className="sigIn__form__row withFacebook">
@@ -164,7 +174,7 @@ const SignIn = (props) => {
                         <i className="fa-brands fa-facebook-f"></i>
                       </div>
                       <div className="sigIn__form__row__name">
-                        Đăng nhập với Facebook
+                        Sign in with Facebook
                       </div>
                     </div>
                     <div className="sigIn__form__row withGoogle">
@@ -172,7 +182,7 @@ const SignIn = (props) => {
                         <i className="fa-brands fa-google-plus-g"></i>
                       </div>
                       <div className="sigIn__form__row__name">
-                        Đăng nhập với Google
+                        Sign in with Google
                       </div>
                       {/* <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} /> */}
                     </div>
@@ -194,7 +204,7 @@ const SignIn = (props) => {
           />
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Quên mật khẩu</Modal.Title>
+              <Modal.Title>Forgot password</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Form>
@@ -202,7 +212,7 @@ const SignIn = (props) => {
                   className="mb-3"
                   controlId="exampleForm.ControlInput1"
                 >
-                  <Form.Label>Hãy nhập email của bạn</Form.Label>
+                  <Form.Label>Please enter your email</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="name@example.com"
@@ -214,10 +224,10 @@ const SignIn = (props) => {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Đóng
+                Close
               </Button>
               <Button variant="primary" onClick={handleSubmitEmail}>
-                Gửi
+                Submit
               </Button>
             </Modal.Footer>
           </Modal>

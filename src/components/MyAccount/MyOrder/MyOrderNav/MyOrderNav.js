@@ -6,17 +6,17 @@ function AccountOrderNav() {
     <div className="order-process-nav row">
       <div className="order-process-nav-shipping col">
         <NavLink activeclassname="active" to="/my-order-shipping">
-          Đang giao
+          Delivering
         </NavLink>
       </div>
       <div className="order-process-nav-ordered col">
         <NavLink activeclassname="active" to="/my-order-ordered">
-          Đã giao
+          Delivered
         </NavLink>
       </div>
       <div className="order-process-nav-canceled col">
         <NavLink activeclassname="active" to="/my-order-canceled">
-          Đã hủy
+          Cancelled
         </NavLink>
       </div>
     </div>

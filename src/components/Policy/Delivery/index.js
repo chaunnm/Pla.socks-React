@@ -1,65 +1,96 @@
 import React from "react";
-import './Delivery.css';
-import { Container, Breadcrumb } from 'react-bootstrap';
+import "./Delivery.css";
+import { Container, Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function Deli() {
-    return (
-        <Container className='delivery-container' fluid='md'>
-            <Breadcrumb>
-                <Breadcrumb.Item as={Link} to='/'>Trang chủ</Breadcrumb.Item>
-                <Breadcrumb.Item active className='text-capitalize'>Chính sách giao hàng</Breadcrumb.Item>
-            </Breadcrumb>
-            <div className='delivery-title'>
-                <img src='/images/aboutus/uitbook-logo.png' alt='UITBooks-logo' />
-                <p>
-                    Chính sách giao hàng
-                </p>
-            </div>
-            <div className='delivery-content'>
-                <p>
-                    Với đa phần đơn hàng, <b>UITBooks</b> cần vài giờ làm việc để kiểm tra thông tin và đóng gói hàng. Nếu các sản phẩm đều có sẵn hàng, <b>UITBooks.com</b> sẽ nhanh chóng bàn giao cho đối tác vận chuyển. Nếu đơn hàng có sản phẩm sắp phát hành, cửa hàng nhà sách UITBooks sẽ ưu tiên giao những sản phẩm có hàng trước cho Quý khách hàng.
-                </p>
-                <p>
-                    Trong một số trường hợp, hàng nằm không có sẵn tại kho gần nhất, thời gian giao hàng có thể chậm hơn so với dự kiến do điều hàng. Các phí vận chuyển phát sinh, <b>UITBooks</b> sẽ hỗ trợ hoàn toàn.
-                </p>
-                <p>
-                    Thời gian giao hàng không tính thứ 7, Chủ nhật, các ngày Lễ, Tết và không bao gồm tuyến huyện đảo xa.
-                </p>
-                <p>
-                    Có thể thay đổi thời gian giao hàng nếu khách hàng yêu cầu và UITBooks chủ động đổi trong trường hợp chịu ảnh hưởng của thiên tai hoặc các sự kiện đặc biệt khác.
-                </p>
-                <p>
-                    Đơn hàng của quý khách sẽ được giao tối đa trong 2 lần. Trường hợp lần đầu giao hàng không thành công, sẽ có nhân viên liên hệ để sắp xếp lịch giao hàng lần 2 với quý khách, trong trường hợp vẫn không thể liên lạc lại được hoặc không nhận được bất kì phản hồi nào từ phía quý khách, đơn hàng sẽ không còn hiệu lực.
-                </p>
-                <p>
-                    Để kiểm tra thông tin hoặc tình trạng đơn hàng của quý khách, xin vui lòng inbox fanpage hoặc gọi số hotline, cung cấp tên, số điện thoại để được kiểm tra.
-                </p>
-                <p>
-                    Khi hàng được giao đến quý khách, vui lòng ký xác nhận với nhân viên giao hàng và kiểm tra lại số lượng cũng như loại hàng hóa được giao có chính xác không. Xin quý khách vui lòng giữ lại biên lại vận chuyển và hóa đơn mua hàng để đối chiếu kiểm tra.
-                </p>
-                <p>
-                    THỜI GIAN VÀ CHI PHÍ GIAO HÀNG TẠI TỪNG KHU VỰC TRONG LÃNH THỔ VIỆT NAM:
-                </p>
-                <h4 className='heading-title'>
-                    1. Nội thành TP.HCM và Hà Nội
-                </h4>
-                <p>
-                    Thời gian: 1-2 ngày
-                </p>
-                <p>
-                    Chi phí: 15.000đ/ đơn hàng (không giới hạn giá trị)
-                </p>
-                <h4 className='heading-title'>
-                    2. Các tỉnh thành khác
-                </h4>
-                <p>
-                    Thời gian: 2-3 ngày
-                </p>
-                <p>
-                    Chi phí: 30.000đ/ đơn hàng (không giới hạn giá trị)
-                </p>
-            </div>
-        </Container>
-    );
+  return (
+    <Container className="delivery-container" fluid="md">
+      <Breadcrumb>
+        <Breadcrumb.Item as={Link} to="/">
+          Home
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active className="text-capitalize">
+          Delivery Policy
+        </Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="delivery-title">
+        <img src="https://i.imgur.com/mnt90vV.png" alt="UITBooks-logo" />
+        <p>Delivery Policy</p>
+      </div>
+      <div className="delivery-content">
+        <h5>DELIVERY</h5>
+        <p>
+          Disruption to Royal Mail services Please note, because of strike
+          action due to be taken by Royal Mail staff, any orders placed on
+          Thursday 13th October will not be dispatched until the next working
+          day (Friday 14th October 2022). We apologise for any inconvenience.
+        </p>
+        <h5>UK POSTAGE </h5>
+        <p>
+          Our Standard Tracked (48 hour) UK Delivery option is £2.95, and aims
+          to have your parcel within 2 working days. Please note, orders placed
+          after 5pm on Fridays will not be despatched until the following
+          Monday.
+        </p>
+        <p>
+          Our Priority Tracked (24 hour) UK Delivery option is £3.95, and aims
+          to have your parcel with you the next working day (next day delivery
+          is not guaranteed). Please note, orders placed after 5pm on Fridays
+          will not be despatched until the following Monday.
+        </p>
+        <p>
+          Please note, if you add a discount code which subsequently brings your
+          order total below the £40 free delivery threshold, a standard delivery
+          option (£2.95) will then be applied to your order.{" "}
+        </p>
+        <h5>HOW DO I TRACK MY ORDER?</h5>
+        <p>
+          Tracking is provided for UK orders. Once we have despatched your
+          order, you will receive an email containing your tracking number, and
+          a link to track your parcel using Royal Mail's tracking service. Royal
+          Mail will send you tracking updates via email and SMS text message.
+        </p>
+        <h5>INTERNATIONAL POSTAGE</h5>
+        <p>
+          Delivery to Europe is £3.99. EU customers please note the following
+          costs, all payable on delivery:
+        </p>
+        <p>
+          Local VAT may be applicable to your order <br></br> Duty becomes
+          payable if your order value is more than €135 <br></br> Local postal
+          services and carriers are also charging a handling fee.
+        </p>
+        <p>
+          This is based on Pla.Socks understanding of current rules (and
+          customer feedback).
+        </p>
+        <p>DELIVERY TIME AND COST IN EACH AREA IN VIETNAM TERRITORY:</p>
+        <h5 className="heading-title">1. Inner city of HCM city and Hanoi</h5>
+        <p>Time: 1-2 days</p>
+        <p>Cost: 15,000 VND / order (unlimited value)</p>
+        <h5 className="heading-title">2. Other provinces</h5>
+        <p>Time: 2-3 days</p>
+        <p>Cost: 30,000 VND/order (unlimited value)</p>
+      </div>
+      <address className="about-us-contact">
+        <div className="hotline icon-contact">
+          <img src="/images/aboutus/hotline.png" alt="Hotline" />
+          Hotline: <a href="tel:0834577251">083.457.7251</a>
+        </div>
+        <div className="email icon-contact">
+          <img src="/images/aboutus/email.png" alt="Email" />
+          Email: <a href="mailto:UITBooks@gmail.com"> Pla.socks@gmail.com</a>
+        </div>
+        <div className="location icon-contact">
+          <img src="/images/aboutus/location.png" alt="Location" />
+          Address: Quarter 6, Linh Trung, Thu Duc
+        </div>
+        <div className="website icon-contact">
+          <img src="/images/aboutus/website.png" alt="Website" />
+          Website: <a href="UITBooks.com"> Plasocks.com</a>
+        </div>
+      </address>
+    </Container>
+  );
 }

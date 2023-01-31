@@ -103,7 +103,7 @@ const AdminBookList = () => {
       dispatch(clearErrors());
     }
     if (deleteError && isDeleted) {
-      toast.success("Xóa sách thành công! 🎊", {
+      toast.success("Deleted sock successfully! 🎊", {
         position: "bottom-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -116,7 +116,7 @@ const AdminBookList = () => {
       dispatch(clearErrorsDeleted());
       dispatch(getProductsAdmin());
     } else if (deleteError != null) {
-      toast.error("Thất bại! Vui lòng thử lại 😭", {
+      toast.error("Failure! Please try again 😭", {
         position: "bottom-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -132,7 +132,7 @@ const AdminBookList = () => {
   const actionColumn = [
     {
       field: "action",
-      headerName: "Hành động",
+      headerName: "Actions",
       width: 150,
       headerAlign: "center",
       align: "center",
@@ -228,7 +228,7 @@ const AdminBookList = () => {
                   // value={search}
                   // onChange={filter}
                   className="form-control"
-                  placeholder="Tìm kiếm"
+                  placeholder="Search"
                 />
                 <div className="input-group-append">
                   <Button variant="dark">
@@ -239,10 +239,10 @@ const AdminBookList = () => {
             </form>
           </div>
           <div className="datatableTitle">
-            Danh sách các quyển sách
+            Product Category List
             <Link to="/admin-book-new" className="link">
               <MdMenuBook className="icon-book-new" />
-              Thêm mới
+              Add new
             </Link>
           </div>
           <DataGrid
@@ -255,7 +255,7 @@ const AdminBookList = () => {
           />
           <Modal show={show} onHide={handleClose} className="modal">
             <Modal.Header closeButton>
-              <Modal.Title>Danh Sách Bình Luận</Modal.Title>
+              <Modal.Title>Comments</Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal-body">
               <Form className="form">
@@ -296,7 +296,7 @@ const AdminBookList = () => {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                Đóng
+                Close
               </Button>
             </Modal.Footer>
           </Modal>

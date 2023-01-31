@@ -1,83 +1,142 @@
 import React from "react";
-import './Terms.css';
-import { Container, Breadcrumb } from 'react-bootstrap';
+import "./Terms.css";
+import { Container, Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function Terms() {
-    return (
-        <Container className='terms-container' fluid='md'>
-            <Breadcrumb>
-                <Breadcrumb.Item as={Link} to='/'>Trang chủ</Breadcrumb.Item>
-                <Breadcrumb.Item active className='text-capitalize'>Điều khoản sử dụng</Breadcrumb.Item>
-            </Breadcrumb>
-            <div className='terms-title'>
-                <img src='/images/aboutus/uitbook-logo.png' alt='UITBooks-logo' />
-                <p>
-                    Điều khoản sử dụng
-                </p>
-            </div>
-            <div className='terms-content'>
-                <p>
-                    Chào mừng Quý khách hàng truy cập website <b>UITBooks</b> <br />
-                    Chúng tôi là Công ty TNHH MTV Nhà sách <b>UITBooks</b> - chuyên phân phối các mặt hàng sách trên thị trường với phương châm "Tiếp cận tri thức một cách rẻ nhất". <br />
-                    <b>UITBooks</b> luôn đem lại sự thuận tiện cho khách hàng khi mua sắm trên nền tảng thương mại điện tử. Theo đó nhà sách chúng tôi cần sự chấp thuận của Quý khách hàng với những điều khoản mà UITBooks đưa ra. Cụ thể:
-                </p>
-                <h4 className='heading-title'>
-                    1. Tài khoản của Khách hàng
-                </h4>
-                <p>
-
-                    Khi đăng ký sử dụng tài khoản trên <b>UITBooks</b>, quý khách cần cung cấp cho website các thông tin cá nhân chính xác và đầy đủ nhất. Khi chọn mật khẩu cho tài khoản truy cập, hãy chọn mật khẩu theo cách mà không ai có thể dễ dàng đoán được.
-                </p>
-                <p>
-                    Sau khi đăng ký, quý khách chịu trách nhiệm bảo quản mật khẩu và không nên tiết lộ mật khẩu cho bất cứ ai hoặc ủy quyền, cho phép bất cứ người nào sử dụng vào bất cứ mục đích nào. <b>UITBooks</b> sẽ luôn coi việc truy cập và sử dụng các dịch vụ trên trang web bằng tên truy cập và mật khẩu của một người nào đó như là việc truy cập và sử dụng các dịch vụ bởi chính khách hàng đó, bất kể tên truy cập và mật khẩu có thể được sử dụng bởi người khác mà chủ sở hữu không biết hoặc không cho phép.
-                </p>
-                <p>
-                    Nếu phát hiện bất cứ người nào biết mật khẩu hoặc sử dụng mật khẩu của mình để truy cập và sử dụng các dịch vụ trên trang web, quý khách cần thông báo ngay lập tức cho chúng tôi và thay đổi mật khẩu hoặc yêu cầu website hỗ trợ cài đặt mật khẩu mới.
-                </p>
-                <h4 className='heading-title'>
-                    2. Quyền bảo lưu và sử dụng thông tin
-                </h4>
-                <p>
-                    Khi truy cập và sử dụng trang web, <b>UITBooks</b> có thể bảo lưu các thông tin như các số liệu thống kê quá trình truy cập, các thông tin cá nhân cung cấp cho phuongnam.com khi đăng ký… Các thông tin cá nhân bao gồm họ tên, số điện thoại, địa chỉ email, địa chỉ chỗ ở… Chúng tôi có thể sử dụng các thông tin này vào việc lập kế hoạch, nghiên cứu, thiết kế và tuyên truyền các dịch vụ hoặc cung cấp thông tin cho các cơ quan pháp luật theo yêu cầu của Luật pháp hoặc của Toà án.
-                </p>
-                <h4 className='heading-title'>
-                    3. Quyền lợi bảo mật thông tin của Khách hàng
-                </h4>
-                <p>
-                    Chúng tôi luôn coi trọng việc bảo mật thông tin và sử dụng các biện pháp tốt nhất để bảo vệ thông tin cũng như việc thanh toán của khách hàng khi sử dụng dịch vụ của website chúng tôi. Quý khách được đảm bảo rằng thông tin cá nhân mà quý khách cung cấp sẽ không được chuyển giao cho bên thứ ba nào khác vì mục đích thương mại. Mọi thông tin cá nhân đều được bảo mật ngoại trừ trường hợp Cơ quan Pháp luật yêu cầu.
-                </p>
-                <h4 className='heading-title'>
-                    4. Trách nhiệm của khách hàng
-                </h4>
-                <p>
-                    Quý khách không được quyền xâm phạm, xâm nhập, tiếp cận, sử dụng hay tìm cách xâm phạm, xâm nhập, tiếp cận hoặc sử dụng bất kỳ phần nào trong máy chủ của chúng tôi, và/ hoặc bất kỳ khu vực dữ liệu nào nếu không được chúng tôi cho phép.
-                </p>
-                <p>
-                    Quý khách không được quyền gửi lên hoặc truyền phát bất kỳ thông tin bất hợp pháp, lừa gạt, bôi nhọ, sỉ nhục, tục tĩu, khiêu dâm, xúc phạm, đe dọa, lăng mạ, thù hận, kích động… hoặc trái với chuẩn mực đạo đức chung của xã hội dưới bất kì hình thức nào, bao gồm cả việc truyền bá hay khuyến khích những hành vi có thể cấu thành tội phạm hay vi phạm bất cứ điều khoản nào của luật pháp địa phương, quốc gia hay quốc tế. Chúng tôi tôn trọng quyền tự do ngôn luận, nhưng cũng bảo lưu việc có toàn quyền lược bớt, hoặc xoá bỏ một phần hoặc toàn bộ nội dung nào các bạn đưa lên, bất kể việc vi phạm đó là rõ ràng hay chỉ là hàm ý.
-                </p>
-                <p>
-                    Quý khách không được phép gửi hoặc truyền bất kỳ thông điệp nào mang tính quảng cáo, mời gọi, thư dây chuyền, cơ hội đầu tư hay bất kỳ dạng liên lạc có mục đích thương mại nào mà người dùng không mong muốn.
-                </p>
-                <p>
-                    Chúng tôi có toàn quyền, vào mọi lúc, cấm hoặc từ chối truy cập của bạn vào <b>UITBooks</b> hoặc bất kỳ phần nào của website ngay lập tức mà không cần báo trước nếu chúng tôi cho rằng bạn đã vi phạm bất kỳ điều khoản nào trong bản Quy định này, hoặc việc cấm truy cập xuất phát từ nhận định của chúng tôi, khi chúng tôi cho rằng từ chối đó phù hợp và cần thiết trong thẩm quyền của chúng tôi.
-                </p>
-                <h4 className='heading-title'>
-                    5. Đơn hàng và giá cả
-                </h4>
-                <p>
-                    Chúng tôi cam kết sẽ cung cấp thông tin giá cả chính xác nhất cho người mua hàng. Tuy nhiên, đôi lúc vẫn có sai sót xảy ra, ví dụ như trường hợp giá sản phẩm không hiển thị chính xác trên web hoặc sản phẩm đó không có ưu đãi khuyến mãi, tùy theo từng trường hợp chúng tôi sẽ chủ động liên hệ hướng dẫn hoặc thông báo hủy đơn hàng đó cho quý khách nếu quý khách không có nhu cầu tiếp tục mua sản phẩm đó.
-                </p>
-                <h4 className='heading-title'>
-                    6. Luật pháp và thẩm quyền tại lãnh thổ Việt Nam
-                </h4>
-                <p>
-                    Quý khách đồng ý rằng Quy định sử dụng và bất kỳ bất đồng nào phát sinh từ việc bạn sử dụng website này hoặc các sản phẩm và dịch vụ của chúng tôi sẽ được giải quyết theo luật pháp hiện hành của Nước Cộng hoà Xã hội Chủ nghĩa Việt Nam. Thông qua việc đăng ký hoặc sử dụng website và dịch vụ của chúng tôi, quý khách được xem như đã đồng ý và tuân thủ toàn bộ các quy định của Luật pháp Việt Nam.
-                </p>
-                <p>
-                    Bằng việc truy cập và sử dụng các dịch vụ của website chúng tôi nghĩa là quý khách đã đồng ý với các điều khoản sử dụng trên đây. Trang web có quyền thay đổi hoặc chỉnh sửa bất kỳ phần nào trong điều khoản mua bán hàng hóa này và các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web sau khi các thay đổi về điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.
-                </p>
-            </div>
-        </Container>
-    );
+  return (
+    <Container className="terms-container" fluid="md">
+      <Breadcrumb>
+        <Breadcrumb.Item as={Link} to="/">
+          Home
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active className="text-capitalize">
+          Terms of use
+        </Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="terms-title">
+        <img src="https://i.imgur.com/mnt90vV.png" alt="UITBooks-logo" />
+        <p>Terms of use</p>
+      </div>
+      <div className="terms-content">
+        <p>
+          Welcome customers to visit website <b>Pla.socks</b> <br />
+          We are Bookstore Company Limited <b>Pla.socks</b> - specializing in
+          distribution distribute book products on the market with the motto
+          "Access to knowledge" the cheapest way." <br />
+          <b>Pla.socks</b> always brings convenience to customers when buying
+          shop on e-commerce platforms. Accordingly, the bookstore we need Your
+          acceptance of the terms that Pla.socks show. Specifically:
+        </p>
+        <h4 className="heading-title">1. Client's Account</h4>
+        <p>
+          When registering for an account on <b>Pla.socks</b>, you need to
+          provide the website with the most accurate and complete personal
+          information. When choosing a password for the access account, choose
+          the password according to in a way that no one can easily guess.
+        </p>
+        <p>
+          After registration, you are responsible for maintaining your password
+          and Do not disclose your password to anyone or authorize or allow any
+          used by anyone for any purpose. <b>Pla.socks</b> will always treat the
+          access and use of the services on the website with someone's username
+          and password as access and use the services by the same customer,
+          regardless of username and the password can be used by others without
+          the owner know or not allow.
+        </p>
+        <p>
+          If anyone finds out that anyone knows the password or uses it to
+          access and use the services on the website, you You need to
+          immediately notify us and change your password or ask the website to
+          support setting up a new password.
+        </p>
+        <h4 className="heading-title">
+          2. Right of storage and use of information
+        </h4>
+        <p>
+          When accessing and using the website, <b>Pla.socks</b> may reserve
+          information such as access statistics, information Personal
+          information provided to phuongnam.com when registering… Personal
+          information include full name, phone number, email address,
+          residential address, etc. We may use this information for planning,
+          research, design, and promote services or provide information
+          information to legal authorities as required by Law or by Court.
+        </p>
+        <h4 className="heading-title">
+          3. Customer's information security benefits
+        </h4>
+        <p>
+          We always attach great importance to information security and use
+          security measures The best way to protect customer information and
+          payment goods when using the services of our website. You are
+          guaranteed guarantee that the personal information you provide will
+          not be transferred to any other third party for commercial purposes.
+          All Personal information is kept confidential except in the case of
+          French Agency required law.
+        </p>
+        <h4 className="heading-title">4. Customer Responsibilities</h4>
+        <p>
+          You may not infringe, infringe, access, use or attempt to infringe,
+          enter, access or use any part in our servers, and/or any data area if
+          not allowed by us.
+        </p>
+        <p>
+          You are not authorized to post or transmit any information illegal,
+          deceptive, libelous, insulting, obscene, pornographic, offensive
+          offending, threatening, insulting, hateful, inciting… or contrary to
+          the norm the general morality of society in any way, including
+          propagate or encourage conduct that may constitute a crime or violate
+          any provision of local or national law or international. We respect
+          freedom of speech, but also reserves the right, in its sole
+          discretion, to omit, or remove, in whole or in part whatever set of
+          content you post, regardless of whether the violation is obvious Or
+          just an implication.
+        </p>
+        <p>
+          You are not authorized to send or transmit any messages advertising,
+          solicitation, chain letters, investment opportunities or any other
+          What kind of commercial communication is not intended by the user?
+          would like.
+        </p>
+        <p>
+          We reserve the right, at all times, to ban or deny your access you go
+          to <b>Pla.socks</b> or any part of the website immediately immediately
+          without notice if we believe you have violated any any provision of
+          these Terms, or the prohibition of access comes from our judgment,
+          when we consider denying that is appropriate and necessary in our
+          jurisdiction.
+        </p>
+        <h4 className="heading-title">5. Orders and prices</h4>
+        <p>
+          We are committed to providing the most accurate pricing information
+          for you buyer. However, sometimes mistakes still happen, for example
+          in case the product price is not displayed correctly on the website or
+          the product the product does not have a promotional offer, as the case
+          may be I will actively contact for instructions or notice to cancel
+          that order customers if you have no need to continue buying that
+          product.
+        </p>
+        <h4 className="heading-title">
+          6. Law and jurisdiction in the territory of Vietnam
+        </h4>
+        <p>
+          You agree that the Terms of Use and any disagreement arising from your
+          use of this website or its products and services our case will be
+          dealt with in accordance with the applicable laws of the Country
+          Socialist Republic of Vietnam. Through registration or use Using our
+          website and services, you are deemed to have agree and comply with all
+          provisions of the Laws of Vietnam.
+        </p>
+        <p>
+          By accessing and using the services of our website means that you have
+          agreed to the terms of use above. The website reserves the right to
+          change or modify any part of the these terms of sale and changes are
+          effective immediately posted on the website without prior notice. And
+          when precious visitors continue to use the website after the changes
+          to the terms This is posted, which means that you accept the changes
+          change that.
+        </p>
+      </div>
+    </Container>
+  );
 }

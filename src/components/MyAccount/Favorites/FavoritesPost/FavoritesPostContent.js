@@ -25,7 +25,7 @@ function FavoritesPostContent() {
           alt="no item favorites"
         />
         <p>
-          <b>Thông cảm cho tụi mình tính năng này đang phát triển nha 🥺</b>
+          <b>Please forgive us this feature is in development 🥺</b>
         </p>
       </div>
     </div>

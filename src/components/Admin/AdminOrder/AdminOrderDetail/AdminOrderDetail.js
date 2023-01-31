@@ -23,8 +23,8 @@ const AdminOrderDetail = (props) => {
   const [orderDetails, setOrderDetails] = useState();
   const [address, setAddress] = useState("");
   const [orderStatus, setOrderStatus] = useState("");
-  let totalQuantity = 0
-  let totalPrice = 0
+  let totalQuantity = 0;
+  let totalPrice = 0;
   const location = useLocation();
   const dispatch = useDispatch();
   const orderId = location.state.orderId;
@@ -82,14 +82,14 @@ const AdminOrderDetail = (props) => {
       ) : (
         <div className="AdminOrderDetailContainer">
           <Container>
-            <h4 className="title">Chi tiết đơn hàng {orderId}</h4>
+            <h4 className="title">Order details {orderId}</h4>
 
             <Row>
               <Col xs="12" md="6" lg="6">
                 <FormGroup>
                   <div className="orderRow">
                     <label className="orderRow__label order__date__label">
-                      Ngày tạo:{" "}
+                      Created:{" "}
                     </label>
                     <div className="orderRow__value order__date__value">
                       {moment(
@@ -100,23 +100,23 @@ const AdminOrderDetail = (props) => {
                 </FormGroup>
                 <FormGroup>
                   <div className="orderRow">
-                    <label className="orderRow__label ">Tình trạng:</label>
+                    <label className="orderRow__label ">Status:</label>
                     <div className="order__state ">
                       <select
                         value={orderDetails ? orderDetails.orderStatus : ""}
                         onChange={(e) => setOrderStatus(e.target.value)}
                       >
-                        <option value="Processing">Đang xử lý</option>
-                        <option value="Shipping">Đang giao</option>
-                        <option value="Shipped">Đã giao</option>
-                        <option value="Canceled">Đã hủy</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Shipping">Delivering</option>
+                        <option value="Shipped">Delivered</option>
+                        <option value="Canceled">Cancelled</option>
                       </select>
                     </div>
                   </div>
                 </FormGroup>
                 <FormGroup>
                   <div className="orderRow">
-                    <label className="orderRow__label ">Thanh toán:</label>
+                    <label className="orderRow__label ">Payment:</label>
                     <div className="orderRow__value ">{props.payMethod}</div>
                   </div>
                 </FormGroup>
@@ -135,8 +135,8 @@ const AdminOrderDetail = (props) => {
             <div className="product">
               {orderDetails ? (
                 orderDetails.orderItems.map((orderItem, index) => {
-                  totalQuantity += orderItem.quantity
-                  totalPrice += orderItem.price * orderItem.quantity
+                  totalQuantity += orderItem.quantity;
+                  totalPrice += orderItem.price * orderItem.quantity;
                   return (
                     <InformationProduct
                       key={index}
@@ -161,26 +161,26 @@ const AdminOrderDetail = (props) => {
             <div className="form">
               <Form>
                 <div className="form__group">
-                  <label>Địa chỉ nhà</label>
+                  <label>Address</label>
                   <input
                     type="text"
                     placeholder="Phường 6, Linh trung, Thủ Đức"
                   />
                 </div>
                 <div className="form__group">
-                  <label>Số điện thoại</label>
+                  <label>Phone number</label>
                   <input type="text" placeholder="0123456789" />
                 </div>
                 <div className="form__group">
-                  <label>Địa chỉ gmail</label>
+                  <label>Gmail</label>
                   <input type="text" placeholder="dienchau@gmail.com" />
                 </div>
                 <div className="form__btn">
                   <div>
                     <div className="form__btn__close" onClick={closeEdit}>
-                      Đóng
+                      Close
                     </div>
-                    <div className="form__btn__save">Lưu</div>
+                    <div className="form__btn__save">Save</div>
                   </div>
                 </div>
               </Form>

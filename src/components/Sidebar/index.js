@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./sidebar.scss";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
+import InventoryIcon from "@mui/icons-material/Inventory";
 import CategoryIcon from "@mui/icons-material/Category";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
@@ -29,58 +30,108 @@ const Sidebar = () => {
   const handleLogout = () => {
     dispatch(logoutRequest());
   };
+  let activeStyle = {
+    color: "#61C67A",
+    fontWeight: "bold",
+  };
+
   return (
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }} className="uitlogo">
-          <img src="/images/footer/uitbook-logo.png" alt="UITBooks-logo" />
-          <img src="/images/footer/UITBooks.com.png" alt="UIT" />
+          <img src="https://i.imgur.com/mnt90vV.png" alt="UITBooks-logo" />
+          {/* <img src="/images/footer/UITBooks.com.png" alt="UIT" /> */}
         </Link>
       </div>
       {/* <hr /> */}
       <div className="center">
         <ul>
-          <p className="title">QUẢN LÝ ADMIN</p>
-          <NavLink to="/admin-user-list" style={{ textDecoration: "none" }}>
-            <li>
+          {/* <p className="title">QUẢN LÝ ADMIN</p> */}
+          <NavLink
+            to="/admin-user-list"
+            // style={{ textDecoration: "none" }}
+            // style={({ isActive }) => [isActive ? activeStyle : undefined]}
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: "#000",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
+            <div>
               <AccessibilityIcon className="icon" />
-              <span>Quản Lý Người Dùng</span>
-            </li>
+              {/* Users */}
+              <span>Users</span>
+            </div>
           </NavLink>
-          <NavLink to="/admin-category-list" style={{ textDecoration: "none" }}>
-            <li>
+          <NavLink
+            to="/admin-category-list"
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: "#000",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
+            <div>
               <CategoryIcon className="icon" />
-              <span>Quản Lý Thể Loại Sách</span>
-            </li>
+              <span> Product Category</span>
+            </div>
           </NavLink>
-          <NavLink to="/admin-book-list" style={{ textDecoration: "none" }}>
-            <li>
-              <MenuBookIcon className="icon" />
-              <span>Quản Lý Sách</span>
-            </li>
+          <NavLink
+            to="/admin-book-list"
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: "#000",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
+            <div>
+              <InventoryIcon className="icon" />
+              <span> Products</span>
+            </div>
           </NavLink>
-          <NavLink to="/admin-order" style={{ textDecoration: "none" }}>
-            <li>
+          <NavLink
+            to="/admin-order"
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: "#000",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
+            <div>
               <LocalMallIcon className="icon" />
-              <span>Quản Lý Đơn Hàng</span>
-            </li>
+              <span> Orders</span>
+            </div>
           </NavLink>
-          <NavLink to="/admin-blog-list" style={{ textDecoration: "none" }}>
-            <li>
+          <NavLink
+            to="/admin-blog-list"
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: "#000",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
+            <div>
               <RateReviewIcon className="icon" />
-              <span>Quản Lý Blog</span>
-            </li>
+              <span> Blogs</span>
+            </div>
           </NavLink>
-          <NavLink to="/admin-statistic" style={{ textDecoration: "none" }}>
-            <li>
+          <NavLink
+            to="/admin-statistic"
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: "#000",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
+            <div>
               <AnalyticsIcon className="icon" />
-              <span>Thống Kê</span>
-            </li>
+              <span> Statistics</span>
+            </div>
           </NavLink>
-          <li onClick={handleLogout}>
+          <div onClick={handleLogout}>
             <ExitToAppIcon className="icon" />
-            <span>Đăng Xuất</span>
-          </li>
+            <span> Log Out</span>
+          </div>
         </ul>
         <ToastContainer
           position="bottom-center"

@@ -14,7 +14,6 @@ const AdminStatistics = (props) => {
     <div className="AdminStatistics">
       <Container>
         <div className="widgets">
-
           <Widget type="user" />
           <Widget type="order" />
           <Widget type="book" />
@@ -26,11 +25,11 @@ const AdminStatistics = (props) => {
               <Featured />
             </Col>
             <Col xs="12" md="7" lg="7">
-              <Chart title="6 tháng trước (doanh thu)" aspect={2 / 1} />
+              <Chart title="6 months ago (revenue)" aspect={2 / 1} />
             </Col>
           </Row>
         </div>
-        <TableRow/>
+        <TableRow />
       </Container>
     </div>
   );

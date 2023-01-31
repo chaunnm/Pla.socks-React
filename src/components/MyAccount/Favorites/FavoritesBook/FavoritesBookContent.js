@@ -18,7 +18,7 @@ const FavoritesBook = () => {
             alt="no item favorites"
           />
           <p>
-            <b>Không có cuốn sách nào trong mục này </b>
+            <b>There are no socks in this category</b>
           </p>
         </div>
       ) : (

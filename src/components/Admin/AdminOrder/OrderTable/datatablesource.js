@@ -11,13 +11,13 @@ export const userColumns = [
   {
     field: "barcode",
     headerAlign: "center",
-    headerName: "Mã đơn hàng",
+    headerName: "Order ID",
     align: "center",
     width: 130,
   },
   {
     field: "employeeName",
-    headerName: "Tên người đặt",
+    headerName: "Owner",
     headerAlign: "center",
     align: "center",
     width: 200,
@@ -25,20 +25,20 @@ export const userColumns = [
 
   {
     field: "status",
-    headerName: "Tình trạng",
+    headerName: "Status",
     headerAlign: "center",
     align: "center",
     width: 170,
     renderCell: (params) => {
       let a;
       if (params.row.status === "Canceled") {
-        a = "Hủy đơn";
+        a = "Canceled";
       } else if (params.row.status === "Shipped") {
-        a = "Đã bán";
+        a = "Shipped";
       } else if (params.row.status === "Processing") {
-        a = "Đang xử lý";
+        a = "Processing";
       } else if (params.row.status === "Shipping") {
-        a = "Đang vận chuyển";
+        a = "Shipping";
       }
 
       return (
@@ -53,7 +53,7 @@ export const userColumns = [
   {
     field: "date",
     headerAlign: "center",
-    headerName: "Ngày đặt",
+    headerName: "Booking Date",
     align: "center",
     width: 150,
   },
@@ -64,28 +64,28 @@ export const userRows = [
   {
     id: 1,
     barcode: "BT012345",
-    employeeName: "Bùi Thị Diễn Châu",
+    employeeName: "Henry Nguyen",
     status: "Canceled",
     date: "05/08/2022",
   },
   {
     id: 2,
     barcode: "BT012345",
-    employeeName: "Bùi Thị Diễn Châu",
+    employeeName: "Doe Smith",
     status: "Shipped",
     date: "05/08/2022",
   },
   {
     id: 3,
     barcode: "BT012345",
-    employeeName: "Bùi Thị Diễn Châu",
+    employeeName: "Tailor",
     status: "Processing",
     date: "05/08/2022",
   },
   {
     id: 4,
     barcode: "BT012345",
-    employeeName: "Bùi Thị Diễn Châu",
+    employeeName: "NhanPham",
     status: "Shipping",
     date: "05/08/2022",
   },
