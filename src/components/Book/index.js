@@ -45,7 +45,7 @@ export default function BookDetail() {
       //   return;
       // }
       // dispatch(addItemsToCart(id, 1));
-      toast.success(` ${product?.name} đã được thêm vào giỏ hàng! 🛒`, {
+      toast.success(` ${product?.name} has been added to cart! 🛒`, {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -63,7 +63,7 @@ export default function BookDetail() {
           onClick={() => addToCart(product._id, product.Stock)}
           className="book-add-btn btn border rounded text-center fs-6 text-uppercase p-3 ps-4 pe-4 fw-bold"
         >
-          Thêm vào giỏ hàng
+          Add to cart
         </button>
       </div>
     );
@@ -98,7 +98,7 @@ export default function BookDetail() {
             {" "}
             <BsFillHeartFill />{" "}
           </i>
-          Thêm vào yêu thích
+          Add to favorites
         </button>
       </div>
     );

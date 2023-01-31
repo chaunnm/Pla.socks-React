@@ -5,8 +5,9 @@
 
         &__title {
             font-size: 20px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 15px;
+            color: green;
         }
 
         &__row {
@@ -19,7 +20,7 @@
                 align-items: center;
                 font-size: 20px;
                 width: 30px;
-                color: #106CC0;
+                color: #61C67A;
 
             }
 
@@ -31,8 +32,9 @@
     }
 
     .edit {
-        color: #106CC0;
+        color: green;
         cursor: pointer;
+        font-weight: 600;
     }
 
 }

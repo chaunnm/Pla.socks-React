@@ -1,6 +1,6 @@
 .myOrder{
     border-radius: 5px;
-    background-color: #F2F2F2;
+    background-color: #D9EEEF;
     padding: 15px 15px;
     margin-top: 20px;
     line-height: 25px;
@@ -13,7 +13,9 @@
     &__information{
 
         &__quantity{
-            color: #106CC0;
+            color: #61C67A;
+            font-weight: bold;
+            font-size: 18px;
         }
         &__row{
             // margin-bottom: 10px;
@@ -26,7 +28,8 @@
         display: flex;
         justify-content: space-between;
         &__name{
-            font-weight: 500;
+            font-weight: 600;
+            color: #61C67A;
         }
         &__value{
             color: #F90000;

@@ -57,7 +57,7 @@ export const products = [
     price: 45000,
     Sold: 25,
     ratings: 4.5,
-    category: "",
+    category: "Boxes Of Love",
     stock: 10,
     reviews: [
       {
@@ -74,7 +74,7 @@ export const products = [
     price: 65000,
     Sold: 35,
     ratings: 5,
-    category: "",
+    category: "Socks For Women",
     stock: 10,
     reviews: [
       {
@@ -91,7 +91,7 @@ export const products = [
     price: 35000,
     Sold: 45,
     ratings: 2,
-    category: "",
+    category: "Boxes Of Love",
     stock: 10,
     reviews: [
       {
@@ -108,7 +108,7 @@ export const products = [
     price: 25000,
     Sold: 65,
     ratings: 2.5,
-    category: "",
+    category: "Socks For Summer",
     stock: 10,
     reviews: [
       {
@@ -125,7 +125,7 @@ export const products = [
     price: 15000,
     Sold: 75,
     ratings: 4.5,
-    category: "",
+    category: "Socks For Summer",
     stock: 10,
     reviews: [
       {
@@ -176,7 +176,7 @@ export const products = [
     price: 35000,
     Sold: 100,
     ratings: 3.5,
-    category: "",
+    category: "Sock For Men",
     stock: 10,
   },
   {

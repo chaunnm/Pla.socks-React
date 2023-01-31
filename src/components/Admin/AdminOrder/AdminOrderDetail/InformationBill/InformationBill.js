@@ -8,25 +8,31 @@ const InformationBill = (props) => {
       <div className="myOrder">
         <div className="myOrder__information">
           <div className="myOrder__information__quantity">
-            Amount: {props.quantity} item
+            Amount: 1{/* {props.quantity}  */}
+            item
           </div>
           <div className="myOrder__information__row">
             <div className="myOrder__information__row__name">Total: </div>
             <div className="myOrder__information__row__value">
-              {props.totalMoney} đ
+              {/* {props.totalMoney}  */}
+              25000 đ
             </div>
           </div>
           <div className="myOrder__information__row">
             <div className="myOrder__information__row__name">Discount: </div>
             <div className="myOrder__information__row__value">
-              {props.discount} đ
+              {/* {props.discount}  */}
+              0đ
             </div>
           </div>
         </div>
         <hr className="myOrder__line" />
         <div className="myOrder__bill">
           <div className="myOrder__bill__name">Total:</div>
-          <div className="myOrder__bill__value">{props.totalMoney} đ</div>
+          <div className="myOrder__bill__value">
+            {/* {props.totalMoney} */}
+            25000 đ
+          </div>
         </div>
       </div>
     </div>

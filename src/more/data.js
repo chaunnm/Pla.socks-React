@@ -7,15 +7,15 @@ export const publiserData = [
   "NXB Hội Nhà Văn",
 ];
 export const categoryData = [
-  "Kinh tế",
-  "Kỹ năng sống",
-  "Ngôn tình",
-  "Tâm lý",
-  "Tiếng Anh",
-  "Tiểu thuyết",
-  "Sách chuyên ngành",
-  "Sách ngoại ngữ",
-  "Thường thức đời sống",
+  "Boxes Of Love",
+  "Socks For Summer",
+  "Socks For Women",
+  "Socks For Men",
+  "Socks For Kids",
+  // "Tiểu thuyết",
+  // "Sách chuyên ngành",
+  // "Sách ngoại ngữ",
+  // "Thường thức đời sống",
 ];
 export const authorData = [
   "Nguyễn Nhật Ánh",

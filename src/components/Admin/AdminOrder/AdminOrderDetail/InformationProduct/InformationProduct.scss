@@ -18,17 +18,19 @@
             background-color: #0d53a318;
         }
         &__information{
-            width: 300px;
+            // width: 300px;
             line-height: 25px;
             &__title{
                 color: #0D52A3;
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 line-height: 35px;
             }
             &__icon{
                 cursor: pointer;
                 display: flex;
                 align-items: center;
+                margin-top: 5px;
+                color: #FF424E;
             }
             &__icon i{
                 font-size: 20px;
@@ -57,6 +59,7 @@
         }
         &__price{
             font-weight: 500;
+            color: #FF424E;
         }
     }
 }

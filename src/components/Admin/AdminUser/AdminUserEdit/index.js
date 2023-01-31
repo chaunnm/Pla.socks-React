@@ -78,7 +78,7 @@ function UserEdit() {
       ) : (
         <div className="admin-user-edit-form-infor">
           <div className="admin-form-infor-heading">
-            <h4 className="mb-4">Chỉnh sửa thông tin</h4>
+            <h4 className="mb-4">Update Information</h4>
             <hr />
             <p className="dark-grey-text mt-4" />
           </div>
@@ -154,7 +154,7 @@ function UserEdit() {
                     htmlFor="form-username-body"
                     className="col-sm-2 col-form-label edit-user-label"
                   >
-                    Tên đăng nhập
+                    Username
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -186,7 +186,7 @@ function UserEdit() {
                     htmlFor="form-role-body"
                     className="col-sm-2 col-form-label edit-user-label"
                   >
-                    Lựa chọn role
+                    Pick Role
                   </label>
                   <div className="col-sm-10">
                     <select
@@ -195,7 +195,7 @@ function UserEdit() {
                       value={role}
                       onChange={(e) => setRole(e.target.value)}
                     >
-                      <option selected>Lựa chọn...</option>
+                      <option selected>Choose...</option>
                       <option value="user">User</option>
                       <option value="admin">Admin</option>
                     </select>
@@ -206,7 +206,7 @@ function UserEdit() {
                     htmlFor="form-avatar-body"
                     className="col-sm-2 col-form-label edit-user-label"
                   >
-                    Chọn Avatar
+                    Pick Avatar
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -225,12 +225,9 @@ function UserEdit() {
                   </label>
                   <div className="col-sm-10">
                     {avatar ? (
-                      <img
-                        src={avatar}
-                        className="avatar"
-                      />
+                      <img src={avatar} className="avatar" alt="avatar" />
                     ) : (
-                      "Chưa có Avatar"
+                      "Don't have Avatar"
                     )}
                   </div>
                 </div>

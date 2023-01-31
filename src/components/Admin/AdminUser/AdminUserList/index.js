@@ -105,7 +105,7 @@ const UserList = () => {
     <div className="datatable">
       <div className="datatableTitle">
         User List
-        <Link to="/admin-user-new" className="link">
+        <Link to="/admin-user-new" className="link link-backgound">
           <FaUserPlus className="addUser" />
           Add new
         </Link>
