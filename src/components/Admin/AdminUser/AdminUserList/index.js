@@ -72,7 +72,7 @@ const UserList = () => {
   const actionColumn = [
     {
       field: "action",
-      headerName: "Hành động",
+      headerName: "Actions",
       width: 120,
       headerAlign: "center",
       align: "center",
@@ -104,10 +104,10 @@ const UserList = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Danh sách người dùng
+        User List
         <Link to="/admin-user-new" className="link">
           <FaUserPlus className="addUser" />
-          Thêm mới
+          Add new
         </Link>
       </div>
       <DataGrid
@@ -120,15 +120,15 @@ const UserList = () => {
       />
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Xoá Người Dùng</Modal.Title>
+          <Modal.Title>Delete User</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Bạn có thực sự muốn xóa người dùng này?</Modal.Body>
+        <Modal.Body>Do you really want to delete this user?</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Huỷ
+            Cancel
           </Button>
           <Button variant="danger" onClick={handleDeleteUser}>
-            Xoá
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>

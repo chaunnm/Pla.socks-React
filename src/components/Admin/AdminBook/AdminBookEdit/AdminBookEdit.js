@@ -21,7 +21,7 @@ function AdminBookEdit() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("Tâm lý");
+  const [category, setCategory] = useState("Boxes Of Love");
   const [publisher, setPublisher] = useState("");
   const [author, setAuthor] = useState("");
   const [Stock, setStock] = useState(0);
@@ -74,7 +74,7 @@ function AdminBookEdit() {
     }
     if (isUpdated) {
       // alert("book Updated Successfully");
-      toast.success('Cập nhật sách thành công! 🎊', {
+      toast.success("Update successfully! 🎊", {
         position: "bottom-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -86,7 +86,7 @@ function AdminBookEdit() {
       dispatch(getProductDetails(id));
       dispatch(resetStateUpdated());
       setTimeout(() => {
-        navigate("/admin-book-list")
+        navigate("/admin-book-list");
       }, 3000);
       // navigate("/admin-book-list");
     }
@@ -141,13 +141,13 @@ function AdminBookEdit() {
     <div className="container">
       <form className="form-container" onSubmit={updateBookSubmitHandler}>
         <div className="form-title-header">
-          <h5 className="mb-4">Chỉnh sửa sách</h5>
+          <h5 className="mb-4">Edit Product</h5>
           <hr />
           <p className="dark-blue-text mt-4" />
         </div>
         <div className="form-group">
           <label className="form-group-label" htmlFor="book-name-add">
-            Tên sách
+            Name
           </label>
           <input
             type="text"
@@ -161,7 +161,7 @@ function AdminBookEdit() {
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="category-select-add">
-            Thể loại
+            Category
           </label>
           <select
             className="form-control form-select"
@@ -169,20 +169,20 @@ function AdminBookEdit() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option>Kinh tế</option>
-            <option>Kỹ năng sống</option>
-            <option>Ngôn tình</option>
-            <option>Tâm lý</option>
-            <option>Tiếng Anh</option>
-            <option>Tiểu thuyết</option>
+            <option>Boxes Of Love</option>
+            <option>Socks For Summer</option>
+            <option>Socks For Women</option>
+            <option>Socks For Men</option>
+            <option>Socks For Kids</option>
+            {/* <option>Tiểu thuyết</option>
             <option>Chuyên ngành</option>
             <option>Ngoại ngữ</option>
             <option>Thường thức đời sống</option>
-            <option>Khác</option>
+            <option>Khác</option> */}
           </select>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="form-group-label" htmlFor="author-add">
             Tác giả
           </label>
@@ -194,9 +194,9 @@ function AdminBookEdit() {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
-        </div>
+        </div> */}
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="form-group-label" htmlFor="publisher-add">
             Nhà xuất bản
           </label>
@@ -208,11 +208,11 @@ function AdminBookEdit() {
             value={publisher}
             onChange={(e) => setPublisher(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="img-add">
-            Hình ảnh
+            Images
           </label>
           <input
             type="file"
@@ -242,7 +242,7 @@ function AdminBookEdit() {
           </div>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="form-group-label" htmlFor="pageNumber-add">
             Số trang
           </label>
@@ -254,11 +254,11 @@ function AdminBookEdit() {
             placeholder={pageNumber}
             onChange={(e) => setPageNumber(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="Stock-add">
-            Tồn kho
+            Stock
           </label>
           <input
             type="number"
@@ -272,7 +272,7 @@ function AdminBookEdit() {
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="publisher-add">
-            Giá
+            Price
           </label>
           <input
             type="text"
@@ -289,7 +289,7 @@ function AdminBookEdit() {
             className="form-group-label"
             htmlFor="exampleFormControlTextarea1"
           >
-            Mô tả sách
+            Describe
           </label>
           <textarea
             className="form-control"
@@ -302,10 +302,10 @@ function AdminBookEdit() {
         </div>
 
         <button type="submit" className="btn btn-submit">
-          Gửi
+          Submit
         </button>
         <button type="button" className="btn btn-reset">
-          Khôi phục
+          Reset
         </button>
       </form>
       <ToastContainer

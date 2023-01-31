@@ -18,7 +18,7 @@ const BlogList = () => {
   const actionColumn = [
     {
       field: "action",
-      headerName: "Hành động",
+      headerName: "Actions",
       width: 120,
       minWidth: 100,
       maxwidth: 180,
@@ -48,11 +48,7 @@ const BlogList = () => {
       <div className="col-xl-6 col-lg-5 col-md-6">
         <form action="#" className="search-header">
           <div className="input-group w-100">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Tìm kiếm"
-            />
+            <input type="text" className="form-control" placeholder="Search" />
             <div className="input-group-append">
               <Button variant="dark">
                 <SearchIcon />
@@ -62,10 +58,10 @@ const BlogList = () => {
         </form>
       </div>
       <div className="datatableTitle">
-        Danh sách bài blog
+        Blog List
         <Link to="/admin-blog-new" className="link">
           <MdNoteAdd className="addBlog" />
-          Thêm mới
+          Add new
         </Link>
       </div>
       <DataGrid

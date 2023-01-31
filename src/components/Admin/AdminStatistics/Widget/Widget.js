@@ -1,31 +1,11 @@
-// import React from 'react'
-// import PropTypes from 'prop-types'
-
-// const BlockStatistics = props => {
-//   return (
-//     <div>
-//         <div className="BlockStatistics">
-            
-//         </div>
-//     </div>
-//   )
-// }
-
-// BlockStatistics.propTypes = {
-    
-
-// }
-
-// export default BlockStatistics
-
-
 import "./widget.scss";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import InventoryIcon from "@mui/icons-material/Inventory";
 
 const Widget = ({ type }) => {
   let data;
@@ -37,7 +17,7 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       data = {
-        title: "Khách hàng",
+        title: "Customer",
         isMoney: false,
         quantity: "5K",
         link: "See all users",
@@ -55,7 +35,7 @@ const Widget = ({ type }) => {
       break;
     case "order":
       data = {
-        title: "Đơn hàng",
+        title: "Order",
         quantity: "7K",
         isMoney: false,
         link: "View all orders",
@@ -74,7 +54,7 @@ const Widget = ({ type }) => {
       break;
     case "earning":
       data = {
-        title: "Doanh thu",
+        title: "Revenue",
         quantity: "50 Triệu",
         isMoney: true,
         link: "View net earnings",
@@ -82,22 +62,23 @@ const Widget = ({ type }) => {
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"
-            style={{ 
-              // backgroundColor: "rgba(0, 128, 0, 0.2)", 
-            color: "#fff" }}
+            style={{
+              // backgroundColor: "rgba(0, 128, 0, 0.2)",
+              color: "#fff",
+            }}
           />
         ),
       };
       break;
     case "book":
       data = {
-        title: "Quyển sách",
+        title: "Socks",
         isMoney: false,
         link: "See details",
         quantity: "10K",
         background: "#FF9B8A",
         icon: (
-          <MenuBookIcon
+          <InventoryIcon
             className="icon"
             style={{
               // backgroundColor: "rgba(128, 0, 128, 0.2)",
@@ -113,37 +94,20 @@ const Widget = ({ type }) => {
 
   return (
     <div className="widget">
-      {/* <div className="left">
-        <span className="title">{data.title}</span>
-        <span className="counter">
-          {data.isMoney && "$"} {amount}
-        </span>
-        <span className="link">{data.link}</span>
-      </div>
-      <div className="right">
-        <div className="percentage positive">
-          <KeyboardArrowUpIcon />
-          {diff} %
-        </div>
-        {data.icon}
-      </div> */}
       <div className="widget__left">
-        <div className="widget__left__icon" style={{backgroundColor: data.background}}>
-        
-        {data.icon}
+        <div
+          className="widget__left__icon"
+          style={{ backgroundColor: data.background }}
+        >
+          {data.icon}
         </div>
       </div>
       <div className="widget__right">
-        <div className="widget__right__quantity">
-          {data.quantity}
-        </div>
-        <div className="widget__right__title">
-          {data.title}
-        </div>
+        <div className="widget__right__quantity">{data.quantity}</div>
+        <div className="widget__right__title">{data.title}</div>
       </div>
     </div>
   );
 };
 
 export default Widget;
-

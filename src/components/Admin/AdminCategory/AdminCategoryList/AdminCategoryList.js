@@ -18,7 +18,7 @@ const AdminCategoryList = () => {
   const actionColumn = [
     {
       field: "action",
-      headerName: "Hành động",
+      headerName: "Actions",
       width: 200,
       minWidth: 200,
       maxwidth: 400,
@@ -48,11 +48,7 @@ const AdminCategoryList = () => {
       <div className="col-xl-6 col-lg-5 col-md-6">
         <form action="#" className="search-header">
           <div className="input-group w-100">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Tìm kiếm"
-            />
+            <input type="text" className="form-control" placeholder="Search" />
             <div className="input-group-append">
               <Button variant="dark">
                 <SearchIcon />
@@ -62,10 +58,10 @@ const AdminCategoryList = () => {
         </form>
       </div>
       <div className="datatableTitle">
-        Danh sách thể loại
+        Product Category List
         <Link to="/admin-category-new" className="link">
           <MdCategory className="icon-category-new" />
-          Thêm mới
+          Add new
         </Link>
       </div>
       <DataGrid

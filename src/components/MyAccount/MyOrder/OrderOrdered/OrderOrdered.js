@@ -25,7 +25,7 @@ function OrderOrdered() {
             />
           </div>
           <p>
-            😱 <b>Bạn ơi chưa đơn hàng nào đã giao đâu nha</b> 😱
+            😱 <b>Hello, no orders have been delivered yet</b> 😱
           </p>
         </div>
       ) : (
@@ -52,19 +52,19 @@ function OrderOrdered() {
                         </span>
                       </p>
                       <p className="book-infor-detail-quantity">
-                        Số lượng: {item.quantity}
+                        Amount: {item.quantity}
                       </p>
                     </div>
 
                     <div className="book-infor-total col">
                       <button type="button" className="btn btn-danger">
-                        Mua lại
+                        Re-purchase
                       </button>
                     </div>
                   </div>
                 ))}
                 <div className="book-infor-total-price">
-                  Thành tiền: <span>{order.itemsPrice}</span>
+                  Total: <span>{order.itemsPrice}</span>
                 </div>
               </div>
             </div>

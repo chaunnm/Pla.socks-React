@@ -68,7 +68,7 @@ function AdminBookNew() {
       setPageNumber(0);
       dispatch(resetState());
       setTimeout(() => {
-        navigate("/admin-book-list")
+        navigate("/admin-book-list");
       }, 3000);
     }
   }, [dispatch, error, success]);
@@ -124,13 +124,13 @@ function AdminBookNew() {
     <div className="container">
       <form className="form-container" onSubmit={createBookSubmitHandler}>
         <div className="form-title-header">
-          <h5 className="mb-4">Thêm sách mới</h5>
+          <h5 className="mb-4">Add new</h5>
           <hr />
           <p className="dark-blue-text mt-4" />
         </div>
         <div className="form-group">
           <label className="form-group-label" htmlFor="book-name-add">
-            Tên sách
+            Name
           </label>
           <input
             value={name}
@@ -144,7 +144,7 @@ function AdminBookNew() {
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="category-select-add">
-            Thể loại
+            Category
           </label>
           <select
             value={category}
@@ -158,7 +158,7 @@ function AdminBookNew() {
           </select>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="form-group-label" htmlFor="author-add">
             Tác giả
           </label>
@@ -170,9 +170,9 @@ function AdminBookNew() {
             placeholder=""
             onChange={(e) => setAuthor(e.target.value)}
           />
-        </div>
+        </div> */}
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="form-group-label" htmlFor="publisher-add">
             Nhà xuất bản
           </label>
@@ -184,11 +184,11 @@ function AdminBookNew() {
             placeholder=""
             onChange={(e) => setPublisher(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="img-add">
-            Hình ảnh
+            Images
           </label>
           <input
             type="file"
@@ -210,7 +210,7 @@ function AdminBookNew() {
           </div>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="form-group-label" htmlFor="pageNumber-add">
             Số trang
           </label>
@@ -222,11 +222,11 @@ function AdminBookNew() {
             placeholder=""
             onChange={(e) => setPageNumber(e.target.value)}
           />
-        </div>
+        </div> */}
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="Stock-add">
-            Tồn kho
+            Stocks
           </label>
           <input
             value={Stock}
@@ -240,7 +240,7 @@ function AdminBookNew() {
 
         <div className="form-group">
           <label className="form-group-label" htmlFor="publisher-add">
-            Giá
+            Price
           </label>
           <input
             value={price}
@@ -281,7 +281,7 @@ function AdminBookNew() {
             className="form-group-label"
             htmlFor="exampleFormControlTextarea1"
           >
-            Mô tả sách
+            Describe product
           </label>
           <textarea
             value={description}
@@ -293,10 +293,10 @@ function AdminBookNew() {
         </div>
 
         <button type="submit" class="btn btn-submit">
-          Thêm
+          Save
         </button>
         <button type="button" class="btn btn-reset">
-          Khôi phục
+          Reset
         </button>
       </form>
       <ToastContainer

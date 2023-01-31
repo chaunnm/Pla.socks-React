@@ -54,7 +54,7 @@ function SignUp() {
     }
     if (success) {
       toast.success(
-        "Đăng ký thành công. Bạn sẽ được chuyển đến trang chủ sau 3s. 🎊"
+        "Sign Up Success. You will be redirected to the homepage in 3 seconds. 🎊"
       );
       dispatch(clear());
       setTimeout(() => {
@@ -90,7 +90,7 @@ function SignUp() {
                       alt="Logo trang web"
                       className="logo img-responsive"
                     />
-                    <span className="logo-name">UITBooks</span>
+                    <span className="logo-name">Pla.socks</span>
                   </div>
                   <div className="container-img">
                     <img
@@ -106,14 +106,14 @@ function SignUp() {
                     <button type="button" className="btn btn-signup mb-2">
                       <Link to="/" className="btn-signup">
                         <FcHome className="btn-signup-icon mb-1 me-1" />
-                        Trang chủ
+                        Home
                       </Link>
                     </button>
                   </div>
                   <div className="signUp__form">
                     <form className="container form-signup p-3" action="">
                       <h3 className="m-3 text-center signUp__title">
-                        ĐĂNG KÝ TÀI KHOẢN
+                        CREATE AN ACCOUNT
                       </h3>
 
                       <div className="mb-2 row container-input">
@@ -161,7 +161,7 @@ function SignUp() {
                             <img
                               className="img-confirm-pass"
                               src="/images/account/carbon_password.png"
-                              alt="concfirm password"
+                              alt="confirm password"
                             />
                           </div>
                           <input
@@ -181,7 +181,7 @@ function SignUp() {
                               className="input-image-file"
                             >
                               <MdDriveFolderUpload className="input-image-icon me-1 mb-1" />
-                              Chọn avatar của bạn nè 😎
+                              Choose your avatar 😎
                             </label>
                             <input
                               id="avatar-files"
@@ -198,7 +198,7 @@ function SignUp() {
                       <div className="container text-center">
                         <input
                           type="submit"
-                          value="Đăng ký"
+                          value="Register"
                           className="btn btn-signup-footer"
                           onClick={handleOnSubmit}
                         />
@@ -206,7 +206,7 @@ function SignUp() {
 
                       <div className="container text-center mt-3">
                         <Link to="/signin" className="switch-signin">
-                          Đã có tài khoản?
+                          Already have an account?
                         </Link>
                         {/* <button
                           type="button"

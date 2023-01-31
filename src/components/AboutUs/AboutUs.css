@@ -2,6 +2,16 @@
     margin-top: 20px;
 }
 
+.title-h2 {
+    font-size: 24;
+    text-align: center;
+}
+.content-br {
+    display: block;
+    text-align: center;
+    margin: 10px;
+}
+
 .about-us-title {
     display: flex;
     padding: 0 0 10px 0;
@@ -15,7 +25,7 @@
 }
 
 .about-us-title img {
-    width: 50px;
+    width: 100px;
 }
 
 .about-us-content {
@@ -35,6 +45,11 @@
 
 .about-us-contact img {
     margin-right: 10px;
+    width: 20px;
+}
+
+.icon-contact {
+
 }
 
 .about-us-contact a {

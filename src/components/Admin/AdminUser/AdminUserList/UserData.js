@@ -15,7 +15,7 @@ export const userColumns = [
   // },
   {
     field: "name",
-    headerName: "Họ tên",
+    headerName: "Full name",
     width: 230,
     minWidth: 180,
     maxwidth: 300,
@@ -40,7 +40,7 @@ export const userColumns = [
   // },
   {
     field: "role",
-    headerName: "Vai trò",
+    headerName: "Role",
     width: 100,
     headerAlign: "center",
     align: "center",

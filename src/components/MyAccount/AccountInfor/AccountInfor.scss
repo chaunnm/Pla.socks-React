@@ -1,24 +1,31 @@
 .my-account-form {
 
     .my-account-form-infor {
-        background-color: #dfeeef;
+        background-color: #EDF8F8;
         padding: 30px;
         margin-bottom: 20px;
 
         .form-infor-body {
             border-radius: 4px;
             background-color: white;
+            .btn-backgound {
+                background-color: #61C67A;
+                color: #fff;
+            }
         }
     }
 
     .my-account-form-password {
-        background-color: #dfeeef;
+        background-color: #EDF8F8;
         padding: 30px;
 
         .form-password-body {
             border-radius: 4px;
             background-color: white;
-
+            .btn-backgound {
+                    background-color: #61C67A;
+                    color: #fff;
+                }
         }
     } 
 }

@@ -27,7 +27,7 @@ function OrderCanceled() {
             />
           </div>
           <p>
-            😱 <b>Bạn ơi chưa đơn hàng nào đã hủy đâu nha</b> 😱
+            😱 <b>Hey guys, no orders have been canceled yet</b> 😱
           </p>
         </div>
       ) : (
@@ -55,20 +55,19 @@ function OrderCanceled() {
                         </span>
                       </p>
                       <p className="book-infor-detail-quantity">
-                        <div>Số lượng: {item.quantity}</div>
+                        <div>Amount: {item.quantity}</div>
                       </p>
                       <div className="book-infor-total-2">
-                        <span>Đã hủy bởi bạn</span>
+                        <span>Canceled by you</span>
                         <button type="button" className="btn btn-danger">
-                          Mua lại
+                          Re-purchase
                         </button>
                       </div>
                     </div>
                   </div>
                 ))}
                 <div className="book-infor-total-price-2">
-                  Thành tiền:{" "}
-                  <span>{numberWithCommas(order.totalPrice)} đ</span>
+                  Total: <span>{numberWithCommas(order.totalPrice)} đ</span>
                 </div>
               </div>
             </div>

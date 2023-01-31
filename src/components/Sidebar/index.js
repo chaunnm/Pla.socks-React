@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./sidebar.scss";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
+import InventoryIcon from "@mui/icons-material/Inventory";
 import CategoryIcon from "@mui/icons-material/Category";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
@@ -29,57 +30,75 @@ const Sidebar = () => {
   const handleLogout = () => {
     dispatch(logoutRequest());
   };
+  let activeStyle = {
+    color: "#61C67A",
+  };
+
   return (
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }} className="uitlogo">
-          <img src="/images/footer/uitbook-logo.png" alt="UITBooks-logo" />
-          <img src="/images/footer/UITBooks.com.png" alt="UIT" />
+          <img src="https://i.imgur.com/mnt90vV.png" alt="UITBooks-logo" />
+          {/* <img src="/images/footer/UITBooks.com.png" alt="UIT" /> */}
         </Link>
       </div>
       {/* <hr /> */}
       <div className="center">
         <ul>
-          <p className="title">QUẢN LÝ ADMIN</p>
-          <NavLink to="/admin-user-list" style={{ textDecoration: "none" }}>
+          {/* <p className="title">QUẢN LÝ ADMIN</p> */}
+          <NavLink
+            to="/admin-user-list"
+            // style={{ textDecoration: "none" }}
+            // style={({ isActive }) => [isActive ? activeStyle : undefined]}
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
             <li>
               <AccessibilityIcon className="icon" />
-              <span>Quản Lý Người Dùng</span>
+              <span>Users</span>
             </li>
           </NavLink>
-          <NavLink to="/admin-category-list" style={{ textDecoration: "none" }}>
+          <NavLink
+            to="/admin-category-list"
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
             <li>
               <CategoryIcon className="icon" />
-              <span>Quản Lý Thể Loại Sách</span>
+              <span>Product Category</span>
             </li>
           </NavLink>
           <NavLink to="/admin-book-list" style={{ textDecoration: "none" }}>
             <li>
-              <MenuBookIcon className="icon" />
-              <span>Quản Lý Sách</span>
+              <InventoryIcon className="icon" />
+              <span>Products</span>
             </li>
           </NavLink>
           <NavLink to="/admin-order" style={{ textDecoration: "none" }}>
             <li>
               <LocalMallIcon className="icon" />
-              <span>Quản Lý Đơn Hàng</span>
+              <span>Orders</span>
             </li>
           </NavLink>
           <NavLink to="/admin-blog-list" style={{ textDecoration: "none" }}>
             <li>
               <RateReviewIcon className="icon" />
-              <span>Quản Lý Blog</span>
+              <span>Blogs</span>
             </li>
           </NavLink>
           <NavLink to="/admin-statistic" style={{ textDecoration: "none" }}>
             <li>
               <AnalyticsIcon className="icon" />
-              <span>Thống Kê</span>
+              <span>Statistics</span>
             </li>
           </NavLink>
           <li onClick={handleLogout}>
             <ExitToAppIcon className="icon" />
-            <span>Đăng Xuất</span>
+            <span>Log Out</span>
           </li>
         </ul>
         <ToastContainer

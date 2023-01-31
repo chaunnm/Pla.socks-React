@@ -63,7 +63,7 @@ function UserNew() {
       dispatch(clear());
     }
     if (success) {
-      toast.success("Thêm mới người dùng thành công! 🎊");
+      toast.success("Add new successful usersg! 🎊");
       dispatch(clear());
       setTimeout(() => {
         navigate("/admin-user-list");
@@ -78,7 +78,7 @@ function UserNew() {
       ) : (
         <div className="admin-user-new-form-infor">
           <div className="admin-form-infor-heading">
-            <h4 className="mb-4">Thêm mới người dùng</h4>
+            <h4 className="mb-4">Add new user</h4>
             <hr />
             <p className="dark-grey-text mt-4" />
           </div>
@@ -107,7 +107,7 @@ function UserNew() {
                     htmlFor="form-username-body"
                     className="col-sm-2 col-form-label add-user-label"
                   >
-                    Tên đăng nhập
+                    User name
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -123,7 +123,7 @@ function UserNew() {
                     htmlFor="form-password-body"
                     className="col-sm-2 col-form-label add-user-label"
                   >
-                    Mật khẩu
+                    Password
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -158,7 +158,7 @@ function UserNew() {
                     htmlFor="form-avatar-body"
                     className="col-sm-2 col-form-label add-user-label"
                   >
-                    Chọn Avatar
+                    Pick Avatar
                   </label>
                   <div className="col-sm-10">
                     <input
@@ -196,7 +196,7 @@ function UserNew() {
                 className="btn btn-submit"
                 onClick={handleOnSubmit}
               >
-                Tạo mới
+                Save
               </button>
               {/* <button type="button" className="btn btn-reset">
                 Khôi phục

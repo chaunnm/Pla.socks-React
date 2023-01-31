@@ -44,12 +44,16 @@ function AccountNav() {
                 >
                   <div className="navbar-nav">
                     <img
-                      src={user ? user.avatar.url : ""}
+                      src="./images/account/avatar.png"
+                      // src={
+                      //   user ? user.avatar.url : "./images/account/avatar.png"
+                      // }
+                      // src="./images/account/avatar.png"
                       className="rounded-circle my-account-nav-avatar m-2"
                       alt="Avatar"
                     />
                     <h5 className="mb-2">
-                      <strong>Tài khoản của tôi</strong>
+                      <strong>My Account</strong>
                     </h5>
 
                     <span className="nav-item input-group d-flex ">
@@ -62,7 +66,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaUserCircle />
                         </span>
-                        Thông tin tài khoản
+                        Account information
                       </NavLink>
                     </span>
 
@@ -79,7 +83,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaRegListAlt />
                         </span>
-                        Đơn hàng của tôi
+                        My orders
                       </NavLink>
                     </span>
 
@@ -97,7 +101,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaHeart />
                         </span>
-                        Yêu thích
+                        Favorites
                       </NavLink>
                     </span>
 
@@ -111,7 +115,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaFileSignature />
                         </span>
-                        Viết Blog
+                        Writing Blogs
                       </NavLink>
                     </span>
                   </div>
