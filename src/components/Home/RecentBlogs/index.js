@@ -11,7 +11,7 @@ export default function RecentBlogs() {
     <Container className="recent-blogs-container">
       <div className="recent-blogs-title">
         <h3>Recent Blogs</h3>
-        <img src="https://drive.google.com/uc?id=1pvmTXhO04IWkhIDuhiZtoQ240Nr4esGR" />
+        <img src="https://drive.google.com/uc?id=1YUwcuwr0koaOljrwnnM55_CkRQLxptpt" />
       </div>
       <Carousel>
         <Carousel.Item>

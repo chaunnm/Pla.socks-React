@@ -60,8 +60,8 @@ export default function BestSeller() {
   return (
     <Container className="best-seller-container">
       <div className="best-seller-title">
-        <h3>BEST SELLER</h3>
-        {/* <img src="https://drive.google.com/uc?id=19KnqBhGINLa8yoIvJZAIRZ3GvP7rpjIp" /> */}
+        <h3>Best Seller</h3>
+        <img src="https://drive.google.com/uc?id=120ebN4qow5nkEjTVuryhL2vnF9YPDUnw" />
       </div>
       <Slider className="best-seller-books" {...settings}>
         {newProduct &&

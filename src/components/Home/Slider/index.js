@@ -37,9 +37,15 @@ export default function Slide() {
               </p>
               <hr width="200px" height="3px" />
               <div className="button-container">
-                <div className="shop-btn">SHOP MEN</div>
-                <div className="shop-btn">SHOP CUSTOM</div>
-                <div className="shop-btn">SHOP WOMEN</div>
+                <Link to="/books" className="shop-btn">
+                  SHOP MEN
+                </Link>
+                <Link to="/books" className="shop-btn">
+                  SHOP CUSTOM
+                </Link>
+                <Link to="/books" className="shop-btn">
+                  SHOP WOMEN
+                </Link>
               </div>
             </div>
           </div>
@@ -57,10 +63,10 @@ export default function Slide() {
                 FREE CUSTOM!
                 <br /> DESIGN YOUR OWN SOCKS
               </h1>
-              <div className="custom-btn">
+              <Link to="/books" className="custom-btn">
                 <p>SHOP CUSTOM</p>
                 <ShoppingBagIcon />
-              </div>
+              </Link>
             </div>
           </div>
         </Carousel.Item>
@@ -75,7 +81,9 @@ export default function Slide() {
             <div className="content2-container">
               <h2>SUMMER 2023</h2>
               <h1>MADE BY FAMILY SOCK MAKER</h1>
-              <div className="shop-transparent-btn">SHOP NOW</div>
+              <Link to="/books" className="shop-transparent-btn">
+                SHOP NOW
+              </Link>
             </div>
           </div>
         </Carousel.Item>
@@ -94,7 +102,9 @@ export default function Slide() {
                 all over the world. We’ve got long warm, colorful, crazy socks -
                 and baby socks for the smallest ones
               </p>
-              <div className="shop-filled-btn">SHOP NOW</div>
+              <Link to="/books" className="shop-filled-btn">
+                SHOP NOW
+              </Link>
             </div>
           </div>
         </Carousel.Item>
