@@ -30,7 +30,7 @@ export default function BestSeller() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
         },
       },
