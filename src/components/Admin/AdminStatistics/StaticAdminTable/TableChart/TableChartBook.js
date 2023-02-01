@@ -2,7 +2,7 @@ import "./TableChart.scss";
 
 function TableChartBook() {
   return (
-    <div className="table-container">
+    <div data-aos="zoom-in" className="table-container">
       <div className="table-caption">Top Products</div>
       <table className="table-chart">
         <thead className="table-chart-thead">

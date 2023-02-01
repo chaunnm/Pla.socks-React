@@ -74,9 +74,7 @@ export default function Topbar(props) {
   // done
   useEffect(() => {
     if (isAuthenticated === false && user === null && status === true) {
-      toast.success(
-        "Đăng xuất thành công, vui lòng chờ trong 3s để quay lại trang Đăng nhập nhé 🥺"
-      );
+      toast.success("Sign out successful, please wait for 3s 🥺");
       setTimeout(() => {
         navigate("/signin");
       }, 3000);

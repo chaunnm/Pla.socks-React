@@ -20,35 +20,37 @@ import products from "../../../data/products";
 const ItemBasket = (props) => {
   const dispatch = useDispatch();
 
-  // const { cartItems } = useSelector((state) => state.cart);
-  let cartItems = products?.slice(8, 10);
-  const increaseQuantity = (id, quantity, stock) => {
+  const { cartItems } = useSelector((state) => state.cart);
+  // let cartItems = products?.slice(8, 10);
+  const increaseQuantity = (product, quantity, stock) => {
     const newQty = quantity + 1;
     if (newQty > stock) {
       toast.error("Số lượng sản phẩm trong kho không đủ! ☹️");
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+    dispatch(addItemsToCart(product, newQty));
   };
 
-  const decreaseQuantity = (id, quantity) => {
+  const decreaseQuantity = (product, quantity) => {
     const newQty = quantity - 1;
     if (1 >= quantity) {
       return;
     }
-    dispatch(addItemsToCart(id, newQty));
+    dispatch(addItemsToCart(product, newQty));
   };
 
   const deleteCartItems = (id) => {
-    // dispatch(removeItemsFromCart(id));
+    dispatch(removeItemsFromCart(id));
   };
 
   let Price =
     cartItems.length !== 0
-      ? cartItems.reduce((acc, item) => acc + 1 * item.price, 0)
+      ? cartItems.reduce((acc, item) => acc + item?.quantity * item.price, 0)
       : 0;
   let Quantity =
-    cartItems.length !== 0 ? cartItems.reduce((acc, item) => acc + 1, 0) : 0;
+    cartItems.length !== 0
+      ? cartItems.reduce((acc, item) => acc + item?.quantity, 0)
+      : 0;
 
   let shippingCharges = Price > 250000 ? 0 : 30000;
 
@@ -223,24 +225,24 @@ const ItemBasket = (props) => {
                           <div className="basket-list__item__quantity__btn">
                             <i
                               className="bx bx-minus"
-                              // onClick={() =>
-                              //   decreaseQuantity(item.book, item.quantity)
-                              // }
+                              onClick={() =>
+                                decreaseQuantity(item, item.quantity)
+                              }
                             ></i>
                           </div>
                           <div className="basket-list__item__quantity__input">
-                            {/* {item.quantity} */}1
+                            {item.quantity}
                           </div>
                           <div className="basket-list__item__quantity__btn">
                             <i
                               className="bx bx-plus"
-                              // onClick={() => {
-                              //   increaseQuantity(
-                              //     item.book,
-                              //     item.quantity,
-                              //     item.stock
-                              //   );
-                              // }}
+                              onClick={() => {
+                                increaseQuantity(
+                                  item,
+                                  item.quantity,
+                                  item.stock
+                                );
+                              }}
                             ></i>
                           </div>
                         </div>

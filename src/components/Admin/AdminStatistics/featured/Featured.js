@@ -7,7 +7,7 @@ import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutl
 
 const Featured = () => {
   return (
-    <div className="featured">
+    <div data-aos="fade-right" className="featured">
       <div className="top">
         <h1 className="title">Total revenue</h1>
         <MoreVertIcon fontSize="small" />

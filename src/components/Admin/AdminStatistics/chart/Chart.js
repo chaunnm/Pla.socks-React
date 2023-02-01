@@ -29,7 +29,7 @@ const Chart = ({ aspect, title }) => {
   });
 
   return (
-    <div className="chart">
+    <div data-aos="fade-left" className="chart">
       <div className="title">{title}</div>
       <ResponsiveContainer width="100%" aspect={aspect}>
         <AreaChart

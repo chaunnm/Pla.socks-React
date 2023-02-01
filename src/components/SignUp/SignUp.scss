@@ -1,143 +1,142 @@
 .img-welcome {
-    width: 70%;
+  width: 100%;
 }
 
 .signup {
-    // height: 100vh;
+  // height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container-img {
+    margin-top: 70px;
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    .container-img {
-        display: flex;
-        justify-content: center;
-    }
+  }
 }
 
 .container-btn-signup {
-    text-align: right;
+  text-align: right;
 
-    .btn-signup {
-        background-color: #106CC0;
-        color: white;
+  .btn-signup {
+    background-color: #106cc0;
+    color: white;
 
-        a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-        }
-
-        .btn-signup-icon {
-            font-size: 20px;
-        }
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
     }
-   
 
-    .btn-signup:hover {
-        color: #fff;
-        opacity: 0.8;
-    } 
+    .btn-signup-icon {
+      font-size: 20px;
+    }
+  }
+
+  .btn-signup:hover {
+    color: #fff;
+    opacity: 0.8;
+  }
 }
 
 .container-logo {
-    display: flex;
+  display: flex;
 }
 
 .logo {
-    width: 80px;
+  //   width: 80px;
+  width: 30%;
 }
 
 .logo-name {
-    font-weight: bold;
-    font-size: 30px;
-    color: #106CC0;
-    font-weight: 700;
-    margin-left: 20px;
+  font-weight: bold;
+  font-size: 30px;
+  color: #106cc0;
+  font-weight: 700;
+  margin-left: 20px;
 }
 
 .signUp__form {
-    margin-top: 10px;
-    // max-height: 70vh;
+  margin-top: 10px;
+  // max-height: 70vh;
 
-    .input-group-text {
-        border: 1px solid rgba(0, 0, 0, 0.568);
-        // color: #fff;
+  .input-group-text {
+    border: 1px solid rgba(0, 0, 0, 0.568);
+    // color: #fff;
+  }
 
-    }
+  .img-preview {
+    width: 100px;
+    height: 100px;
+  }
 
-    .img-preview {
-        width: 100px;
-        height: 100px;
-    }
-
-    .input-group-text-1 {
-        border: 1px solid rgba(0, 0, 0, 0.568);
-        //color: #fff;
-    }
+  .input-group-text-1 {
+    border: 1px solid rgba(0, 0, 0, 0.568);
+    //color: #fff;
+  }
 }
 
 .form-signup {
-    background-color: #F6F6F6;
-    width: 600px;
-    // max-height: 600px;
-    // margin-top: 20px;
+  background-color: #f6f6f6;
+  width: 600px;
+  // max-height: 600px;
+  // margin-top: 20px;
 
-    .signUp__title {
-        color: #106CC0;
-        font-size: 20px;
-        font-weight: 700;
-    }
+  .signUp__title {
+    color: #106cc0;
+    font-size: 20px;
+    font-weight: 700;
+  }
 
-    .btn-signup-footer {
-        background-color: #27A811;
-        color: white;
-        width: 120px;
-    }
+  .btn-signup-footer {
+    background-color: #27a811;
+    color: white;
+    width: 120px;
+  }
 
-    .btn-signup-footer:hover {
-        color: #fff;
-        opacity: 0.8;
-    }
+  .btn-signup-footer:hover {
+    color: #fff;
+    opacity: 0.8;
+  }
 
-    .container-input {
-        margin-right: 20px;
-        width: fit-content;
+  .container-input {
+    margin-right: 20px;
+    width: fit-content;
 
-        .input-text {
-            color: #c01010;
-            .input-group {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                .input-image-file {
-                    cursor: pointer;
-                    font-weight: 600;
+    .input-text {
+      color: #c01010;
+      .input-group {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        .input-image-file {
+          cursor: pointer;
+          font-weight: 600;
 
-                    .input-image-icon {
-                        font-size: 24px;
-                    }
-                }
-            }
+          .input-image-icon {
+            font-size: 24px;
+          }
         }
+      }
     }
+  }
 
-    .input-icon {
-        background-color: white;
-    }
+  .input-icon {
+    background-color: white;
+  }
 
-    .img-confirm-pass {
-        width: 16px;
-        height: 16px;
-    }
+  .img-confirm-pass {
+    width: 16px;
+    height: 16px;
+  }
 
-    .switch-signin {
-        text-decoration: none;
-        font-weight: 500;
-    }
+  .switch-signin {
+    text-decoration: none;
+    font-weight: 500;
+  }
 
-    .switch-signin:hover {
-        outline: none;
-    }
-
+  .switch-signin:hover {
+    outline: none;
+  }
 }
