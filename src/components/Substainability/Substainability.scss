@@ -1,0 +1,315 @@
+.subs-container  {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // background-image: url(https://repreve.com/uploads/images/Photos/Solar-Panel-Hero.jpg);
+    // background-position: center center;
+
+    #myVideo {
+        width: 100%;
+    }
+    .header {
+        position: absolute;
+        top: 0;
+        left: 8%;
+        // background-color: rgba(0, 0, 0, 0.3);
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        .header-content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 50%;
+            // margin-left: 50px;
+            h2 {
+                font-weight: bold;
+                font-size: 60px;
+                color: #fff;
+
+            }
+            
+            p {
+                font-size: 20px;
+                color: #fff;
+            }
+        }
+    }
+    
+}
+
+.subs-container-2 {
+    margin: 0 auto;
+    margin: 40px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    .sub-content {
+        width: 60%;
+        padding: 60px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        h2 {
+        text-transform: uppercase;
+        font-size: 16px;
+        color: #777;
+        margin: 0;
+        margin-bottom: 30px;
+        }
+        p {
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+    
+}
+
+.subs-container-3 {
+    margin: 0 auto;
+    margin: 40px;
+    // background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: 30px 40px;
+    .sub-content {
+        flex: 1;
+        padding: 30px 40px;
+        h3 {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+    }
+    .sub-content-img {
+        flex: 1;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.subs-container-4 {
+    display: flex;
+    background-color: #f4f4f4;
+    .sub-content-img {
+        flex: 1;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .sub-content-right {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        .sub-content-right-content {
+            max-width: 70%;
+            h3 {
+                text-transform: uppercase;
+                font-size: 16px;
+                color: #777;
+                margin: 0;
+                margin-bottom: 30px;
+            }
+            p {
+                font-weight: bold;
+                font-size: 30px;
+                // text-align: center;
+                margin-bottom: 30px;
+            }
+            .button {
+                padding: 10px 20px;
+                background-color: #ebf5de;
+                width: 240px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 30px;
+                font-weight: 550;
+                cursor: pointer;
+                text-decoration: none;
+                color: #000;
+                &:hover {
+                    background-color: #000;
+                    color: #fff;
+                    transition: 0.3s ease;
+                }
+            }
+        }
+    }
+
+    
+}
+
+.subs-container-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    .sub-content {
+        width: 60%;
+        text-align: center;
+        h3 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+}
+
+.subs-container-6 {
+    margin: 0 auto;
+    margin: 40px;
+    // background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sub-content {
+        flex: 1;
+        padding: 30px 40px;
+
+        h3 {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+    }
+
+    .sub-content-img {
+        flex: 1;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    .subs-container .header .header-content h2 {
+        font-weight: bold;
+        font-size: 40px;
+    }
+    .subs-container .header .header-content p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .subs-container-2 .sub-content p {
+        font-size: 20px;
+    }
+    .subs-container-2 .sub-content h2 {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .subs-container-3 {
+        align-items: flex-start;
+    }
+    .subs-container-3 .sub-content {
+        padding: 0 40px 0 0;
+    }
+    .subs-container-3 .sub-content h3 {
+        margin-bottom: 10px; 
+    }
+    .subs-container-3 .sub-content p {
+        text-align: justify;
+    }
+    .subs-container-3 .sub-content h4 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .subs-container-4 .sub-content-right .sub-content-right-content p {
+        font-size: 20px;
+    }
+    .subs-container-5 .sub-content h3 {
+        font-size: 20px;
+    }
+    .subs-container-6 {
+        align-items: flex-start;
+    }
+    .subs-container-6 .sub-content {
+        flex: 1 1;
+        padding: 0  0 0 40px;
+    }
+    .subs-container-6 .sub-content h4 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .subs-container-6 .sub-content h3 {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .subs-container-2 .sub-content {
+        width: 100%;
+        padding: 60px 20px;
+    }
+    .subs-container-3 {
+        flex-direction: column;
+        margin: 20px 40px;
+    }
+    .subs-container-6 {
+        flex-direction: column;
+        margin: 30px 40px;
+    }
+    .subs-container-6 .sub-content {
+        padding: 0;
+        margin-top: 30px;
+    }
+    .subs-container-5 {
+        padding: 20px;
+        padding-bottom: 0;
+    }
+    .subs-container-5 .sub-content {
+        width: 80%;
+    }
+        .subs-container .header .header-content h2 {
+            font-size: 18px;
+        }
+    
+        
+    
+        .subs-container .header .header-content p {
+            font-size: 14px;
+        }
+}
+@media screen and (max-width: 500px) {
+    .subs-container-4 {
+        display: flex;
+        background-color: #f4f4f4;
+        flex-direction: column;
+    }
+    
+    .subs-container .header .header-content {
+        width: 100%;
+    }
+    
+}

@@ -1,7 +1,9 @@
 import React from "react";
 import "./AboutUs.css";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
+
 // import Logo from "../../../public/images/aboutus/uitbook-logo.png";
 // import Hotline from '../../../public/images/aboutus/uitbook-logo.png';
 // import Email from '../../../public/images/aboutus/uitbook-logo.png';
@@ -54,10 +56,48 @@ export default function About() {
     <>
       <Container className="about-us-container" fluid="md">
         <div className="about-us-title">
-          <img src="https://i.imgur.com/mnt90vV.png" alt="UITBooks-logo" />
+          <img src="https://i.imgur.com/XxGTZQF.png" alt="UITBooks-logo" />
           <p>ABOUT PLA.SOCKS </p>
         </div>
         <div className="about-us-content">
+          <div className="about-us-content-item about-us-content-item1">
+            <div
+              data-aos="fade-right"
+              data-aos-duration="2000"
+              className="about-us-content-img"
+            >
+              <iframe
+                width="100%"
+                height="400"
+                src="https://www.youtube.com/embed/GeCWm4tpY7Y?controls=0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div
+              data-aos="fade-left"
+              data-aos-duration="2000"
+              className="about-us-content-block"
+            >
+              <div>
+                <h2 className="title-h2-first">
+                  <b>
+                    Launched in 2019, PLA.SOCKS is the global leader in recycled
+                    performance fibers.
+                  </b>
+                </h2>
+                {/* <h3>OUR VALUE</h3> */}
+                <p>
+                  Pla.Socks has transformed billions of recycled plastic bottles
+                  into sustainable polyester. Using cutting-edge textile
+                  technology, Pla.Socks delivers better comfort, durability and
+                  functionality.
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="about-us-content-item">
             <div
               data-aos="fade-right"
@@ -171,7 +211,9 @@ export default function About() {
             <span>19520203@gm.uit.edu.vn</span>
           </div>
         </div>
+      </Container>
 
+      <Container className="address-container">
         <address className="about-us-contact">
           <div className="hotline icon-contact">
             <img src="/images/aboutus/hotline.png" alt="Hotline" />
@@ -189,8 +231,77 @@ export default function About() {
             <img src="/images/aboutus/website.png" alt="Website" />
             Website: <a href="UITBooks.com"> Plasocks.com</a>
           </div>
-        </address>
+        </address>{" "}
       </Container>
+
+      <div className="history-container">
+        <Container>
+          <div className="history-content-left">
+            <h2>
+              PLA.SOCKS started life 20 years ago as waste, spat out of a yarn
+              machine.{" "}
+            </h2>
+            <p>
+              Because we believe there’s a use for everything, a bright spark
+              asked, ‘What if we could make fiber waste back into fiber?’. This
+              started our journey of seeing waste as a resource, a resource in
+              the wrong place but one with tons of possibility.
+            </p>
+            <p>
+              In addition to making use of manufacturing waste, we turned our
+              attention to consumer waste – the plastic bottles that clog up
+              landfills and bob in our oceans.{" "}
+            </p>
+            <p>
+              Two decades and over 34 billion recycled bottles later, we're
+              still trying to be useful. Because by helping people take a step,
+              we are building good habits. Yesterday’s recycled bottle, today’s
+              sustainable tee, tomorrow’s bigger actions.{" "}
+            </p>
+          </div>
+
+          <div className="history-content-right">
+            <img
+              className="history-img"
+              src="https://repreve.com/uploads/images/Photos/vintage-repreve-2022-10-04.jpg"
+              alt="Vintage repreve 2022 10 04"
+            />
+          </div>
+        </Container>
+      </div>
+
+      <div className="principal-container">
+        <div className="principal-content-left">
+          <img
+            className="principal-img"
+            src="https://repreve.com/uploads/images/Photos/Crushed-plastic-bottles-colorblock-hero-EDITED.jpg"
+            alt="Crushed plastic bottles colorblock hero EDITED"
+          />
+        </div>
+        <div className="principal-content-right">
+          <h5>OUR BUSINESS PRINCIPALS</h5>
+          <h2>
+            Be transparent. <br />
+            Be honest.
+            <br />
+            Do the right thing.
+            <br />
+          </h2>
+        </div>
+      </div>
+
+      <div className="backwards-wrapper">
+        <Container>
+          <div className="backward-container">
+            <h2>We're here to pay it backwards.</h2>
+            <Link to="/contact-us">
+              <Button className="btn-contact" variant="primary">
+                Contact us to learn how
+              </Button>
+            </Link>
+          </div>
+        </Container>
+      </div>
     </>
   );
 }

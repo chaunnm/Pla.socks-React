@@ -17,6 +17,8 @@
 .footer-subcription-heading {
   line-height: 38px;
   font-size: 18px;
+  display: flex;
+  align-items: center;
 }
 
 .footer-subcription form {
@@ -100,7 +102,7 @@
 }
 
 .footer-link-items a:hover {
-  color: #2c31cf;
+  color: #61C67A;
   text-decoration: underline;
   transition: 0.3s ease-out;
 }
@@ -145,6 +147,11 @@
   text-decoration: none;
   margin-right: 0;
   font-weight: 500;
+  color:#61C67A;
+}
+
+.footer-info a:hover {
+  color:  rgb(28, 143, 57);
 }
 
 .social-icons {
