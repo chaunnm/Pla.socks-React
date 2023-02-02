@@ -15,7 +15,7 @@ export default function ReturnBack() {
         </Breadcrumb.Item>
       </Breadcrumb>
       <div className="return-title">
-        <img src="/images/aboutus/uitbook-logo.png" alt="UITBooks-logo" />
+        <img src="https://i.imgur.com/mnt90vV.png" alt="logo" />
         <p>Return policy</p>
       </div>
       <div className="return-content">

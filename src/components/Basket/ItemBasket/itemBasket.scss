@@ -288,3 +288,11 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-top: 20px;
   }
 }
+@media screen and (max-width: 400px) {
+  .basket-list__item {
+    display: block !important;
+    .basket-list__item__quantity {
+      padding: 0 !important;
+    }
+  }
+}

@@ -116,7 +116,7 @@ function SignUp() {
                         CREATE AN ACCOUNT
                       </h3>
 
-                      <div className="mb-2 row container-input">
+                      <div className="container-input">
                         <div className="input-group m-2">
                           <div className="input-group-text input-icon">
                             <img

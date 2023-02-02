@@ -239,7 +239,7 @@ const AdminBookList = () => {
         </div>
         <div className="datatableTitle">
           Product Category List
-          <Link to="/admin-book-new" className="link">
+          <Link to="/admin-product-new" className="link">
             <InventoryIcon className="icon-book-new" />
             Add new
           </Link>

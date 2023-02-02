@@ -1,5 +1,10 @@
 import { React, useLayoutEffect } from "react";
-import { useLocation, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  useLocation,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import Home from "../pages/HomePage";
 import AboutUs from "../pages/AboutUs";
 import Delivery from "../pages/Delivery";
@@ -51,8 +56,8 @@ const Wrapper = ({ children }) => {
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location.pathname]);
-  return children
-}
+  return children;
+};
 
 export default function App() {
   return (
@@ -73,13 +78,13 @@ export default function App() {
           <Route path="/signin" element={<PageSignIn />} />
 
           <Route path="/books/:keyword" element={<Categories />} />
-          <Route path="/books" element={<Categories />} />
-          <Route path="/book/:id" element={<Book />} />
+          <Route path="/products" element={<Categories />} />
+          <Route path="/product/:id" element={<Book />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog" element={<Blog />} />
 
           <Route path="/my-account" element={<Account />} />
-          <Route path="/my-favorite-book" element={<FavoritesBook />} />
+          <Route path="/my-favorite-product" element={<FavoritesBook />} />
           <Route path="/my-favorite-post" element={<FavoritesPost />} />
           <Route path="/my-order-shipping" element={<MyOrderShipping />} />
           <Route path="/my-order-ordered" element={<MyOrderOrdered />} />
@@ -96,9 +101,9 @@ export default function App() {
           <Route path="/admin-blog-new" element={<AdminBlogNew />} />
           <Route path="/admin-blog-edit" element={<AdminBlogEdit />} />
 
-          <Route path="/admin-book-list" element={<AdminBookList />} />
-          <Route path="/admin-book-new" element={<AdminBookNew />} />
-          <Route path="/admin-book-edit/:id" element={<AdminBookEdit />} />
+          <Route path="/admin-product-list" element={<AdminBookList />} />
+          <Route path="/admin-product-new" element={<AdminBookNew />} />
+          <Route path="/admin-product-edit/:id" element={<AdminBookEdit />} />
 
           <Route path="/admin-category-list" element={<AdminCategoryList />} />
           <Route path="/admin-category-new" element={<AdminCategoryNew />} />
@@ -108,7 +113,7 @@ export default function App() {
           <Route path="/admin-order/edit" element={<AdminOrderDetailPage />} />
           <Route path="/admin-statistic" element={<AdminStatisticsPage />} />
 
-          <Route path="/notfound" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Wrapper>
     </Router>

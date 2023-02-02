@@ -35,7 +35,7 @@
 }
 
 .about-us-contact {
-    margin-top: 50px;
+   
     font-weight: 500;
     font-size: 18px;
 }
@@ -184,11 +184,29 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
+.about-contact{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin-bottom: 30px;
+}
+.about-contact iframe {
+    width: 50%;
+    height: 300px;
+    margin-right: 100px;
+}
 @media screen and (max-width: 1000px){
     .aboutUs-member-list{
         /* display: grid;
         grid-template-columns: auto auto; */
         flex-wrap: wrap;
+    }
+    .about-contact{
+        display: block;
+    }
+    .about-contact iframe{
+        width: 100%;
     }
 }
 @media screen and (max-width: 650px) {

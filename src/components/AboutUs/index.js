@@ -171,25 +171,52 @@ export default function About() {
             <span>19520203@gm.uit.edu.vn</span>
           </div>
         </div>
+        <div className="aboutUs-member">
+          <h6>Contact Us</h6>
+          <div className="aboutUs-member-seperate">
+            <hr></hr>
+            <i class="fa-solid fa-fan"></i>
+            <hr />
+          </div>
+        </div>
+        <div className="about-contact">
+          <iframe
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.231171196192!2d106.80086541425702!3d10.870014160432904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527587e9ad5bf%3A0xafa66f9c8be3c91!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiAtIMSQSFFHIFRQLkhDTQ!5e0!3m2!1svi!2s!4v1675344185777!5m2!1svi!2s"
+            // width="600"
+            // height="450"
+            // style="border:0;"
 
-        <address className="about-us-contact">
-          <div className="hotline icon-contact">
-            <img src="/images/aboutus/hotline.png" alt="Hotline" />
-            Hotline: <a href="tel:0834577251">083.457.7251</a>
-          </div>
-          <div className="email icon-contact">
-            <img src="/images/aboutus/email.png" alt="Email" />
-            Email: <a href="mailto:UITBooks@gmail.com"> Pla.socks@gmail.com</a>
-          </div>
-          <div className="location icon-contact">
-            <img src="/images/aboutus/location.png" alt="Location" />
-            Address: Quarter 6, Linh Trung, Thu Duc
-          </div>
-          <div className="website icon-contact">
-            <img src="/images/aboutus/website.png" alt="Website" />
-            Website: <a href="UITBooks.com"> Plasocks.com</a>
-          </div>
-        </address>
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <address
+            // data-aos="fade-left"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            className="about-us-contact"
+          >
+            <div className="hotline icon-contact">
+              <img src="/images/aboutus/hotline.png" alt="Hotline" />
+              Hotline: <a href="tel:0834577251">083.457.7251</a>
+            </div>
+            <div className="email icon-contact">
+              <img src="/images/aboutus/email.png" alt="Email" />
+              Email:{" "}
+              <a href="mailto:UITBooks@gmail.com"> Pla.socks@gmail.com</a>
+            </div>
+            <div className="location icon-contact">
+              <img src="/images/aboutus/location.png" alt="Location" />
+              Address: Quarter 6, Linh Trung, Thu Duc
+            </div>
+            <div className="website icon-contact">
+              <img src="/images/aboutus/website.png" alt="Website" />
+              Website: <a href="UITBooks.com"> Plasocks.com</a>
+            </div>
+          </address>
+        </div>
       </Container>
     </>
   );

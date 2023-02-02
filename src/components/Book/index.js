@@ -41,6 +41,7 @@ export default function BookDetail() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [product, setProduct] = useState();
+
   useEffect(() => {
     const getProductDetails = () => {
       return products.find((item) => {
@@ -48,16 +49,31 @@ export default function BookDetail() {
       });
     };
     let product = getProductDetails();
-    console.log("product", product);
+
     setProduct(product);
     // getProductDetails();
   }, [id]);
-  const images = [
-    {
-      original: product?.images,
-      thumbnail: product?.images,
-    },
-  ];
+  let imagesList;
+  if (product?.imagesList) {
+    let image = [];
+    product.imagesList.forEach((item, i) => {
+      image.push({
+        original: item,
+        thumbnail: item,
+      });
+    });
+    imagesList = image;
+
+    console.log("image", image);
+  } else {
+    const imagesTempt = [
+      {
+        original: product?.images,
+        thumbnail: product?.images,
+      },
+    ];
+    imagesList = imagesTempt;
+  }
 
   function AddButton() {
     const addToCart = (product, stock) => {
@@ -235,7 +251,7 @@ export default function BookDetail() {
   //       thumbnail: item.url,
   //     });
   //   });
-  console.log(product);
+  // console.log(product);
   return (
     <Fragment>
       {product && (
@@ -247,7 +263,7 @@ export default function BookDetail() {
               </Breadcrumb.Item>
               <Breadcrumb.Item
                 linkAs={Link}
-                linkProps={{ to: "/books" }}
+                linkProps={{ to: "/products" }}
                 className="text-capitalize"
               >
                 Categories
@@ -278,7 +294,7 @@ export default function BookDetail() {
                           {original: prop.url, thumbnail: prop.url}
                         ))}
                     /> */}
-                    <ImageGallery items={images} />
+                    <ImageGallery items={imagesList} />
                   </div>
                 </Col>
                 <Col xs={12} md={8}>

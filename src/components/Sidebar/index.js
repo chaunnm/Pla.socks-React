@@ -77,7 +77,7 @@ const Sidebar = () => {
             </div>
           </NavLink>
           <NavLink
-            to="/admin-book-list"
+            to="/admin-product-list"
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",

@@ -99,3 +99,10 @@
     }
   }
 }
+@media screen and (max-width: 950px) {
+  .basket-header {
+    .col-md-7 {
+      width: 100% !important;
+    }
+  }
+}

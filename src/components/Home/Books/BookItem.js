@@ -61,8 +61,8 @@ export default function BookItem(props) {
   // };
   const priceDiscount = props.price + 15000;
   return (
-    <>
-      <Link to={`/book/${props.id}`}>
+    <div className="BookItems">
+      <Link to={`/product/${props.id}`}>
         <li className="book-item">
           <div className="book-item-container">
             <figure className="book-item-img-wrap">
@@ -95,6 +95,6 @@ export default function BookItem(props) {
           </div>
         </li>
       </Link>
-    </>
+    </div>
   );
 }

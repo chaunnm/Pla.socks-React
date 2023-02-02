@@ -3,6 +3,11 @@ export const products = [
     _id: "1",
     name: "Great Horns Think Alike Junior Socks",
     images: "https://drive.google.com/uc?id=1zWLDhppX_NdgohJeVe5FIy_6RIp5MdyL",
+    imagesList: [
+      "https://drive.google.com/uc?id=1zWLDhppX_NdgohJeVe5FIy_6RIp5MdyL",
+      "https://th.bing.com/th/id/OIP.9t9zqLpn7_C1WEPn7g02GAHaJQ?pid=ImgDet&rs=1",
+      "https://th.bing.com/th/id/R.eb43df0d5fb0af9748d0754f546604d0?rik=qTMPfzYuRA3zfg&riu=http%3a%2f%2fproduct.hstatic.net%2f1000275968%2fproduct%2fimgl1024_grande.jpg&ehk=nD0fD9vgfWr1XGyfV%2bMQucolAO3OekgacAXEjOZi7do%3d&risl=&pid=ImgRaw&r=0",
+    ],
     price: 68000,
     Sold: 5,
     ratings: 3.5,
@@ -18,8 +23,13 @@ export const products = [
   },
   {
     _id: "2",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Thigh high stockings",
     images: "https://drive.google.com/uc?id=13x0hsHIdeqGGVjAx6c5SyvSjZb3IO4oC",
+    imagesList: [
+      "https://drive.google.com/uc?id=13x0hsHIdeqGGVjAx6c5SyvSjZb3IO4oC",
+      "https://static.vincook.vn/uploads/f86c092d-4c05-41fe-b-tat-dep-4f907d676d.jpeg",
+      "https://ae01.alicdn.com/kf/HTB1ZIiJlOQnBKNjSZFmq6AApVXaK/2018-New-Fashion-Women-Girls-Letters-Embroidery-7-Days-Week-Series-Monday-to-Sunday-Short-Socks.jpg",
+    ],
     price: 78000,
     Sold: 10,
     ratings: 3,
@@ -35,8 +45,13 @@ export const products = [
   },
   {
     _id: "3",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Knee high stockings",
     images: "https://drive.google.com/uc?id=1enL3Ftoh9wFaDOVHZ5pq1solwrplHf-f",
+    imagesList: [
+      "https://drive.google.com/uc?id=1enL3Ftoh9wFaDOVHZ5pq1solwrplHf-f",
+      "https://drive.google.com/uc?id=1g1SZ2rA1thCr7dtkk39ing125qopNidQ",
+      "https://drive.google.com/uc?id=1Yo3NeRLLGj-o0wp0QcgllDUgt1tHSy1U",
+    ],
     price: 50000,
     Sold: 15,
     ratings: 4,
@@ -52,7 +67,7 @@ export const products = [
   },
   {
     _id: "4",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Crew socks",
     images: "https://drive.google.com/uc?id=19SUDWQvkrhIYLSjoGvbWwWc4129UToLG",
     price: 45000,
     Sold: 25,
@@ -69,7 +84,7 @@ export const products = [
   },
   {
     _id: "5",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Ankle socks",
     images: "https://drive.google.com/uc?id=1Cfqgqe8nmknSeZbdP4eHjbH7D2U6ihfc",
     price: 65000,
     Sold: 35,
@@ -86,7 +101,7 @@ export const products = [
   },
   {
     _id: "6",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Low cut socks",
     images: "https://drive.google.com/uc?id=1jatDe7NJydfyGtscxyiwQLrnR6gMZvA_",
     price: 35000,
     Sold: 45,
@@ -103,7 +118,7 @@ export const products = [
   },
   {
     _id: "7",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "No show socks",
     images: "https://drive.google.com/uc?id=1Xq1md2JnOVHTYBQS4O3N5lxkHqRJB-Di",
     price: 25000,
     Sold: 65,
@@ -120,7 +135,7 @@ export const products = [
   },
   {
     _id: "8",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Flat socks",
     images: "https://drive.google.com/uc?id=1DNFXusHupPKx0G2sZqehk9aG-qf90zck",
     price: 15000,
     Sold: 75,
@@ -137,7 +152,7 @@ export const products = [
   },
   {
     _id: "9",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Toe socks",
     images: "https://drive.google.com/uc?id=1YxMKIpPnAS4FsytLI5bhT8JuNHs1vEwn",
     price: 20000,
     Sold: 85,
@@ -154,7 +169,7 @@ export const products = [
   },
   {
     _id: "10",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Great Horns Think Alike",
     images: "https://drive.google.com/uc?id=12JxTty4XcuLxc90drskN6eNsEjd4nEWV",
     price: 15000,
     Sold: 95,
@@ -171,7 +186,7 @@ export const products = [
   },
   {
     _id: "11",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Fishnets/fishnet tights",
     images: "https://drive.google.com/uc?id=1lqMADQ3rtT-2rpt_SDdgqYkVeTFM7FlU",
     price: 35000,
     Sold: 100,
@@ -181,7 +196,7 @@ export const products = [
   },
   {
     _id: "12",
-    name: "Great Horns Think Alike Junior Socks",
+    name: "Wool stockings/woolen stockings",
     images: "https://drive.google.com/uc?id=1_GevmJUdVpnn9xt29usa5AZlu2XnURBQ",
     price: 30000,
     Sold: 105,
