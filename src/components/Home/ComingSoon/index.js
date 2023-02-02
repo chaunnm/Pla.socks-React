@@ -22,7 +22,7 @@ export default function ComingSoon() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
         },
       },
@@ -59,7 +59,7 @@ export default function ComingSoon() {
     <Container className="coming-soon-container">
       <div className="coming-soon-title">
         <h3>Comming Soon</h3>
-        <img src="https://drive.google.com/uc?id=19KnqBhGINLa8yoIvJZAIRZ3GvP7rpjIp" />
+        <img src="https://drive.google.com/uc?id=12dngdixmP8mrrX46DOLznKEt5L5_Pirg" />
       </div>
       <Slider className="best-seller-books" {...settings}>
         {newProduct &&

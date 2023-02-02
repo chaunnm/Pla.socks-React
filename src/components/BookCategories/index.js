@@ -200,12 +200,12 @@ export default function BookCategories() {
                         value=""
                         onClick={priceHandlerClick}
                       />
-                      Trên 500000đ
+                      Above 500000đ
                     </label>
                   </div>
                 </div>
 
-                <Button variant="outline-primary">Khôi phục</Button>
+                <Button variant="outline-primary">Reset</Button>
               </div>
             </Col>
             <Col sm={9}>
@@ -215,12 +215,12 @@ export default function BookCategories() {
               <div className="categories-main">
                 {products.length === 0 ? (
                   <h3 className="categories-main-title p-2 ps-3 text-light text-capitalize">
-                    Buồn quá 😭 Không có sách bạn muốn tìm đâu nha!!!
+                    So sad 😭 There is no product for you!!!
                   </h3>
                 ) : (
                   <div>
                     <h3 className="categories-main-title p-2 ps-3 text-light text-capitalize">
-                      Vớ của Pla.Socks nà nha
+                      Product List
                     </h3>
                     <div className="category-books row row-cols-3">
                       {productList &&
@@ -253,10 +253,10 @@ export default function BookCategories() {
                         itemsCountPerPage={12}
                         totalItemsCount={45}
                         onChange={setCurrentPageNo}
-                        nextPageText="Tiếp"
-                        prevPageText="Trước"
-                        firstPageText="Đầu"
-                        lastPageText="Cuối"
+                        nextPageText="Next"
+                        prevPageText="Previous"
+                        firstPageText="First"
+                        lastPageText="Last"
                         itemClass="page-item"
                         linkClass="page-link"
                         activeClass="pageItemActive"

@@ -72,6 +72,10 @@
   justify-content: space-evenly;
 }
 
+.button-container a {
+  text-decoration: none;
+}
+
 .button-container .shop-btn {
   padding: 7px 15px;
   background-color: rgba(39, 168, 17, 0.5);
@@ -94,6 +98,15 @@
   left: 50%;
   top: 2%;
   transform: translate(-50%, 0);
+}
+
+.content1-container a {
+  text-decoration: none;
+  color: black;
+}
+
+.content1-container a:hover {
+  color: black;
 }
 
 .content1-container h1 {
@@ -131,6 +144,14 @@
   transform: translate(-20%, 0);
 }
 
+.content2-container a {
+  text-decoration: none;
+}
+
+.content2-container a:hover {
+  color: white;
+}
+
 .content2-container h2 {
   margin-top: 20px;
   color: white;
@@ -164,6 +185,17 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content3-container a {
+  text-decoration: none;
+}
+
+.content3-container a:hover {
+  color: white;
 }
 
 .content3-container h1 {

@@ -95,7 +95,7 @@ function SignUp() {
                   <div className="container-img">
                     <img
                       className="img-responsive img-welcome"
-                      src="https://drive.google.com/uc?id=1QUzPNaT1qtitlU4vnktUyCGTmxL836Wr"
+                      src="https://drive.google.com/uc?id=166_zm6fxb0VzymhOknFiD80JmxS7TceY"
                       alt="signup-img"
                     />
                   </div>

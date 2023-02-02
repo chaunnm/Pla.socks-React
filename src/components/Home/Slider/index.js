@@ -1,156 +1,10 @@
-// import React from 'react';
-// import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
-// import { Container } from 'react-bootstrap';
-// import './Slider.css';
-
-// export default function Slider(props) {
-//     return (
-//         <Container className='slider-container' fluid >
-//             <div className='arrow left-arrow' direction='left' onClick={()=>handleClick("left")}>
-//                 <ArrowLeftOutlined />
-//             </div>
-//             <div className='wrapper'>
-//                 <div className='slide'>
-//                     <div className='img-container'>
-//                         <img src='https://drive.google.com/uc?id=1IJgAVDm40y3_QKvkPTMKIjT8YNv9fo2b' alt='slider-1' />
-//                     </div>
-//                 </div>
-//                 <div className='slide'>
-//                     <div className='img-container'>
-//                         <img src='https://drive.google.com/uc?id=1wdhQNEtBpUVlNHgmc78Dq8IhLtD15Zhb' alt='slider-2' />
-//                     </div>
-//                 </div>
-//                 <div className='slide'>
-//                     <div className='img-container'>
-//                         <img src='https://drive.google.com/uc?id=142xyw2m_lbE2lTgklPDVzK8PK20Js63e' alt='slider-3' />
-//                     </div>
-//                 </div>
-//                 <div className='slide'>
-//                     <div className='img-container'>
-//                         <img src='https://drive.google.com/uc?id=1HirEr5J7h2cVj7HHkMOdIoaSF62AqcZP' alt='slider-4' />
-//                     </div>
-//                 </div>
-//             </div>
-//             <div className='arrow right-arrow' onClick={()=>handleClick("right")}>
-//                 <ArrowRightOutlined />
-//             </div>
-//         </Container>
-//     );
-// }
-
-// import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-// import { useState } from "react";
-// import styled from "styled-components";
-
-// const Container = styled.div`
-//   width: 100%;
-//   height: 60vh;
-//   display: flex;
-//   position: relative;
-//   overflow: hidden;
-// `;
-
-// const Arrow = styled.div`
-//   width: 50px;
-//   height: 50px;
-//   background-color: #fff7f7;
-//   border-radius: 50%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: ${(props) => props.direction === "left" && "10px"};
-//   right: ${(props) => props.direction === "right" && "10px"};
-//   margin: auto;
-//   cursor: pointer;
-//   opacity: 0.5;
-//   z-index: 2;
-// `;
-
-// const Wrapper = styled.div`
-//   height: 60vh;
-//   width: 100%;
-//   display: flex;
-//   transition: all 1.5s ease;
-//   transform: translateX(${(props) => props.slideIndex * -100}vw);
-// `;
-
-// const Slide = styled.div`
-//   width: 100vw;
-//   height: 60vh;
-//   display: flex;
-//   align-items: center;
-//   background-color: #${(props) => props.bg};
-// `;
-
-// const ImgContainer = styled.div`
-//   width: 100%;
-//   flex: 1;
-// `;
-
-// const Image = styled.img`
-//   height: 100%;
-// `;
-
-// const Slider = () => {
-//     const [slideIndex, setSlideIndex] = useState(0);
-//     const handleClick = (direction) => {
-//         if (direction === "left") {
-//             setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 3);
-//         } else {
-//             setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0);
-//         }
-//     };
-
-//     return (
-//         <Container>
-//             <Arrow direction="left" onClick={() => handleClick("left")}>
-//                 <ArrowLeftOutlined />
-//             </Arrow>
-//             <Wrapper slideIndex={slideIndex}>
-
-//                 <Slide >
-//                     <ImgContainer>
-//                         <Image src='https://drive.google.com/uc?id=1IJgAVDm40y3_QKvkPTMKIjT8YNv9fo2b' alt='slider-1' />
-//                     </ImgContainer>
-//                 </Slide>
-
-//                 <Slide >
-//                     <ImgContainer>
-//                         <Image src='https://drive.google.com/uc?id=1wdhQNEtBpUVlNHgmc78Dq8IhLtD15Zhb' alt='slider-2' />
-//                     </ImgContainer>
-//                 </Slide>
-
-//                 <Slide >
-//                     <ImgContainer>
-//                         <Image src='https://drive.google.com/uc?id=1pFe1axRH7WYacmtT7xTs4D86iChOYzqI' alt='slider-3' />
-//                     </ImgContainer>
-//                 </Slide>
-
-//                 <Slide >
-//                     <ImgContainer>
-//                         <Image src='https://drive.google.com/uc?id=13dv2mac7HV5HUHX1YyzXpaBDfhHwDXDw' alt='slider-4' />
-//                     </ImgContainer>
-//                 </Slide>
-
-//             </Wrapper>
-//             <Arrow direction="right" onClick={() => handleClick("right")}>
-//                 <ArrowRightOutlined />
-//             </Arrow>
-//         </Container>
-//     );
-// };
-
-// export default Slider;
-
 import React, { useState } from "react";
 import "./Slider.css";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import Carousel from "react-bootstrap/Carousel";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import { Link } from "react-router-dom";
 
 export default function Slide() {
   const [index, setIndex] = useState(0);
@@ -183,9 +37,15 @@ export default function Slide() {
               </p>
               <hr width="200px" height="3px" />
               <div className="button-container">
-                <div className="shop-btn">SHOP MEN</div>
-                <div className="shop-btn">SHOP CUSTOM</div>
-                <div className="shop-btn">SHOP WOMEN</div>
+                <Link to="/books" className="shop-btn">
+                  SHOP MEN
+                </Link>
+                <Link to="/books" className="shop-btn">
+                  SHOP CUSTOM
+                </Link>
+                <Link to="/books" className="shop-btn">
+                  SHOP WOMEN
+                </Link>
               </div>
             </div>
           </div>
@@ -203,10 +63,10 @@ export default function Slide() {
                 FREE CUSTOM!
                 <br /> DESIGN YOUR OWN SOCKS
               </h1>
-              <div className="custom-btn">
+              <Link to="/books" className="custom-btn">
                 <p>SHOP CUSTOM</p>
                 <ShoppingBagIcon />
-              </div>
+              </Link>
             </div>
           </div>
         </Carousel.Item>
@@ -221,7 +81,9 @@ export default function Slide() {
             <div className="content2-container">
               <h2>SUMMER 2023</h2>
               <h1>MADE BY FAMILY SOCK MAKER</h1>
-              <div className="shop-transparent-btn">SHOP NOW</div>
+              <Link to="/books" className="shop-transparent-btn">
+                SHOP NOW
+              </Link>
             </div>
           </div>
         </Carousel.Item>
@@ -240,7 +102,9 @@ export default function Slide() {
                 all over the world. We’ve got long warm, colorful, crazy socks -
                 and baby socks for the smallest ones
               </p>
-              <div className="shop-filled-btn">SHOP NOW</div>
+              <Link to="/books" className="shop-filled-btn">
+                SHOP NOW
+              </Link>
             </div>
           </div>
         </Carousel.Item>
