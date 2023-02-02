@@ -10,41 +10,49 @@ import { useNavigate } from "react-router-dom";
 import "./payment.scss";
 import axios from "axios";
 import StripeCheckOutForm from "./StripeCheckOutForm";
-import { createOrder } from "../../../redux/features/order/newOrderSlice";
+// import { createOrder } from "../../../redux/features/order/newOrderSlice";
 import { clearCart } from "../../../redux/features/cart/cartSlice";
 import products from "../../../data/products";
+import { createOrder } from "../../../redux/features/order/newOrderSlice";
+import { clearItemsToFavourite } from "../../../redux/features/favourite/favouriteSlice";
 const Payment = (props) => {
   const navigate = useNavigate();
+
   const dispatch = useDispatch();
+  // dispatch(clearItemsToFavourite());
   const [method, setMethod] = useState("COD");
   const [stripeApiKey, setStripeApiKey] = useState("");
-  let cartItems = products?.slice(8, 10);
+
+  const { cartItems, shippingInfo } = useSelector((state) => state.cart);
+  // let cartItems = products?.slice(8, 10);
   let Price =
     cartItems.length !== 0
-      ? cartItems.reduce((acc, item) => acc + 1 * item.price, 0)
+      ? cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0)
       : 0;
   let Quantity =
-    cartItems.length !== 0 ? cartItems.reduce((acc, item) => acc + 1, 0) : 0;
+    cartItems.length !== 0
+      ? cartItems.reduce((acc, item) => acc + item.quantity, 0)
+      : 0;
 
   let shippingCharges = Price > 250000 ? 0 : 30000;
 
   let totalPrice = Price + shippingCharges;
   let totalQuantity = Quantity;
-  useEffect(() => {
-    async function getStripeApiKey() {
-      const { data } = await axios.get("/api/v2/stripeapikey", {
-        withCredentials: true,
-      });
-      setStripeApiKey(data.stripeApiKey);
-    }
-    getStripeApiKey();
-  }, []);
+  // useEffect(() => {
+  //   async function getStripeApiKey() {
+  //     const { data } = await axios.get("/api/v2/stripeapikey", {
+  //       withCredentials: true,
+  //     });
+  //     setStripeApiKey(data.stripeApiKey);
+  //   }
+  //   getStripeApiKey();
+  // }, []);
 
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(true);
   };
-  const { shippingInfo } = useSelector((state) => state.cart);
+  // const { shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
   // let productPrice = cartItems.reduce(
@@ -63,7 +71,7 @@ const Payment = (props) => {
       id: "",
     };
     setOrder({
-      orderItems: cartItems,
+      cartItems: cartItems,
       user: user,
       shippingInfo: shippingInfo,
       paymentInfo: paymentInfo,
@@ -72,27 +80,8 @@ const Payment = (props) => {
 
   const [clientSecret, setClientSecret] = useState("");
   const handleClick = async () => {
-    // if (method === "COD") {
-    //   console.log(order);
-    //   dispatch(createOrder(order));
-    //   dispatch(clearCart());
-    //   navigate("/confirm-order");
-    // } else {
-    //   const config = {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     withCredentials: true,
-    //   };
-    //   const { data } = await axios.post(
-    //     "/api/v2/payment/process",
-    //     { items: cartItems },
-    //     config
-    //   );
-    //   setClientSecret(data.client_secret);
-    //   console.log(data);
-    //   handleShow();
-    // }
+    dispatch(createOrder(order));
+    dispatch(clearCart());
     navigate("/confirm-order");
   };
 
@@ -107,7 +96,7 @@ const Payment = (props) => {
   const handleClose = () => setShow(false);
 
   return (
-    <div className="Payment">
+    <div className=" ">
       <Container>
         {/* {cartItems.length === 0 ? (
           <p>no item</p>
@@ -187,7 +176,7 @@ const Payment = (props) => {
                         {item.category}
                       </div>
                       <div className="info-order__product__information__quantity">
-                        {/* x {item.quantity} */}x 1
+                        x {item.quantity}
                       </div>
                     </div>
                   </div>

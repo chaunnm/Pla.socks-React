@@ -13,7 +13,8 @@ function OrderShipping() {
 
   // const { orders } = useSelector((state) => state.myOrders);
   // const data = orders && orders.filter((order) => order.orderStatus === "Shipping");
-  let data = products?.slice(8, 10);
+  const { cartItems } = useSelector((state) => state.newOrder.order);
+  let data = cartItems;
   let Price =
     data.length !== 0 ? data.reduce((acc, item) => acc + 1 * item.price, 0) : 0;
   let Quantity = data.length !== 0 ? data.reduce((acc, item) => acc + 1, 0) : 0;

@@ -29,7 +29,7 @@ export default function Interest() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
         },
       },
@@ -60,7 +60,7 @@ export default function Interest() {
     <Container className="interest-container">
       <div className="interest-title">
         <h3>Recent Products</h3>
-        <img src="https://drive.google.com/uc?id=1pvmTXhO04IWkhIDuhiZtoQ240Nr4esGR" />
+        <img src="https://drive.google.com/uc?id=1ZoHLJCmSGWt5EHfOmcz8ckEe6kVpW9Jl" />
       </div>
       <Slider className="interest-books" {...settings}>
         {newProduct &&

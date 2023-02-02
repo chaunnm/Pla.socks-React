@@ -1,22 +1,19 @@
 import axios from "axios";
 
 // Add to Cart
-export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/v2/book/${id}`);
-  dispatch({
-    type: "ADD_TO_CART",
-    payload: {
-      book: data.book._id,
-      name: data.book.name,
-      price: data.book.price,
-      image: data.book.images[0].url,
-      stock: data.book.Stock,
-      author: data.book.author,
-      quantity,
-    },
-  });
-  // localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
-};
+export const addItemsToCart =
+  (product, quantity) => async (dispatch, getState) => {
+    // const { data } = await axios.get(`/api/v2/book/${id}`);
+    console.log("action", product);
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        ...product,
+        quantity,
+      },
+    });
+    // localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+  };
 
 // Remove from Cart
 export const removeItemsFromCart = (id) => async (dispatch, getState) => {
@@ -63,12 +60,12 @@ export default function cartSlice(state = initialState, action) {
   switch (action.type) {
     case "ADD_TO_CART":
       const item = action.payload;
-      const isItemExist = state.cartItems.find((i) => i.book === item.book);
+      const isItemExist = state.cartItems.find((i) => i._id === item._id);
       if (isItemExist) {
         return {
           ...state,
           cartItems: state.cartItems.map((i) =>
-            i.book === isItemExist.book ? item : i
+            i._id === isItemExist._id ? item : i
           ),
         };
       } else {
@@ -80,7 +77,7 @@ export default function cartSlice(state = initialState, action) {
     case "REMOVE_CART_ITEM":
       return {
         ...state,
-        cartItems: state.cartItems.filter((i) => i.book !== action.payload),
+        cartItems: state.cartItems.filter((i) => i._id !== action.payload),
       };
     case "SAVE_SHIPPING_INFO":
       return {

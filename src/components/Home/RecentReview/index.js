@@ -23,7 +23,7 @@ export default function RecentReview() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
         },
       },
@@ -59,7 +59,7 @@ export default function RecentReview() {
     <Container className="recent-review-container">
       <div className="recent-review-title">
         <h3>Review gần đây</h3>
-        <img src="https://drive.google.com/uc?id=1yl28QQopUuRlpVpAu6lmyNMufidhNlZH" />
+        <img src="https://drive.google.com/uc?id=1QT5V-HkzTgDSSvGRHFk9VZuXeIngbe8V" />
       </div>
       <Slider className="recent-review-books" {...settings}>
         {newProduct &&

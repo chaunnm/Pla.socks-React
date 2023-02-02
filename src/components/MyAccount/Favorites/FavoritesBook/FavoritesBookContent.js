@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import products from "../../../../data/products";
 
 const FavoritesBook = () => {
-  // let { favouriteItems } = useSelector((state) => state.favourite);
+  let { favouriteItems } = useSelector((state) => state.favourite);
   // console.log(favouriteItems);
-  const favouriteItems = products.slice(17, 18);
+  // const favouriteItems = products.slice(17, 18);
   // console.log(item.title);
 
   return (
@@ -23,7 +23,7 @@ const FavoritesBook = () => {
           </p>
         </div>
       ) : (
-        <div className="category-books row row-cols-3 ">
+        <div className="row row-cols-2 ">
           {favouriteItems.map((item, index) => {
             return (
               <BookItem

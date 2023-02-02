@@ -22,7 +22,7 @@ export default function ComingSoon() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
         },
       },
@@ -59,25 +59,28 @@ export default function ComingSoon() {
     <Container className="coming-soon-container">
       <div className="coming-soon-title">
         <h3>Comming Soon</h3>
-        <img src="https://drive.google.com/uc?id=19KnqBhGINLa8yoIvJZAIRZ3GvP7rpjIp" />
+        <img src="https://drive.google.com/uc?id=12dngdixmP8mrrX46DOLznKEt5L5_Pirg" />
       </div>
-      <Slider className="best-seller-books" {...settings}>
-        {newProduct &&
-          newProduct.map((item, index) => {
-            //   console.log(item.images);
-            return (
-              <BookItem
-                key={index}
-                id={item._id}
-                name={item.name}
-                images={item.images}
-                price={item.price}
-                Sold={item.Sold}
-                ratings={item.ratings}
-              />
-            );
-          })}
-      </Slider>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <Slider className="best-seller-books" {...settings}>
+          {newProduct &&
+            newProduct.map((item, index) => {
+              //   console.log(item.images);
+              return (
+                <BookItem
+                  key={index}
+                  id={item._id}
+                  name={item.name}
+                  images={item.images}
+                  price={item.price}
+                  Sold={item.Sold}
+                  ratings={item.ratings}
+                />
+              );
+            })}
+        </Slider>
+      </div>
+
       <div className="text-center mt-0">
         <Link to="/books">
           <Button className="see-more" variant="primary">

@@ -7,14 +7,19 @@ import { numberWithCommas } from "../../../more/FormatNumber";
 import products from "../../../data/products";
 const Confirmation = (props) => {
   const { user } = useSelector((state) => state.user);
-  let cartItems = products?.slice(8, 10);
-
+  // let cartItems = products?.slice(8, 10);
+  const { cartItems, shippingInfo } = useSelector(
+    (state) => state.newOrder.order
+  );
   // const { order } = useSelector((state) => state.newOrder);
 
   function getFullAddress(houseAddress, ward, district, city) {
     return houseAddress + ", " + ward + ", " + district + ", " + city;
   }
   let Price = cartItems.reduce((acc, item) => acc + 1 * item.price, 0);
+  let shippingCharges = Price > 250000 ? 0 : 30000;
+
+  let totalPrice = Price + shippingCharges;
 
   return (
     <div>
@@ -65,18 +70,22 @@ const Confirmation = (props) => {
                             {item.category}
                           </div>
                           <div className="info-order__product__information__quantity">
-                            x 1
+                            {item.quantity}
                           </div>
                         </div>
                         <div className="info-order__product__money">
                           Total:
                           <span className="info-order__product__money__value">
-                            {numberWithCommas(item.price * 1)}
+                            {numberWithCommas(item.price * item.quantity)}
                           </span>
                         </div>
                       </div>
                     );
                   })}
+                  <div className="totalPrice">
+                    <h5>Tổng tiền: </h5>
+                    <h5>{totalPrice}</h5>
+                  </div>
 
                   <hr />
                   <div className="confirm__information__block__content__methodPayment">
@@ -103,18 +112,18 @@ const Confirmation = (props) => {
                     <div className="phone">0123456789</div>
                     <div className="address">
                       {" "}
-                      {/* {getFullAddress(
-                        order?.shippingInfo.address,
-                        order?.shippingInfo.ward,
-                        order?.shippingInfo.district,
-                        order?.shippingInfo.city
-                      )} */}
                       {getFullAddress(
+                        shippingInfo.address,
+                        shippingInfo.ward,
+                        shippingInfo.district,
+                        shippingInfo.city
+                      )}
+                      {/* {getFullAddress(
                         "Xa lộ Hà Nội",
                         "Phường Linh Trung",
                         "Thủ Đức",
                         "TP Hồ Chí Minh"
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>

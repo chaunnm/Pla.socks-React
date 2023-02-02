@@ -93,7 +93,7 @@ const Widget = ({ type }) => {
   }
 
   return (
-    <div className="widget">
+    <div data-aos="flip-left" className="widget">
       <div className="widget__left">
         <div
           className="widget__left__icon"

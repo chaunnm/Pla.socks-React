@@ -30,7 +30,7 @@ export default function BestSeller() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 2,
         },
       },
@@ -60,26 +60,29 @@ export default function BestSeller() {
   return (
     <Container className="best-seller-container">
       <div className="best-seller-title">
-        <h3>BEST SELLER</h3>
-        {/* <img src="https://drive.google.com/uc?id=19KnqBhGINLa8yoIvJZAIRZ3GvP7rpjIp" /> */}
+        <h3>Best Seller</h3>
+        <img src="https://drive.google.com/uc?id=120ebN4qow5nkEjTVuryhL2vnF9YPDUnw" />
       </div>
-      <Slider className="best-seller-books" {...settings}>
-        {newProduct &&
-          newProduct.map((item, index) => {
-            // console.log(item.images[0].url);
-            return (
-              <BookItem
-                key={index}
-                id={item._id}
-                name={item.name}
-                images={item.images}
-                price={item.price}
-                Sold={item.Sold}
-                ratings={item.ratings}
-              />
-            );
-          })}
-      </Slider>
+      <div data-aos="fade-right" data-aos-duration="2000">
+        <Slider className="best-seller-books" {...settings}>
+          {newProduct &&
+            newProduct.map((item, index) => {
+              // console.log(item.images[0].url);
+              return (
+                <BookItem
+                  key={index}
+                  id={item._id}
+                  name={item.name}
+                  images={item.images}
+                  price={item.price}
+                  Sold={item.Sold}
+                  ratings={item.ratings}
+                />
+              );
+            })}
+        </Slider>
+      </div>
+
       <div className="text-center mt-0">
         <Link to="/books">
           <Button className="see-more" variant="primary">
