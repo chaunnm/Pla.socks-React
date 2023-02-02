@@ -29,7 +29,7 @@ export default function Slide() {
               src="https://drive.google.com/uc?id=1BAE1KpnNvMACPZ90rV8pHBo_B7lH2N08"
             />
             <div className="content-container">
-              <h1>PLA.SOCKS</h1>
+              <h1 data-aos="fade-right">PLA.SOCKS</h1>
               <p>
                 Using a pair of Pla.Socks socks, you have successfully rescued
                 10 discarded plastic bottles, together with Pla.socks create a

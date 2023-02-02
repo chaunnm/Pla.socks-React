@@ -102,10 +102,15 @@ const UserList = () => {
     },
   ];
   return (
-    <div className="datatable">
+    <div data-aos="zoom-in" data-aos-duration="1000" className="datatable">
       <div className="datatableTitle">
         User List
-        <Link to="/admin-user-new" className="link link-backgound">
+        <Link
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          to="/admin-user-new"
+          className="link link-backgound"
+        >
           <FaUserPlus className="addUser" />
           Add new
         </Link>

@@ -6,7 +6,11 @@ import { BsShare, BsFillStarFill, BsCircle } from "react-icons/bs";
 export default function BlogItem(props) {
   return (
     <>
-      <div className="blog-item m-2 bg-primary bg-opacity-10 shadow-sm rounded">
+      <div
+        data-aos="flip-left"
+        data-aos-duration="2000"
+        className="blog-item m-2 bg-primary bg-opacity-10 shadow-sm rounded"
+      >
         <Link
           className="blog-item-link text-decoration-none lh-sm text-dark"
           to={props.path}

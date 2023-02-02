@@ -10,28 +10,28 @@ const initialState = {
   order: {},
 };
 
-export const createOrder = createAsyncThunk(
-  `${namespace}/createOrder`,
-  async (order, { rejectWithValue }) => {
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      };
-      const { data } = await axios.post(
-        "/api/v2/order/new",
-        order,
-        config
-      );
-      return data;
-    } catch (err) {
-      console.log(err.response.data);
-      return rejectWithValue(err.response.data);
-    }
-  }
-);
+// export const createOrder = createAsyncThunk(
+//   `${namespace}/createOrder`,
+//   async (order, { rejectWithValue }) => {
+//     try {
+//       const config = {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         withCredentials: true,
+//       };
+//       const { data } = await axios.post(
+//         "/api/v2/order/new",
+//         order,
+//         config
+//       );
+//       return data;
+//     } catch (err) {
+//       console.log(err.response.data);
+//       return rejectWithValue(err.response.data);
+//     }
+//   }
+// );
 
 export const newOrderSlice = createSlice({
   name: namespace,
@@ -42,23 +42,28 @@ export const newOrderSlice = createSlice({
       state.message = null;
       state.success = null;
     },
+    createOrder: (state, action) => {
+      console.log("action", action.payload);
+      state.order = action.payload;
+    },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(createOrder.pending, (state, action) => {
-        state.loading = true;
-      })
-      .addCase(createOrder.fulfilled, (state, action) => {
-        state.loading = false;
-        state.order = action.payload.order;
-        state.success = action.payload.success;
-      })
-      .addCase(createOrder.rejected, (state, action) => {
-        state.loading = false;
-        state.success = false;
-        state.error = action.payload.message;
-      });
-  },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(createOrder.pending, (state, action) => {
+  //       state.loading = true;
+  //     })
+  //     .addCase(createOrder.fulfilled, (state, action) => {
+  //       state.loading = false;
+  //       state.order = action.payload.order;
+  //       state.success = action.payload.success;
+  //     })
+  //     .addCase(createOrder.rejected, (state, action) => {
+  //       state.loading = false;
+  //       state.success = false;
+  //       state.error = action.payload.message;
+  //     });
+  // },
 });
+export const { createOrder } = newOrderSlice.actions;
 
 export default newOrderSlice.reducer;

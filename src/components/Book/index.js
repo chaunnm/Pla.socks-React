@@ -38,13 +38,34 @@ import products from "../../data/products";
 //
 
 export default function BookDetail() {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const [product, setProduct] = useState();
+  useEffect(() => {
+    const getProductDetails = () => {
+      return products.find((item) => {
+        return item._id === id;
+      });
+    };
+    let product = getProductDetails();
+    console.log("product", product);
+    setProduct(product);
+    // getProductDetails();
+  }, [id]);
+  const images = [
+    {
+      original: product?.images,
+      thumbnail: product?.images,
+    },
+  ];
+
   function AddButton() {
-    const addToCart = (id, stock) => {
-      // if (stock < 1) {
-      //   toast.error("Số lượng sản phẩm trong kho không đủ! ☹️");
-      //   return;
-      // }
-      // dispatch(addItemsToCart(id, 1));
+    const addToCart = (product, stock) => {
+      if (stock < 1) {
+        toast.error("Số lượng sản phẩm trong kho không đủ! ☹️");
+        return;
+      }
+      dispatch(addItemsToCart(product, 1));
       toast.success(` ${product?.name} has been added to cart! 🛒`, {
         position: "bottom-center",
         autoClose: 5000,
@@ -60,7 +81,7 @@ export default function BookDetail() {
       <div>
         <button
           type="button"
-          onClick={() => addToCart(product._id, product.Stock)}
+          onClick={() => addToCart(product, product.Stock)}
           className="book-add-btn btn border rounded text-center fs-6 text-uppercase p-3 ps-4 pe-4 fw-bold"
         >
           Add to cart
@@ -71,8 +92,8 @@ export default function BookDetail() {
 
   function AddFavorite() {
     const [show, setShow] = useState(false);
-    const addToFavourite = (id) => {
-      // dispatch(addItemsToFavourite(id));
+    const addToFavourite = (product) => {
+      dispatch(addItemsToFavourite(product));
       toast.success(
         ` ${product?.name} đã được thêm vào danh sách yêu thích thành công!`,
         {
@@ -91,7 +112,7 @@ export default function BookDetail() {
       <div>
         <button
           type="button"
-          onClick={() => addToFavourite(product._id)}
+          onClick={() => addToFavourite(product)}
           className="book-like-btn border border-2 rounded text-center align-middle p-1 ps-3 pe-3"
         >
           <i className="book-like-icon text-danger fs-6">
@@ -129,27 +150,6 @@ export default function BookDetail() {
     ],
   };
 
-  const { id } = useParams();
-  const [product, setProduct] = useState();
-  useEffect(() => {
-    const getProductDetails = () => {
-      return products.find((item) => {
-        return item._id === id;
-      });
-    };
-    let product = getProductDetails();
-    console.log("product", product);
-    setProduct(product);
-    getProductDetails();
-  }, [id]);
-  const images = [
-    {
-      original: product?.images,
-      thumbnail: product?.images,
-    },
-  ];
-  // console.log("images", images);
-  const dispatch = useDispatch();
   // const { loading, error } = useSelector(
   //   (state) => state.productDetails
   // );

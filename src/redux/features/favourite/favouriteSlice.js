@@ -1,18 +1,21 @@
 import axios from "axios";
 
-export const addItemsToFavourite = (id) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/v2/book/${id}`);
-  // console.log(data);
+export const addItemsToFavourite = (product) => async (dispatch, getState) => {
+  // const { data } = await axios.get(`/api/v2/book/${id}`);
+  console.log("action", product);
   dispatch({
     type: "ADD_TO_FAVOURITE",
     payload: {
-      book: data.book._id,
-      name: data.book.name,
-      price: data.book.price,
-      image: data.book.images[0].url,
-      stock: data.book.Stock,
-      author: data.book.author,
+      ...product,
     },
+  });
+};
+
+export const clearItemsToFavourite = () => async (dispatch, getState) => {
+  // const { data } = await axios.get(`/api/v2/book/${id}`);
+
+  dispatch({
+    type: "CLEAR",
   });
 };
 
@@ -24,14 +27,12 @@ export default function favouriteSlice(state = initialState, action) {
   switch (action.type) {
     case "ADD_TO_FAVOURITE":
       const item = action.payload;
-      const isItemExist = state.favouriteItems.find(
-        (i) => i.book === item.book
-      );
+      const isItemExist = state.favouriteItems.find((i) => i._id === item._id);
       if (isItemExist) {
         return {
           ...state,
           favouriteItems: state.favouriteItems.map((i) =>
-            i.book === isItemExist.book ? item : i
+            i._id === isItemExist._id ? item : i
           ),
         };
       } else {

@@ -23,3 +23,49 @@
     font-size: 18px;
     text-align: justify;
 }
+.terms-item{
+    background-color: #106CC0;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    align-items: center;
+    
+    /* border-radius: 10px; */
+}
+.terms-item h4{
+    margin: 0;
+}
+.terms-item h4{
+    color: aliceblue;
+}
+.terms-item i{
+color: aliceblue;
+}
+.terms-item-body{
+    /* border-top: 1px solid #106CC0; */
+    border-left: 1px solid #555555;
+    border-right: 1px solid #555555;
+    border-bottom: 1px solid #555555;
+    padding: 10px;
+}
+.item1{
+    background-color: #61c67a;
+        margin-top: 20px;
+}
+.item2{
+    background-color: #e7e562;
+        margin-top: 20px;
+}
+.item3 {
+    background-color: #8959e4;
+    margin-top: 20px;
+}
+.item4 {
+    background-color: #e459e4;
+    margin-top: 20px;
+}
+.item5 {
+    background-color: #e47e3b;
+    margin-top: 20px;
+   
+}

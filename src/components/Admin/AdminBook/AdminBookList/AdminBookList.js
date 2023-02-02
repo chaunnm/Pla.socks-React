@@ -218,7 +218,7 @@ const AdminBookList = () => {
       {/* {loading ? (
         <Loading />
       ) : ( */}
-      <div className="datatable">
+      <div data-aos="zoom-in" data-aos-duration="1000" className="datatable">
         <div className="col-xl-6 col-lg-5 col-md-6">
           <form action="#" className="search-header">
             <div className="input-group w-100">

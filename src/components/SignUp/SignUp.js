@@ -86,16 +86,16 @@ function SignUp() {
                 <div className="container col-lg-6 mt-3">
                   <div className="container container-logo">
                     <img
-                      src="/images/account/logo_book.png"
+                      src="https://i.imgur.com/mnt90vV.png"
                       alt="Logo trang web"
                       className="logo img-responsive"
                     />
-                    <span className="logo-name">Pla.socks</span>
+                    {/* <span className="logo-name">Pla.socks</span> */}
                   </div>
                   <div className="container-img">
                     <img
                       className="img-responsive img-welcome"
-                      src="https://drive.google.com/uc?id=166_zm6fxb0VzymhOknFiD80JmxS7TceY"
+                      src="https://drive.google.com/uc?id=1CKdm-H_NnaUvI9DhiOFbA0YE8JG2-XiU"
                       alt="signup-img"
                     />
                   </div>
@@ -128,7 +128,7 @@ function SignUp() {
                           <input
                             type="text"
                             className="form-control form-input input-group-text-1"
-                            placeholder="Tên hiển thị"
+                            placeholder="User name"
                             onChange={(e) => setUsername(e.target.value)}
                           />
                         </div>

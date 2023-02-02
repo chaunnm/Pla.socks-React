@@ -95,11 +95,11 @@ const SignIn = (props) => {
                 <Col md="6" lg="7" className="signIn__container__left">
                   <div className="title">
                     <img src="https://i.imgur.com/mnt90vV.png" alt="logo" />
-                    <div className="title__name">Pla.socks</div>
+                    {/* <div className="title__name">Pla.socks</div> */}
                   </div>
                   <div className="image">
                     <img
-                      src="https://drive.google.com/uc?id=1lL3RkPBS6QbJ8r-hz7VFa536y-jvk0B0"
+                      src="https://drive.google.com/uc?id=1RIJR7SUa8C4yiFx-qiR_Ve1ySJ3HyLuf"
                       alt="login-img"
                     />
                   </div>

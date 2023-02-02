@@ -1,5 +1,5 @@
 .img-welcome {
-  width: 70%;
+  width: 100%;
 }
 
 .signup {
@@ -9,9 +9,9 @@
   align-items: center;
 
   .container-img {
+    margin-top: 70px;
     display: flex;
     justify-content: center;
-    width: 100%;
   }
 }
 
@@ -44,7 +44,8 @@
 }
 
 .logo {
-  width: 80px;
+  //   width: 80px;
+  width: 30%;
 }
 
 .logo-name {
