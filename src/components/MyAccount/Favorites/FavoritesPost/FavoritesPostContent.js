@@ -1,4 +1,4 @@
-import BookItem from "../../../Home/Books/BookItem";
+import BookItem from "../../../Home/Socks/SockItem";
 import "./FavoritesPostContent.scss";
 function FavoritesPostContent() {
   const Books = [

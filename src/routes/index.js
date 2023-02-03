@@ -17,12 +17,12 @@ import PageSignIn from "../pages/PageSignIn";
 import ConfirmationPage from "../pages/ConfirmationPage";
 import PaymentPage from "../pages/PaymentPage";
 import Categories from "../pages/Categories";
-import Book from "../pages/Book";
+import Book from "../pages/Sock";
 import Blogs from "../pages/Blogs";
 import Blog from "../pages/Blog";
 
 import Account from "../pages/Account";
-import FavoritesBook from "../pages/FavoritesBook";
+import FavoritesBook from "../pages/FavoritesSock";
 import FavoritesPost from "../pages/FavoritesPost";
 import MyOrderShipping from "../pages/MyOrderShipping";
 import MyOrderOrdered from "../pages/MyOrderOrdered";
@@ -38,10 +38,10 @@ import AdminBlogList from "../pages/AdminBlogList";
 import AdminBlogNew from "../pages/AdminBlogNew";
 import AdminBlogEdit from "../pages/AdminBlogEdit";
 
-import AdminBookList from "../pages/AdminBookList";
+import AdminBookList from "../pages/AdminSockList";
 import AdminCategoryList from "../pages/AdminCategoryList";
-import AdminBookNew from "../pages/AdminBookNew";
-import AdminBookEdit from "../pages/AdminBookEdit";
+import AdminBookNew from "../pages/AdminSockNew";
+import AdminBookEdit from "../pages/AdminSockEdit";
 import AdminCategoryNew from "../pages/AdminCategoryNew";
 import AdminCategoryEdit from "../pages/AdminCategoryEdit";
 
