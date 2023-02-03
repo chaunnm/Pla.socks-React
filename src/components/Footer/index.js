@@ -108,9 +108,9 @@ export default function Footer(props) {
                 <Link to="/terms-of-use"> Terms of Use </Link>
               </div>
               <div className="footer-link-items">
-                <h2>Team 4</h2>
-                <a href=""> Công nghệ Web và Ứng dụng </a>
-                <a href=""> Trường Đại học Công Nghệ Thông Tin </a>
+                <h2>Team 4 - SE347.N11</h2>
+                <a href=""> Web Technology & Application </a>
+                <a href=""> University of Information Technology </a>
                 <img src="/images/aboutus/logo-uit.png" alt="UIT-logo" />
               </div>
             </div>
@@ -119,7 +119,10 @@ export default function Footer(props) {
               <div className="contact">
                 <div>
                   <LocationOnOutlinedIcon />
-                  <p> Quarter 6, Linh Trung, Thu Duc, Thu Duc </p>
+                  <p>
+                    {" "}
+                    Quarter 6, Linh Trung, Thu Duc Ward, Thu Duc City, HCM City
+                  </p>
                 </div>
                 <div>
                   <MailOutlineIcon />
@@ -131,15 +134,15 @@ export default function Footer(props) {
                 </div>
               </div>
             </div>
-            <div className="payment">
-              <img src="/images/footer/zalopay.png" alt="" />
-              <img src="/images/footer/momo.png" alt="" />
-              <img src="/images/footer/shopee.png" alt="" />
-              <img src="/images/footer/vnpay.png" alt="" />
-            </div>
           </div>
         </div>
       </Container>
+      <div className="payment">
+        <img src="/images/footer/zalopay.png" alt="" />
+        <img src="/images/footer/momo.png" alt="" />
+        <img src="/images/footer/shopee.png" alt="" />
+        <img src="/images/footer/vnpay.png" alt="" />
+      </div>
       {/* Copyrights */}
       <section className="social-media">
         <small className="website-rights">

@@ -11,7 +11,7 @@
         align-items: center;
 
         .book-infor-img {
-            width: 150px;
+            width: 150px !important;
         }
 
         .book-infor-detail {
@@ -84,8 +84,8 @@
         }
 
         .book-delivery-confirm {
-            color: #000;
-            background-color: #79e5e5;
+            color: #fff !important;
+            background-color: #00BABA;
             margin-bottom: 10px;
             margin-right: 20px;
         }

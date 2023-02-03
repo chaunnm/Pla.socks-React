@@ -25,7 +25,7 @@ function OrderShipping() {
   let totalQuantity = Quantity;
   return (
     <div className="order-infor">
-      {/* {!data ? (
+      {!data ? (
         <div className="container-canceled-empty">
           <div>
             <img
@@ -35,64 +35,66 @@ function OrderShipping() {
             />
           </div>
           <p>
-            😱 <b>Bạn ơi chưa đơn hàng nào đang giao đâu nha</b> 😱
+            😱 <b>Hey guys, no orders are being delivered yet</b> 😱
           </p>
         </div>
-      ) : ( */}
-      <>
-        {/* {data.map((order, index) => ( */}
-        <div className="row">
-          <div className="my-order-content-booked">
-            {data.map((item, i) => (
-              <div className="book-infor row" key={i}>
-                <img
-                  className="col-3 book-infor-img"
-                  src={item.images}
-                  alt=""
-                />
-                <div className="book-infor-detail col">
-                  <h6>{item.name}</h6>
-                  <p className="book-infor-detail-author">{item.category}</p>
-                  <p className="book-infor-detail-price">
-                    <span className="book-infor-detail-price-old">80.000đ</span>{" "}
-                    <span className="book-infor-detail-price-new">
-                      {numberWithCommas(item.price)} đ
-                    </span>
-                  </p>
-                  <p className="book-infor-detail-quantity">Số lượng: 1</p>
+      ) : (
+        <>
+          {/* {data.map((order, index) => ( */}
+          <div className="row">
+            <div className="my-order-content-booked">
+              {data.map((item, i) => (
+                <div className="book-infor row" key={i}>
+                  <img
+                    className="col-3 book-infor-img"
+                    src={item.images}
+                    alt=""
+                  />
+                  <div className="book-infor-detail col">
+                    <h6>{item.name}</h6>
+                    <p className="book-infor-detail-author">{item.category}</p>
+                    <p className="book-infor-detail-price">
+                      <span className="book-infor-detail-price-old">
+                        80.000đ
+                      </span>{" "}
+                      <span className="book-infor-detail-price-new">
+                        {numberWithCommas(item.price)} đ
+                      </span>
+                    </p>
+                    <p className="book-infor-detail-quantity">Quantity: 1</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
 
-            <div className="row book-delivery-bill">
-              <div className="book-total-bill col">
-                <div>
-                  <span className="book-total-bill-title">Phí Ship:</span>
-                  <span className="book-total-bill-price">
-                    {numberWithCommas(shippingCharges)} đ
-                  </span>
+              <div className="row book-delivery-bill">
+                <div className="book-total-bill col">
+                  <div>
+                    <span className="book-total-bill-title">Shipping Fee:</span>
+                    <span className="book-total-bill-price">
+                      {numberWithCommas(shippingCharges)} đ
+                    </span>
+                  </div>
+                  <div>
+                    <span className="book-total-bill-title">Total:</span>
+                    <span className="book-total-bill-price">
+                      {numberWithCommas(totalPrice)} đ
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <span className="book-total-bill-title">Thành tiền:</span>
-                  <span className="book-total-bill-price">
-                    {numberWithCommas(totalPrice)} đ
-                  </span>
-                </div>
+                <button
+                  type="button"
+                  className="book-delivery-confirm btn col disabled"
+                >
+                  Received
+                </button>
               </div>
-              <button
-                type="button"
-                className="book-delivery-confirm btn btn-primary col disabled"
-              >
-                Received
-              </button>
+
+              <p className="book-date-delivery">
+                Receive products and pay before February 8, 2023
+              </p>
             </div>
 
-            <p className="book-date-delivery">
-              Nhận sản phẩm và thanh toán trước 30-04-2022
-            </p>
-          </div>
-
-          {/* <div className="col-3 todo-timeline mb-5">
+            {/* <div className="col-3 todo-timeline mb-5">
             <div className="">
               <h4 className="todo-title">
                 Mã đơn hàng: <span>HN0101111</span>
@@ -155,9 +157,9 @@ function OrderShipping() {
               </ul>
             </div>
           </div> */}
-        </div>
-      </>
-      {/* )} */}
+          </div>
+        </>
+      )}
     </div>
   );
 }

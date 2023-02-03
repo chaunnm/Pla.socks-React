@@ -43,7 +43,7 @@ function OrderCanceled() {
                   </span>
                 </p>
                 <p className="book-infor-detail-quantity">
-                  <div>Amount: 1</div>
+                  <div>Quantity: 1</div>
                 </p>
                 <div className="book-infor-total-2">
                   <span>Canceled by you</span>

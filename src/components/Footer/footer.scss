@@ -111,7 +111,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: auto;
   margin-bottom: 15px;
+  width: 70%;
 }
 
 /* Logo and Social Networks */
@@ -225,8 +227,10 @@
   }
 
   .footer-link-wrapper {
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .download img {
@@ -291,6 +295,15 @@
     .social-icons {
       display: flex;
       justify-content: space-around;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .footer-link-list {
+      display: none;
+    }
+    .payment {
+      display: none;
     }
   }
 }

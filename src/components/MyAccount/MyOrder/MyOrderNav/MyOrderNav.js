@@ -6,7 +6,7 @@ function AccountOrderNav() {
     <div className="order-process-nav row">
       <div className="order-process-nav-shipping col">
         <NavLink activeclassname="active" to="/my-order-shipping">
-          Delivery
+          Delivered
         </NavLink>
       </div>
       <div className="order-process-nav-ordered col">
@@ -16,7 +16,7 @@ function AccountOrderNav() {
       </div>
       <div className="order-process-nav-canceled col">
         <NavLink activeclassname="active" to="/my-order-canceled">
-          Cancled
+          Canceled
         </NavLink>
       </div>
     </div>
