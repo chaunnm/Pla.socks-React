@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import BookItem from "../Books/BookItem";
+import BookItem from "../Socks/SockItem";
 import { Button, Container } from "react-bootstrap";
 import "./ComingSoon.css";
 import { useDispatch, useSelector } from "react-redux";
