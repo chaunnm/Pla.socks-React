@@ -272,6 +272,10 @@
     height: 500px;
   }
 
+  .slider-img:nth-child(2) {
+    background-position: 50%;
+  }
+
   .slider-container h1 {
     font-size: 42px;
   }

@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 export default function BlogDetail() {
   return (
     <div className="blog-container container-fluid">
-      <div className="blog-breadcrumb ms-5 mt-2">
+      {/* <div className="blog-breadcrumb ms-5 mt-2">
         <Breadcrumb>
           <Breadcrumb.Item href="/">Trang chủ</Breadcrumb.Item>
           <Breadcrumb.Item href="/blogs" className="text-capitalize">
@@ -24,8 +24,8 @@ export default function BlogDetail() {
             How to style crew socks for your authentic outfits
           </Breadcrumb.Item>
         </Breadcrumb>
-      </div>
-      <div className="blog-main-container">
+      </div> */}
+      <div className="blog-main-container pt-2">
         <Container>
           {/* Stack the columns on mobile by making one full-width and the other half-width */}
           <Row>
@@ -283,7 +283,7 @@ export default function BlogDetail() {
                             <p>Henry</p>
                           </div>
                           <div className="blog-comment-date flex-shrink-1 text-secondary fs-6">
-                            <p>04/04/2022</p>
+                            <p>04/02/2023</p>
                           </div>
                         </div>
                         <div className="blog-comment-content">
@@ -301,7 +301,7 @@ export default function BlogDetail() {
                             <p>Doe</p>
                           </div>
                           <div className="blog-comment-date flex-shrink-1 text-secondary fs-6">
-                            <p>03/04/2022</p>
+                            <p>03/02/2023</p>
                           </div>
                         </div>
                         <div className="blog-comment-content">

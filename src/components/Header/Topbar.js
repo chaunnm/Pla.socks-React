@@ -180,8 +180,8 @@ export default function Topbar(props) {
                         <NavDropdown.Item as={Link} to="/my-favorite-product">
                           Favorites
                         </NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="/admin-blog-new">
-                          Create blog
+                        <NavDropdown.Item as={Link} to="/add-blog">
+                          Write blog
                         </NavDropdown.Item>
                         <NavDropdown.Divider />
                         {isAdmin ? (

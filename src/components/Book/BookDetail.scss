@@ -203,6 +203,19 @@
       width: 100%;
     }
   }
+  .book-comment-others {
+      .book-comment-user {
+        .book-comment-avatar {
+          margin-top: 10px;
+        }
+
+        .book-comment-container {
+          .book-comment-userinfo {
+            flex-wrap: wrap;
+        }
+      }
+    }
+  }
 }
 
 @media screen and(max-width: 820px) {

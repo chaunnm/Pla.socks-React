@@ -9,7 +9,7 @@ function AccountFavoritesNav() {
     <div className="favorites-nav row">
       <div className="col favorites-nav-product">
         <NavLink
-          to="/my-favorite-book"
+          to="/my-favorite-product"
           activeclassname="active"
           className="col"
         >

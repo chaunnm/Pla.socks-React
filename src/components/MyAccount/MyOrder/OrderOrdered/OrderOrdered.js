@@ -25,7 +25,7 @@ function OrderOrdered() {
             />
           </div>
           <p>
-            😱 <b>Hello, no orders have been delivered yet</b> 😱
+            😱 <b>Hey guys, no orders have been delivered yet</b> 😱
           </p>
         </div>
       ) : (

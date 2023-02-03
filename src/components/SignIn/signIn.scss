@@ -260,8 +260,14 @@
   }
 }
 @media screen and (max-width: 960px) {
+  .signIn__container .signIn__container__right__button {
+    justify-content: center;
+    margin-top: 5px;
+}
   .signIn__container {
     height: max-content !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
     .title {
       margin-top: 20px;
       justify-content: center;
@@ -269,5 +275,6 @@
     .title img {
       width: 40% !important;
     }
+    
   }
 }

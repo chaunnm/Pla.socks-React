@@ -146,6 +146,7 @@
 }
 @media screen and (max-width: 980px) {
   .signup {
+    margin-bottom: 40px;
     height: max-content !important;
     .container.container-logo {
       justify-content: center;
@@ -153,5 +154,8 @@
     .logo {
       width: 40%;
     }
+    .container-btn-signup {
+    text-align: center;
+}
   }
 }

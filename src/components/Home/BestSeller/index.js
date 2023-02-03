@@ -83,7 +83,7 @@ export default function BestSeller() {
         </Slider>
       </div>
 
-      <div className="text-center mt-0">
+      <div className="btn-see-more text-center">
         <Link to="/products">
           <Button className="see-more" variant="primary">
             See more &rarr;

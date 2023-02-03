@@ -31,7 +31,7 @@ export default function AddBlog() {
               <p className="icon-name">Blog</p>
             </div>
           </div> */}
-          <form className="add-blog-main-body ms-3 p-3 w-100" action="">
+          <form className="add-blog-main-body p-3 w-100" action="">
             <div className="row">
               <div className="col-sm">
                 <div className="row mb-3">

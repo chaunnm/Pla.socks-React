@@ -96,7 +96,7 @@ const Sidebar = () => {
             <div>
               <CategoryIcon className="icon" />
               <span className="responsive-sidebar ms-1 d-none d-sm-inline">
-                Category
+                Categories
               </span>
             </div>
           </NavLink>
