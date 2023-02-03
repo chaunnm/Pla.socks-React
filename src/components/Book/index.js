@@ -256,7 +256,7 @@ export default function BookDetail() {
     <Fragment>
       {product && (
         <div className="book-container container-fluid">
-          <div className="book-breadcrumb ms-5 mt-2">
+          {/* <div className="book-breadcrumb ms-5 mt-2">
             <Breadcrumb>
               <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
                 Home
@@ -272,8 +272,8 @@ export default function BookDetail() {
                 {product.name}
               </Breadcrumb.Item>
             </Breadcrumb>
-          </div>
-          <div className="book-main-container pb-5">
+          </div> */}
+          <div className="book-main-container pb-5 mt-5 mt-xs-2">
             <Container>
               <Row>
                 <Col xs={6} md={4}>
@@ -322,7 +322,7 @@ export default function BookDetail() {
                       <div className="book-rating d-flex border-bottom">
                         <Rating value={product.ratings} readOnly />
                         <p className="d-inline ms-2 align-items-start">
-                          {product.numOfReviews} đánh giá từ độc giả
+                          {product.numOfReviews} reviews from customers
                         </p>
                       </div>
                     </div>
@@ -472,7 +472,7 @@ export default function BookDetail() {
           </div>
           <div className="book-comment ms-5 me-5">
             <h4 className="book-comment-title text-capitalize pb-2 mt-5">
-              Đánh giá
+              Reviews
             </h4>
             <div className="book-comment-rating d-flex mb-2">
               <Rating
@@ -492,7 +492,7 @@ export default function BookDetail() {
                     id="book-cmt-field"
                     className="w-100 ps-2"
                     name="comment"
-                    placeholder="Viết bình luận của bạn"
+                    placeholder="Write your own review"
                     rows={3}
                     value={comment}
                     onChange={(e) => {
@@ -505,7 +505,7 @@ export default function BookDetail() {
                       className="book-cmt-btn border rounded text-center fs-6"
                       onClick={reviewSubmitHandler}
                     >
-                      Đăng
+                      Submit
                     </Button>
                   </div>
                 </div>
@@ -523,7 +523,7 @@ export default function BookDetail() {
                         <div className="book-comment-name w-100 fw-bold">
                           <p>
                             {item.name}{" "}
-                            <i className="fw-normal">muốn nhắn nhủ:</i>
+                            <i className="fw-normal">want to tell:</i>
                           </p>
                         </div>
                         <Rating

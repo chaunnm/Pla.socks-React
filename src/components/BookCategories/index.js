@@ -108,7 +108,7 @@ export default function BookCategories() {
   ];
   return (
     <div className="categories-container container-fluid">
-      <div className="categories-breadcrumb ms-5 mt-2 mb-5">
+      {/* <div className="categories-breadcrumb ms-5 mt-2 mb-5">
         <Breadcrumb>
           <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
             Home
@@ -117,7 +117,7 @@ export default function BookCategories() {
             Categories
           </Breadcrumb.Item>
         </Breadcrumb>
-      </div>
+      </div> */}
       <div className="categories-main-container m-5 mt-3">
         <Tab.Container
           id="list-group-tabs-example"

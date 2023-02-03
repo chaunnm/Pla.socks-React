@@ -1,12 +1,20 @@
 .scropTop-btn {
-    position: fixed;
-    width: 100%;
-    left: 95%;
-    // right: 50%;
-    bottom: 60px;
-    height: 20px;
-    font-size: 3rem;
-    z-index: 1;
-    cursor: pointer;
-    color: #106cc0;
+  position: fixed;
+  width: 100%;
+  left: 95%;
+  // right: 50%;
+  bottom: 60px;
+  height: 20px;
+  font-size: 3rem;
+  z-index: 1;
+  cursor: pointer;
+  color: #106cc0;
+}
+
+@media screen and (max-width: 450px) {
+  .scropTop-btn {
+    color: #61c67a;
+    left: 85%;
+    width: 90%;
+  }
 }

@@ -65,7 +65,7 @@ export default function ContactUs() {
                     <div class="form-group">
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                          <div class="input-group-text">
+                          <div class="input-icon-container input-group-text">
                             <i class="fa fa-user color-icon"></i>
                           </div>
                         </div>
@@ -82,7 +82,7 @@ export default function ContactUs() {
                     <div class="form-group">
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                          <div class="input-group-text">
+                          <div class="input-icon-container input-group-text">
                             <i class="fa fa-envelope color-icon"></i>
                           </div>
                         </div>
@@ -100,7 +100,7 @@ export default function ContactUs() {
                     <div class="form-group">
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                          <div class="input-group-text">
+                          <div class="input-icon-container input-group-text">
                             <i class="fa fa-comment color-icon"></i>
                           </div>
                         </div>

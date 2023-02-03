@@ -67,7 +67,7 @@ function AccountNav() {
                         <span className="nav-item-icon-link">
                           <FaUserCircle />
                         </span>
-                        Account information
+                        Account
                       </NavLink>
                     </span>
 

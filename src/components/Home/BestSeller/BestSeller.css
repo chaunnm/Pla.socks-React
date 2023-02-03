@@ -74,6 +74,9 @@
         right: 100% !important;
         z-index: 1;
       }
+      .btn-see-more {
+        margin-top: 20px;
+      }
     }
   }
 }
