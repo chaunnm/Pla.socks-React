@@ -83,7 +83,7 @@ const Confirmation = (props) => {
                     );
                   })}
                   <div className="totalPrice">
-                    <h5>Tổng tiền: </h5>
+                    <h5>Total price: </h5>
                     <h5>{totalPrice}</h5>
                   </div>
 
@@ -144,6 +144,7 @@ const Confirmation = (props) => {
                     <div className="description__row">
                       <div className="description__row__name">Time Order:</div>
                       <div className="description__row__value">
+                        19:32 04/02/2023
                         {/* {new Date(order.createdAt).toLocaleDateString("en-GB")} */}
                       </div>
                     </div>

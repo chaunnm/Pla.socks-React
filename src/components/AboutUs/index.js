@@ -197,7 +197,7 @@ export default function About() {
             data-aos-duration="2000"
             className="aboutUs-member-item"
           >
-            <img src="https://media1.tenor.com/images/03abd6dba1b0230ec5d7ac036a035449/tenor.gif?itemid=13661765" />
+            <img src="https://i.pinimg.com/originals/3f/8a/b8/3f8ab87be03ea3c7d5cebad1f17cb783.jpg" />
             <h6 className="aboutUs-member-item-name">Bùi Thị Diễn Châu</h6>
             <span>19521275@gm.uit.edu.vn</span>
           </div>

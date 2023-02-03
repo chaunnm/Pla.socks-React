@@ -311,9 +311,10 @@
 
 @media screen and (max-width: 1000px){
     .aboutUs-member-list{
-        /* display: grid;
-        grid-template-columns: auto auto; */
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        /* flex-wrap: wrap; */
     }
     .about-contact{
         display: block;
