@@ -38,7 +38,11 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }} className="uitlogo">
+        <Link
+          to="/"
+          style={{ textDecoration: "none" }}
+          className="uitlogo ms-1 d-none d-sm-inline"
+        >
           <img src="https://i.imgur.com/mnt90vV.png" alt="UITBooks-logo" />
           {/* <img src="/images/footer/UITBooks.com.png" alt="UIT" /> */}
         </Link>
@@ -47,10 +51,9 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           {/* <p className="title">QUẢN LÝ ADMIN</p> */}
-          <NavLink
+          {/* <NavLink
             to="/admin-user-list"
-            // style={{ textDecoration: "none" }}
-            // style={({ isActive }) => [isActive ? activeStyle : undefined]}
+            className={"nav-link align-middle px-0"}
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",
@@ -59,12 +62,31 @@ const Sidebar = () => {
           >
             <div>
               <AccessibilityIcon className="icon" />
-              {/* Users */}
-              <span className="responsive-sidebar">Users</span>
+
+              <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+                Users
+              </span>
+            </div>
+          </NavLink> */}
+          <NavLink
+            to="/admin-user-list"
+            className={"nav-link align-middle px-0"}
+            style={({ isActive }) => ({
+              textDecoration: "none",
+              color: "#000",
+              ...(isActive ? activeStyle : null),
+            })}
+          >
+            <div>
+              <AccessibilityIcon className="icon" />
+              <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+                Users
+              </span>
             </div>
           </NavLink>
           <NavLink
             to="/admin-category-list"
+            className={"nav-link align-middle px-0"}
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",
@@ -73,11 +95,14 @@ const Sidebar = () => {
           >
             <div>
               <CategoryIcon className="icon" />
-              <span className="responsive-sidebar"> Product Category</span>
+              <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+                Category
+              </span>
             </div>
           </NavLink>
           <NavLink
             to="/admin-book-list"
+            className={"nav-link align-middle px-0"}
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",
@@ -86,11 +111,15 @@ const Sidebar = () => {
           >
             <div>
               <InventoryIcon className="icon" />
-              <span className="responsive-sidebar"> Products</span>
+              <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+                {" "}
+                Products
+              </span>
             </div>
           </NavLink>
           <NavLink
             to="/admin-order"
+            className={"nav-link align-middle px-0"}
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",
@@ -99,11 +128,15 @@ const Sidebar = () => {
           >
             <div>
               <LocalMallIcon className="icon" />
-              <span className="responsive-sidebar"> Orders</span>
+              <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+                {" "}
+                Orders
+              </span>
             </div>
           </NavLink>
           <NavLink
             to="/admin-blog-list"
+            className={"nav-link align-middle px-0"}
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",
@@ -112,11 +145,15 @@ const Sidebar = () => {
           >
             <div>
               <RateReviewIcon className="icon" />
-              <span className="responsive-sidebar"> Blogs</span>
+              <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+                {" "}
+                Blogs
+              </span>
             </div>
           </NavLink>
           <NavLink
             to="/admin-statistic"
+            className={"nav-link align-middle px-0"}
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",
@@ -125,12 +162,18 @@ const Sidebar = () => {
           >
             <div>
               <AnalyticsIcon className="icon" />
-              <span className="responsive-sidebar"> Statistics</span>
+              <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+                {" "}
+                Statistics
+              </span>
             </div>
           </NavLink>
           <div onClick={handleLogout}>
             <ExitToAppIcon className="icon" />
-            <span className="responsive-sidebar"> Log Out</span>
+            <span className="responsive-sidebar ms-1 d-none d-sm-inline">
+              {" "}
+              Log Out
+            </span>
           </div>
         </ul>
         <ToastContainer

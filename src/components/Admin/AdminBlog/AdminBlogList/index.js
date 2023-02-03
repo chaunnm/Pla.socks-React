@@ -58,7 +58,7 @@ const BlogList = () => {
         </form>
       </div>
       <div className="datatableTitle">
-        Blog List
+        <span>Blog List</span>
         <Link to="/admin-blog-new" className="link">
           <MdNoteAdd className="addBlog" />
           Add new

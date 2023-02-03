@@ -19,6 +19,7 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
 import GroupsIcon from "@mui/icons-material/Groups";
 import TtyIcon from "@mui/icons-material/Tty";
+import { BsRecycle, BsChatLeftText } from "react-icons/bs";
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
@@ -236,13 +237,13 @@ export default function Topbar(props) {
 
               <Nav.Link
                 as={Link}
-                to="/blogs"
+                to="/sustainability"
                 className={`d-flex nav-link-items ${
-                  pathname === "/blogs" ? "active" : ""
+                  pathname === "/sustainability" ? "active" : ""
                 }`}
               >
-                <RssFeedIcon className="nav-icons" />
-                Blogs
+                <BsRecycle className="nav-icons" size={18} />
+                Sustainability
               </Nav.Link>
 
               <Nav.Link
@@ -254,6 +255,28 @@ export default function Topbar(props) {
               >
                 <GroupsIcon className="nav-icons" />
                 About Us
+              </Nav.Link>
+
+              <Nav.Link
+                as={Link}
+                to="/blogs"
+                className={`d-flex nav-link-items ${
+                  pathname === "/blogs" ? "active" : ""
+                }`}
+              >
+                <RssFeedIcon className="nav-icons" />
+                Blogs
+              </Nav.Link>
+
+              <Nav.Link
+                as={Link}
+                to="/contact-us"
+                className={`d-flex nav-link-items ${
+                  pathname === "/contact-us" ? "active" : ""
+                }`}
+              >
+                <BsChatLeftText size={18} className="nav-icons" />
+                Contact Us
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

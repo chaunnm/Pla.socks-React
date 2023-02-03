@@ -1,5 +1,10 @@
 import { React, useLayoutEffect } from "react";
-import { useLocation, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  useLocation,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import Home from "../pages/HomePage";
 import AboutUs from "../pages/AboutUs";
 import Delivery from "../pages/Delivery";
@@ -43,16 +48,18 @@ import AdminCategoryEdit from "../pages/AdminCategoryEdit";
 import AdminOrderDetailPage from "../pages/AdminOrderDetailPage";
 import AdminOrderPage from "../pages/AdminOrderPage";
 import AdminStatisticsPage from "../pages/AdminStatisticsPage";
+import Substainability from "../pages/Substainability";
 
 import NotFound from "../pages/404";
+import ContactUs from "../pages/ContactUs";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location.pathname]);
-  return children
-}
+  return children;
+};
 
 export default function App() {
   return (
@@ -60,24 +67,20 @@ export default function App() {
       <Wrapper>
         <Routes>
           <Route exact path="/" element={<Home />} />
-
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/delivery-policies" element={<Delivery />} />
           <Route path="/return-policies" element={<Return />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="/help" element={<FAQs />} />
-
           <Route path="/my-basket" element={<Basket />} />
           <Route path="/confirm-order" element={<ConfirmationPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/signin" element={<PageSignIn />} />
-
           <Route path="/books/:keyword" element={<Categories />} />
           <Route path="/books" element={<Categories />} />
           <Route path="/book/:id" element={<Book />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog" element={<Blog />} />
-
           <Route path="/my-account" element={<Account />} />
           <Route path="/my-favorite-book" element={<FavoritesBook />} />
           <Route path="/my-favorite-post" element={<FavoritesPost />} />
@@ -86,27 +89,25 @@ export default function App() {
           <Route path="/my-order-canceled" element={<MyOrderCanceled />} />
           <Route path="/add-blog" element={<AddBlog />} />
           <Route path="/signup" element={<SignUp />} />
-
           <Route path="/password/reset/:token" element={<ResetPassword />} />
-
           <Route path="/admin-user-list" element={<AdminUserList />} />
           <Route path="/admin-user-new" element={<AdminUserNew />} />
           <Route path="/admin-user-edit" element={<AdminUserEdit />} />
           <Route path="/admin-blog-list" element={<AdminBlogList />} />
           <Route path="/admin-blog-new" element={<AdminBlogNew />} />
           <Route path="/admin-blog-edit" element={<AdminBlogEdit />} />
-
           <Route path="/admin-book-list" element={<AdminBookList />} />
           <Route path="/admin-book-new" element={<AdminBookNew />} />
           <Route path="/admin-book-edit/:id" element={<AdminBookEdit />} />
-
           <Route path="/admin-category-list" element={<AdminCategoryList />} />
           <Route path="/admin-category-new" element={<AdminCategoryNew />} />
           <Route path="/admin-category-edit" element={<AdminCategoryEdit />} />
-
           <Route path="/admin-order" element={<AdminOrderPage />} />
           <Route path="/admin-order/edit" element={<AdminOrderDetailPage />} />
           <Route path="/admin-statistic" element={<AdminStatisticsPage />} />
+
+          <Route path="/sustainability" element={<Substainability />} />
+          <Route path="/contact-us" element={<ContactUs />} />
 
           <Route path="/notfound" element={<NotFound />} />
         </Routes>

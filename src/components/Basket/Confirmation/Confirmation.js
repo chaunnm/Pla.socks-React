@@ -29,10 +29,10 @@ const Confirmation = (props) => {
             <div className="confirm__notify">
               <img src="/images/basket/success.png" alt="icon" />
               <div className="confirm__notify__title">
-                Ye, chúc mừng bạn đã đặt hàng thành công !!
+                Ye, congratulation !!
               </div>
               <div className="confirm__notify__notice">
-                Vui long kiểm tra lại thông tin đơn hàng của bạn
+                Please check your order infor again!
               </div>
             </div>
           </Col>
@@ -43,12 +43,12 @@ const Confirmation = (props) => {
                 <i className="fa-solid fa-shield-heart"></i>
                 <div className="confirm__information__block__content">
                   <div className="confirm__information__block__content__title">
-                    Những điều cần lưu ý khi nhận hàng
+                    Things to note when receiving goods
                   </div>
                   <div className="confirm__information__block__content__description">
-                    Nếu có vấn đề khi nhận hàng vui lòng gửi yêu cầu trả
-                    hàng/hoàn tiền trong vòng 7 ngày kể từ khi đơn hàng giao
-                    thành công
+                    If there is a problem when receiving the goods, please send
+                    a return request goods/refund within 7 days of order
+                    delivery successful
                   </div>
                 </div>
               </div>
@@ -56,7 +56,7 @@ const Confirmation = (props) => {
                 <i className="fa-solid fa-shield-heart"></i>
                 <div className="confirm__information__block__content">
                   <div className="confirm__information__block__content__title">
-                    Thông tin sản phẩm
+                    Product information
                   </div>
                   {cartItems?.map((item, index) => {
                     return (
@@ -74,7 +74,7 @@ const Confirmation = (props) => {
                           </div>
                         </div>
                         <div className="info-order__product__money">
-                          Thành tiền:
+                          Total:
                           <span className="info-order__product__money__value">
                             {numberWithCommas(item.price * item.quantity)}
                           </span>
@@ -89,7 +89,7 @@ const Confirmation = (props) => {
 
                   <hr />
                   <div className="confirm__information__block__content__methodPayment">
-                    Phương thức thanh toán: thanh toán khi nhận hàng
+                    Payment method: pay on delivery
                     {/* {order?.paymentInfo.method === "COD"
                       ? " thanh toán khi nhận hàng"
                       : " Đã thanh toán qua ngân hàng"} */}
@@ -102,7 +102,7 @@ const Confirmation = (props) => {
                 <i className="fa-solid fa-location-dot"></i>
                 <div className="confirm__information__block__content">
                   <div className="confirm__information__block__content__title">
-                    Địa chỉ giao hàng
+                    Delivery address
                   </div>
                   <div className="confirm__information__block__content__description">
                     <div className="name">
@@ -132,19 +132,17 @@ const Confirmation = (props) => {
                 <i className="fa-solid fa-shield-heart"></i>
                 <div className="confirm__information__block__content">
                   <div className="confirm__information__block__content__title">
-                    Địa chỉ giao hàng
+                    Delivery address
                   </div>
                   <div className="confirm__information__block__content__description">
                     <div className="description__row">
-                      <div className="description__row__name">Mã đơn hàng:</div>
+                      <div className="description__row__name">Order ID:</div>
                       <div className="description__row__value">
                         2333000wwwqqsee
                       </div>
                     </div>
                     <div className="description__row">
-                      <div className="description__row__name">
-                        Thời gian đặt hàng:
-                      </div>
+                      <div className="description__row__name">Time Order:</div>
                       <div className="description__row__value">
                         {/* {new Date(order.createdAt).toLocaleDateString("en-GB")} */}
                       </div>

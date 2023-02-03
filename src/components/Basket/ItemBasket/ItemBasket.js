@@ -108,13 +108,13 @@ const ItemBasket = (props) => {
       !state.selectedWard ||
       newEmail === ""
     ) {
-      toast.error("Xin vui lòng điền đầy đủ thông tin", {
+      toast.error("Please fill out the information completely", {
         position: "top-center",
       });
       return;
     }
     if (newPhone.length < 10) {
-      toast.error("Số điện thoại không hợp lệ", {
+      toast.error("Invalid phone number", {
         position: "top-center",
       });
       return;
@@ -144,7 +144,7 @@ const ItemBasket = (props) => {
   };
   const handleToCheckout = () => {
     if (fullAddress === "") {
-      toast.error("Thất bại! Vui lòng điền đầy đủ thông tin giao hàng 😭", {
+      toast.error("Failure! Please fill in all shipping information 😭", {
         position: "top-center",
       });
       return;
@@ -165,12 +165,12 @@ const ItemBasket = (props) => {
             </div>
             <div className="col-lg-8 col-md-7 col-12">
               <p>
-                😱 <b>Bạn ơi chưa có sách trong giỏ hàng đâu</b> 😱
+                😱 <b>You don't have any items in your cart yet</b> 😱
               </p>
               <button type="button" className="mb-2 btn-seeBook">
                 <Link to="/books" className="btn-seeBook">
                   <BsBook className="btn-seeBook-icon mb-1 me-1" />
-                  <span>Xem sách</span>
+                  <span>View Product</span>
                 </Link>
               </button>
             </div>
@@ -184,7 +184,7 @@ const ItemBasket = (props) => {
                   <i className="fa-solid fa-car-side"></i>
 
                   <span>
-                    Giao hàng miễn phí toàn quốc với đơn hàng
+                    Free nationwide shipping with orders
                     <b>
                       {" "}
                       ≥ 250.000
@@ -290,7 +290,7 @@ const ItemBasket = (props) => {
                       <i className="fa-solid fa-file-pen"></i>
                     </div>
                     <div className="order-information__address__row__name">
-                      <Button onClick={handleShow}>Chỉnh sửa</Button>
+                      <Button onClick={handleShow}>Edit</Button>
                     </div>
                   </div>
                 </div>
@@ -338,48 +338,48 @@ const ItemBasket = (props) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Chỉnh sửa địa chỉ</Modal.Title>
+          <Modal.Title>Edit Address</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3">
-              <Form.Label>Tỉnh/Thành phố</Form.Label>
+              <Form.Label>Province/City</Form.Label>
               <Select
                 name="cityId"
                 key={`cityId_${selectedCity?.value}`}
                 isDisabled={cityOptions.length === 0}
                 options={cityOptions}
                 onChange={(option) => onCitySelect(option)}
-                placeholder="Tỉnh/Thành"
+                placeholder="Province/City"
                 defaultValue={selectedCity}
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Quận/Huyện</Form.Label>
+              <Form.Label>District</Form.Label>
               <Select
                 name="districtId"
                 key={`districtId_${selectedDistrict?.value}`}
                 isDisabled={districtOptions.length === 0}
                 options={districtOptions}
                 onChange={(option) => onDistrictSelect(option)}
-                placeholder="Quận/Huyện"
+                placeholder="District"
                 defaultValue={selectedDistrict}
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Phường/Xã</Form.Label>
+              <Form.Label>Wards</Form.Label>
               <Select
                 name="wardId"
                 key={`wardId_${selectedWard?.value}`}
                 isDisabled={wardOptions.length === 0}
                 options={wardOptions}
-                placeholder="Phường/Xã"
+                placeholder="Wards"
                 onChange={(option) => onWardSelect(option)}
                 defaultValue={selectedWard}
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Địa chỉ nhà</Form.Label>
+              <Form.Label>Home number</Form.Label>
               <Form.Control
                 type="text"
                 autoFocus
@@ -387,7 +387,7 @@ const ItemBasket = (props) => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Số điện thoại</Form.Label>
+              <Form.Label>Phone number</Form.Label>
               <Form.Control
                 type="number"
                 maxLength="11"
@@ -407,10 +407,10 @@ const ItemBasket = (props) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Đóng
+            Close
           </Button>
           <Button variant="primary" onClick={() => handleSubmitForm()}>
-            Gửi
+            Submit
           </Button>
         </Modal.Footer>
       </Modal>

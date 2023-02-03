@@ -119,7 +119,7 @@ export default function Footer(props) {
               <div className="contact">
                 <div>
                   <LocationOnOutlinedIcon />
-                  <p> Khu phố 6, phường Linh Trung, Thủ Đức </p>
+                  <p> Quarter 6, Linh Trung, Thu Duc, Thu Duc </p>
                 </div>
                 <div>
                   <MailOutlineIcon />

@@ -58,7 +58,7 @@ const AdminCategoryList = () => {
         </form>
       </div>
       <div className="datatableTitle">
-        Product Category List
+        Category List
         <Link to="/admin-category-new" className="link">
           <MdCategory className="icon-category-new" />
           Add new

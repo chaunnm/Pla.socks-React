@@ -161,7 +161,7 @@ const Payment = (props) => {
               <hr />
               <div className="info-order__title">
                 <i className="fa-solid fa-gift"></i>
-                <div className="info-order__title__name">Đơn hàng</div>
+                <div className="info-order__title__name">Order</div>
               </div>
               <hr />
               {cartItems.map((item, index) => {
@@ -225,7 +225,7 @@ const Payment = (props) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Thanh Toán</Modal.Title>
+          <Modal.Title>Payment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {stripeApiKey !== "" && (

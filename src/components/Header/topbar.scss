@@ -116,9 +116,10 @@
 }
 
 .navbar {
-  background-color: #d8d8d8;
+  background-color: #f0eeee;
   color: #515151;
-  padding: 0 !important;
+  padding: 5px !important;
+  padding-top: 10px !important;
 
   #basic-navbar-nav {
     .active {
@@ -146,6 +147,8 @@
 
       .nav-link {
         font-size: 18px;
+        padding: 5px 0 10px;
+        margin-right: 20px;
       }
 
       .nav-icons {
@@ -242,7 +245,7 @@
   }
 
   .navbar {
-    padding: 10px !important;
+    padding-bottom: 10px !important;
   }
 
   .nav-right {
