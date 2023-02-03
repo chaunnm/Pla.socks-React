@@ -139,7 +139,7 @@ function AccountInfor() {
                     className="form-control"
                     id="inputAvatar"
                     name="avatar"
-                    // value={avatar}
+                    value={avatar}
                     onChange={handleAvatarChange}
                   />
                 </div>
