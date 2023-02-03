@@ -40,7 +40,7 @@
 }
 
 .about-us-contact {
-    margin-top: 50px;
+   
     font-weight: 500;
     font-size: 18px;
 }
@@ -198,6 +198,18 @@
     margin-bottom: 10px;
 }
 
+.about-contact{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin-bottom: 30px;
+}
+.about-contact iframe {
+    width: 50%;
+    height: 300px;
+    margin-right: 100px;
+}
+
 .history-container {
     background-color: white;
 }
@@ -302,6 +314,12 @@
         /* display: grid;
         grid-template-columns: auto auto; */
         flex-wrap: wrap;
+    }
+    .about-contact{
+        display: block;
+    }
+    .about-contact iframe{
+        width: 100%;
     }
     .history-container .container {
         flex-direction: column;

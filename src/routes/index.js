@@ -77,12 +77,12 @@ export default function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/signin" element={<PageSignIn />} />
           <Route path="/books/:keyword" element={<Categories />} />
-          <Route path="/books" element={<Categories />} />
-          <Route path="/book/:id" element={<Book />} />
+          <Route path="/products" element={<Categories />} />
+          <Route path="/product/:id" element={<Book />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/my-account" element={<Account />} />
-          <Route path="/my-favorite-book" element={<FavoritesBook />} />
+          <Route path="/my-favorite-product" element={<FavoritesBook />} />
           <Route path="/my-favorite-post" element={<FavoritesPost />} />
           <Route path="/my-order-shipping" element={<MyOrderShipping />} />
           <Route path="/my-order-ordered" element={<MyOrderOrdered />} />
@@ -96,9 +96,11 @@ export default function App() {
           <Route path="/admin-blog-list" element={<AdminBlogList />} />
           <Route path="/admin-blog-new" element={<AdminBlogNew />} />
           <Route path="/admin-blog-edit" element={<AdminBlogEdit />} />
-          <Route path="/admin-book-list" element={<AdminBookList />} />
-          <Route path="/admin-book-new" element={<AdminBookNew />} />
-          <Route path="/admin-book-edit/:id" element={<AdminBookEdit />} />
+
+          <Route path="/admin-product-list" element={<AdminBookList />} />
+          <Route path="/admin-product-new" element={<AdminBookNew />} />
+          <Route path="/admin-product-edit/:id" element={<AdminBookEdit />} />
+
           <Route path="/admin-category-list" element={<AdminCategoryList />} />
           <Route path="/admin-category-new" element={<AdminCategoryNew />} />
           <Route path="/admin-category-edit" element={<AdminCategoryEdit />} />
@@ -106,10 +108,9 @@ export default function App() {
           <Route path="/admin-order/edit" element={<AdminOrderDetailPage />} />
           <Route path="/admin-statistic" element={<AdminStatisticsPage />} />
 
+          <Route path="*" element={<NotFound />} />
           <Route path="/sustainability" element={<Substainability />} />
           <Route path="/contact-us" element={<ContactUs />} />
-
-          <Route path="/notfound" element={<NotFound />} />
         </Routes>
       </Wrapper>
     </Router>

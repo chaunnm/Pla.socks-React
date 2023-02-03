@@ -96,7 +96,7 @@ export default function Footer(props) {
               <div className="footer-link-items">
                 <h2>Links</h2>
                 <Link to="/"> Home </Link>
-                <Link to="/books"> Category </Link>
+                <Link to="/products"> Category </Link>
                 <Link to="/blogs"> Blogs </Link>
                 <Link to="/about-us"> About Us </Link>
               </div>

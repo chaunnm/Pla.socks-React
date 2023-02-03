@@ -15,23 +15,22 @@ export default function AddBlog() {
         />
       </div>
       <div className="add-blog-main">
-        <h4 className="add-blog-main-heading text-capitalize pb-2 mt-5 ms-4 me-4">
-          Thêm blog mới
-        </h4>
+        <div className="add-blog-main-heading add-blog-title">
+          <i className="icon">
+            <GiNotebook />
+          </i>
+          <h4 className="text-capitalize mt-3 ">Add Blog</h4>
+        </div>
+
         <div className="add-blog-main-content d-flex">
-          <div className="add-blog-main-icon d-flex flex-column mt-3">
-            <img
-              className="logo flex-shrink-1 m-2 ms-0"
-              src="/images/header/uitbook-logo.png"
-              alt="UITBook-logo"
-            />
+          {/* <div className="add-blog-main-icon d-flex flex-column mt-3">
             <div className="icon-book border text-center mt-5">
               <i className="icon">
                 <GiNotebook />
               </i>
               <p className="icon-name">Blog</p>
             </div>
-          </div>
+          </div> */}
           <form className="add-blog-main-body ms-3 p-3 w-100" action="">
             <div className="row">
               <div className="col-sm">

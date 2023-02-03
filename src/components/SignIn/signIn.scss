@@ -259,3 +259,15 @@
     opacity: 0.9;
   }
 }
+@media screen and (max-width: 960px) {
+  .signIn__container {
+    height: max-content !important;
+    .title {
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .title img {
+      width: 40% !important;
+    }
+  }
+}

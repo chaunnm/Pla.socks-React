@@ -45,10 +45,10 @@ function AccountNav() {
                 >
                   <div className="navbar-nav">
                     <img
-                      src="./images/account/avatar.png"
-                      // src={
-                      //   user ? user.avatar.url : "./images/account/avatar.png"
-                      // }
+                      // src="./images/account/avatar.png"
+                      src={
+                        user ? user.avatar.url : "./images/account/avatar.png"
+                      }
                       // src="./images/account/avatar.png"
                       className="rounded-circle my-account-nav-avatar m-2"
                       alt="Avatar"
@@ -90,7 +90,7 @@ function AccountNav() {
 
                     <span className={`nav-item input-group d-flex`}>
                       <NavLink
-                        to="/my-favorite-book"
+                        to="/my-favorite-product"
                         // isActive={() =>
                         //   ["/favorites-book", "/favorites-post"].includes(pathname)
                         // }

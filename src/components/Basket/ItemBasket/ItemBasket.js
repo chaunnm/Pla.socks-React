@@ -168,7 +168,7 @@ const ItemBasket = (props) => {
                 😱 <b>You don't have any items in your cart yet</b> 😱
               </p>
               <button type="button" className="mb-2 btn-seeBook">
-                <Link to="/books" className="btn-seeBook">
+                <Link to="/products" className="btn-seeBook">
                   <BsBook className="btn-seeBook-icon mb-1 me-1" />
                   <span>View Product</span>
                 </Link>
@@ -247,7 +247,8 @@ const ItemBasket = (props) => {
                           </div>
                         </div>
                         <div className="basket-list__item__price">
-                          {numberWithCommas(item.price * 1)} <span>đ</span>
+                          {numberWithCommas(item.price * item.quantity)}{" "}
+                          <span>đ</span>
                         </div>
                       </div>
                     );

@@ -101,7 +101,7 @@
 
   .container-input {
     margin-right: 20px;
-    width: fit-content;
+    // width: fit-content;
 
     .input-text {
       color: #c01010;
@@ -110,6 +110,7 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
+
         .input-image-file {
           cursor: pointer;
           font-weight: 600;
@@ -119,6 +120,9 @@
           }
         }
       }
+    }
+    .input-group {
+      margin-bottom: 20px !important;
     }
   }
 
@@ -138,5 +142,16 @@
 
   .switch-signin:hover {
     outline: none;
+  }
+}
+@media screen and (max-width: 980px) {
+  .signup {
+    height: max-content !important;
+    .container.container-logo {
+      justify-content: center;
+    }
+    .logo {
+      width: 40%;
+    }
   }
 }

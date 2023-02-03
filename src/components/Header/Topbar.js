@@ -69,7 +69,7 @@ export default function Topbar(props) {
     if (keyword.trim()) {
       navigate(`/books/${keyword}`);
     } else {
-      navigate("/books");
+      navigate("/products");
     }
   };
   // done
@@ -177,7 +177,7 @@ export default function Topbar(props) {
                         <NavDropdown.Item as={Link} to="/my-account">
                           My Account
                         </NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="/my-favorite-book">
+                        <NavDropdown.Item as={Link} to="/my-favorite-product">
                           Favorites
                         </NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="/admin-blog-new">
@@ -227,8 +227,8 @@ export default function Topbar(props) {
               {/* <Nav className="d-flex"> */}
               <Nav.Link
                 as={Link}
-                to="/books"
-                className={`d-flex ${pathname === "/books" ? "active" : ""}`}
+                to="/products"
+                className={`d-flex ${pathname === "/products" ? "active" : ""}`}
               >
                 <ListAltIcon className="nav-icons" />
                 Product Category

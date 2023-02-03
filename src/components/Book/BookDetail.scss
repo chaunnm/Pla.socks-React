@@ -204,3 +204,17 @@
     }
   }
 }
+
+@media screen and(max-width: 820px) {
+  .book-main-container {
+    .row {
+      display: block !important;
+      .col-md-4 {
+        width: 100%;
+      }
+      .col-md-8 {
+        width: 100%;
+      }
+    }
+  }
+}

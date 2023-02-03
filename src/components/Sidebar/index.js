@@ -101,8 +101,7 @@ const Sidebar = () => {
             </div>
           </NavLink>
           <NavLink
-            to="/admin-book-list"
-            className={"nav-link align-middle px-0"}
+            to="/admin-product-list"
             style={({ isActive }) => ({
               textDecoration: "none",
               color: "#000",

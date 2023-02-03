@@ -84,7 +84,7 @@ export default function BestSeller() {
       </div>
 
       <div className="text-center mt-0">
-        <Link to="/books">
+        <Link to="/products">
           <Button className="see-more" variant="primary">
             See more &rarr;
           </Button>
