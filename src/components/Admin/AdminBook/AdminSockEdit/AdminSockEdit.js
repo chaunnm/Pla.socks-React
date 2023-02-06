@@ -18,79 +18,83 @@ function AdminBookEdit() {
   const { id } = useParams();
   // console.log(id);
   // set Property
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState("Great Horns Think Alike Junior Socks");
+  const [price, setPrice] = useState(68000);
+  const [description, setDescription] = useState("This socks is awesome!");
   const [category, setCategory] = useState("Boxes Of Love");
   const [publisher, setPublisher] = useState("");
   const [author, setAuthor] = useState("");
-  const [Stock, setStock] = useState(0);
+  const [Stock, setStock] = useState(10);
   const [pageNumber, setPageNumber] = useState(0);
   const [oldImages, setOldImages] = useState([]);
   const [images, setImages] = useState([]);
-  const [imagesPreview, setImagesPreview] = useState([]);
+  const [imagesPreview, setImagesPreview] = useState([
+    "https://drive.google.com/uc?id=1zWLDhppX_NdgohJeVe5FIy_6RIp5MdyL",
+    "https://th.bing.com/th/id/OIP.9t9zqLpn7_C1WEPn7g02GAHaJQ?pid=ImgDet&rs=1",
+    "https://th.bing.com/th/id/R.eb43df0d5fb0af9748d0754f546604d0?rik=qTMPfzYuRA3zfg&riu=http%3a%2f%2fproduct.hstatic.net%2f1000275968%2fproduct%2fimgl1024_grande.jpg&ehk=nD0fD9vgfWr1XGyfV%2bMQucolAO3OekgacAXEjOZi7do%3d&risl=&pid=ImgRaw&r=0",
+  ]);
   const dispatch = useDispatch();
   const { error, product } = useSelector((state) => state.productDetails);
 
-  const {
-    loading,
-    error: updateError,
-    isUpdated,
-  } = useSelector((state) => state.product);
+  // const {
+  //   loading,
+  //   error: updateError,
+  //   isUpdated,
+  // } = useSelector((state) => state.product);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (product && product._id !== id) {
-      dispatch(getProductDetails(id));
-    } else {
-      setName(product.name);
-      setDescription(product.description);
-      setPrice(product.price);
-      setCategory(product.category);
-      setStock(product.Stock);
-      setPageNumber(product.pageNumber);
-      setOldImages(product.images);
-      setAuthor(product.author);
-      setPublisher(product.publisher);
-    }
-    if (error) {
-      alert(error);
-      dispatch(clearErrorsDetails());
-    }
+  // useEffect(() => {
+  //   if (product && product._id !== id) {
+  //     dispatch(getProductDetails(id));
+  //   } else {
+  //     setName(product.name);
+  //     setDescription(product.description);
+  //     setPrice(product.price);
+  //     setCategory(product.category);
+  //     setStock(product.Stock);
+  //     setPageNumber(product.pageNumber);
+  //     setOldImages(product.images);
+  //     setAuthor(product.author);
+  //     setPublisher(product.publisher);
+  //   }
+  //   if (error) {
+  //     alert(error);
+  //     dispatch(clearErrorsDetails());
+  //   }
 
-    if (updateError) {
-      // console.log(updateError);
-      // alert(updateError);
-      toast.error(`${updateError}`, {
-        position: "bottom-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      dispatch(clearErrorsDeleted());
-    }
-    if (isUpdated) {
-      // alert("book Updated Successfully");
-      toast.success("Update successfully! 🎊", {
-        position: "bottom-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      dispatch(getProductDetails(id));
-      dispatch(resetStateUpdated());
-      setTimeout(() => {
-        navigate("/admin-book-list");
-      }, 3000);
-      // navigate("/admin-book-list");
-    }
-  }, [dispatch, alert, error, isUpdated, id, product, updateError]);
+  //   if (updateError) {
+  //     // console.log(updateError);
+  //     // alert(updateError);
+  //     toast.error(`${updateError}`, {
+  //       position: "bottom-center",
+  //       autoClose: 3000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //     });
+  //     dispatch(clearErrorsDeleted());
+  //   }
+  //   if (isUpdated) {
+  //     // alert("book Updated Successfully");
+  //     toast.success("Update successfully! 🎊", {
+  //       position: "bottom-center",
+  //       autoClose: 3000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //     });
+  //     dispatch(getProductDetails(id));
+  //     dispatch(resetStateUpdated());
+  //     setTimeout(() => {
+  //       navigate("/admin-book-list");
+  //     }, 3000);
+  //     // navigate("/admin-book-list");
+  //   }
+  // }, [dispatch, alert, error, isUpdated, id, product, updateError]);
   // handler
   const updateBookSubmitHandler = (e) => {
     e.preventDefault();

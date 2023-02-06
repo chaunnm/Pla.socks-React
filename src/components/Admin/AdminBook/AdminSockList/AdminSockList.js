@@ -142,14 +142,14 @@ const AdminBookList = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <div
-              // to={`/admin-book-edit/${params.getValue(params.id, "id")}`}
+            <Link
+              to={`/admin-product-edit/1}`}
               style={{ textDecoration: "none" }}
             >
               <div className="viewButton">
                 <BiEdit />
               </div>
-            </div>
+            </Link>
             <div
               className="reviewsButton"
               onClick={(e) => {
